@@ -1,0 +1,11 @@
+{ 
+    "_id" : ObjectId("5da5cdad53a6d72644dbbd34"), 
+    "action" : "login", 
+    "category" : "auth", 
+    "method" : "POST", 
+    "createdBy" : "5da06036835b5100dc82f18e", 
+    "status" : "200", 
+    "message" : "Auth successful", 
+    "created_At_" : ISODate("2019-10-15T13:46:21.619+0000"), 
+    "__v" : NumberInt(0)
+}
