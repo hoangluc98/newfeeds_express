@@ -101,7 +101,7 @@ statisticalController.numberUserOnline = async function(req, res) {
 			var dateF = new Date();
 			dateF.setTime(d);
 
-			let number = await Article.aggregate([
+			let number = await Logger.aggregate([
 				{ "$match": 
 					{ 
 						created_At_ : { '$gte' : dateS, '$lt' : dateF }
@@ -109,8 +109,8 @@ statisticalController.numberUserOnline = async function(req, res) {
 				},
 			 	{
 			 		$group: {
-				 		_id: "$userId",
-				 		unique: { $addToSet: "$userId" }
+				 		_id: "$createdBy",
+				 		unique: { $addToSet: "$createdBy" }
 				 	}
 			 	}
 			]);
