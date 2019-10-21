@@ -1,8 +1,8 @@
-var express = require('express');
+const express = require('express');
 
-var controller = require('../controllers/article.controller');
+const controller = require('../controllers/article.controller');
 
-var router = express.Router();
+const router = express.Router();
 
 router.get('/list', controller.list);
 router.get('/item/:id', controller.item);

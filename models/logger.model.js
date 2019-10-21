@@ -1,6 +1,6 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-var loggerSchema = new mongoose.Schema({
+let loggerSchema = new mongoose.Schema({
 	action: {
 		type: String,
 		required: true
@@ -36,6 +36,6 @@ var loggerSchema = new mongoose.Schema({
     }
 });
 
-var Logger = mongoose.model('Logger', loggerSchema, 'loggers');
+let Logger = mongoose.model('Logger', loggerSchema, 'loggers');
 
 module.exports = Logger;

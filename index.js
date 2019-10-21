@@ -10,24 +10,24 @@ mongoose.connect(url);
 //admin
 var userRoute = require('./routes/user.route');
 var authRoute = require('./routes/auth.route');
-var articleRoute = require('./routes/article.route');
-var commentRoute = require('./routes/comment.route');
-var statisticalRoute = require('./routes/statistical.route');
+const articleRoute = require('./routes/article.route');
+const commentRoute = require('./routes/comment.route');
+const statisticalRoute = require('./routes/statistical.route');
 
 //user
-var userActionRoute = require('./routes/userAction.route');
+const userActionRoute = require('./routes/userAction.route');
 
-var authMiddleware = require('./middlewares/auth.middleware');
+const authMiddleware = require('./middlewares/auth.middleware');
 
-var port = 3000;
+const port = 3000;
 
-var app = express();
+const app = express();
 app.set("view engine", "ejs");
 app.set('views', './views');
 
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
-app.use(express.static('public'));
+// app.use(express.static('public'));
 
 // Route admin
 app.use('/auth', authRoute);

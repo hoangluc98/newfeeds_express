@@ -1,8 +1,8 @@
-var Like = require('../models/like.model');
+const Like = require('../models/like.model');
 const jwt = require('jsonwebtoken');
 
 module.exports.like = async function(req, res) {
-	var errors = [];
+	let errors = [];
 	if(!req.body.articleId) errors.push("articleId is required");
 
 	if(errors.length > 0){
@@ -12,6 +12,6 @@ module.exports.like = async function(req, res) {
 
 	req.body.userId = req.user._id;
 
-	var like = await Like.create(req.body);
+	const like = await Like.create(req.body);
 	res.json(like);
 };

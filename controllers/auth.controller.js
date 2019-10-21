@@ -9,12 +9,12 @@ require('dotenv').config();
 const authController = {};
 
 authController.postLogin = async function(req, res){
-	var email = req.body.email;
-	var password = req.body.password;
-	var hashedPassword = md5(password);
-	var data = {};
+	const email = req.body.email;
+	const password = req.body.password;
+	const hashedPassword = md5(password);
+	let data = {};
 
-	var user = await User.findOne({email: email});
+	const user = await User.findOne({email: email});
 	if(!user){
 		return res.status(403).send({
 			message: "User not exist"
@@ -26,7 +26,7 @@ authController.postLogin = async function(req, res){
 		});
 	}
 
-	var value = user.id;
+	const value = user.id;
 
 	redisClient.set(value, value);
 	redisClient.expire(value, 120);
@@ -40,7 +40,10 @@ authController.postLogin = async function(req, res){
 	data.category = url[1];
 	data.method = req.method;
 	data.createdBy = value;
-	data.data = {};
+	data.data = {
+		email: email,
+		password: hashedPassword
+	};
 	data.status = "200";
 	data.message = "Auth successful";
 	Logger.create(data);
@@ -61,13 +64,15 @@ authController.logout = async function(req, res){
 		if(bearerToken){
 			let decoded;
 			try{
-				decoded = jwt.verify(bearerToken, TOKEN_SECRETKEY);
+				decoded = jwt.verify(bearerToken, process.env.TOKEN_SECRETKEY);
 			} catch(err){
 				console.log(err);
 				res.status(500).json({error: err});
 			};
+			console.log(decoded);
 
 			const user  = await User.findOne({ _id:decoded._id });
+			console.log(user);
 			user.token = ' ';
 			await user.save();
 

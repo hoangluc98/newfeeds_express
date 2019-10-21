@@ -1,11 +1,14 @@
-var express = require('express');
+const express = require('express');
 
-var controller = require('../controllers/statistical.controller');
+const controller = require('../controllers/statistical.controller');
 
-var router = express.Router();
+const router = express.Router();
 
-router.get('/count-user-onl', controller.numberUser);
-router.get('/count-like', controller.numberLike);
-router.get('/count-comment', controller.numberComment);
+router.get('/user-online', controller.numberUserOnline);
+router.get('/like-of-article', controller.numberLikeOfArticle);
+router.get('/comment-of-article', controller.numberCommentofArticle);
+router.post('/like-of-user', controller.numberLikeOfUser);
+router.post('/comment-of-user', controller.numberCommentOfUser);
+router.post('/article-of-user', controller.numberArticleOfUser);
 
 module.exports = router;

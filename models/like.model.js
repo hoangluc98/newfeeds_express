@@ -1,6 +1,6 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-var likeSchema = new mongoose.Schema({
+let likeSchema = new mongoose.Schema({
 	userId: {
 		type: String,
 		required: true
@@ -15,6 +15,6 @@ var likeSchema = new mongoose.Schema({
     }
 });
 
-var Like = mongoose.model('Like', likeSchema, 'likes');
+let Like = mongoose.model('Like', likeSchema, 'likes');
 
 module.exports = Like;

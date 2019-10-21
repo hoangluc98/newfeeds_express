@@ -7,7 +7,7 @@ const url = require('url');
 require('dotenv').config();
 
 const articleController = {};
-var addLog = function(req, status, message, data){
+let addLog = function(req, status, message, data){
 	req.data.status = status;
 	req.data.message = message;
 	req.data.data = data ? data : {};
@@ -15,12 +15,12 @@ var addLog = function(req, status, message, data){
 }
 
 articleController.list = async function(req, res) {
-	var parse = url.parse(req.url, true);
-	var page = parseInt(parse.query.page) || 1;
+	const parse = url.parse(req.url, true);
+	const page = parseInt(parse.query.page) || 1;
 
 	try{
-		var articles = await Article.find().limit(10).skip(10*(page-1));
-		var total = await Article.countDocuments();
+		const articles = await Article.find().limit(10).skip(10*(page-1));
+		const total = await Article.countDocuments();
 		addLog(req, "200", "List articles", articles);
 
 		res.status(200).json({
@@ -72,7 +72,7 @@ articleController.create = function(req, res) {
 };
 
 articleController.update = async function(req, res) {
-	let articleId = req.body.articleId;
+	const articleId = req.body.articleId;
 	try{
 		await Article.findByIdAndUpdate({_id: articleId}, req.body);
 	} catch(err){

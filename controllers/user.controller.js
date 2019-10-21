@@ -5,7 +5,7 @@ const Logger = require('../models/logger.model');
 
 const userController = {};
 
-var addLog = function(req, status, message, data){
+let addLog = function(req, status, message, data){
 	req.data.status = status;
 	req.data.message = message;
 	req.data.data = data ? data : {};
@@ -13,12 +13,12 @@ var addLog = function(req, status, message, data){
 }
 
 userController.list = async function(req, res) {
-	var parse = url.parse(req.url, true);
-	var page = parseInt(parse.query.page) || 1;
+	const parse = url.parse(req.url, true);
+	const page = parseInt(parse.query.page) || 1;
 
 	try{
-		var users = await User.find().limit(10).skip(10*(page-1));
-		var total = await User.countDocuments();
+		const users = await User.find().limit(10).skip(10*(page-1));
+		const total = await User.countDocuments();
 		addLog(req, "200", "List users", users);
 
 		res.status(200).json({
@@ -76,7 +76,7 @@ userController.create = async function(req, res) {
 };
 
 userController.update = async function(req, res) {
-	var userId = req.body.userId;
+	const userId = req.body.userId;
 
 	if(req.body.password)
 		req.body.password = md5(req.body.password);

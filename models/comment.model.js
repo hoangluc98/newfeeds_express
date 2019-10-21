@@ -1,6 +1,6 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-var commentSchema = new mongoose.Schema({
+let commentSchema = new mongoose.Schema({
 	content: {
 		type: String,
 		required: true
@@ -26,6 +26,6 @@ var commentSchema = new mongoose.Schema({
 
 commentSchema.index({articleId: 1});
 
-var Comment = mongoose.model('Comment', commentSchema, 'comments');
+let Comment = mongoose.model('Comment', commentSchema, 'comments');
 
 module.exports = Comment;

@@ -5,7 +5,7 @@ const url = require('url');
 require('dotenv').config();
 
 const commentController = {};
-var addLog = function(req, status, message, data){
+let addLog = function(req, status, message, data){
 	req.data.status = status;
 	req.data.message = message;
 	req.data.data = data ? data : {};
@@ -13,13 +13,13 @@ var addLog = function(req, status, message, data){
 }
 
 commentController.list = async function(req, res) {
-	var parse = url.parse(req.url, true);
-	var page = parseInt(parse.query.page) || 1;
-	var articleId = parse.query.articleId;
+	const parse = url.parse(req.url, true);
+	const page = parseInt(parse.query.page) || 1;
+	const articleId = parse.query.articleId;
 
 	try{
-		var comments = await Comment.find().limit(10).skip(10*(page-1));
-		var total = await Comment.countDocuments();
+		const comments = await Comment.find().limit(10).skip(10*(page-1));
+		const total = await Comment.countDocuments();
 
 		if(articleId){
 			comments = await Comment.find({articleId: articleId}).limit(10).skip(10*(page-1));

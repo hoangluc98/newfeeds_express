@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const validator = require('validator');
 const jwt = require('jsonwebtoken');
 
-var userSchema = new mongoose.Schema({
+let userSchema = new mongoose.Schema({
 	email: {
 		type: String,
 		required: true,
@@ -54,13 +54,13 @@ var userSchema = new mongoose.Schema({
 
 
 userSchema.methods.newAuthToken = async function(){
-    const user  = this;
+    let user  = this;
     const token =  jwt.sign({ _id: user._id.toString() },'thisismynewblog', {expiresIn: "7 days"});
     user.token = token;
     await user.save();
     return token;
 }
 
-var User = mongoose.model('User', userSchema, 'users');
+let User = mongoose.model('User', userSchema, 'users');
 
 module.exports = User;

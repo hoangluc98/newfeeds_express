@@ -1,8 +1,8 @@
-var express = require('express');
+const express = require('express');
 
-var controller = require('../controllers/userAction.controller');
+const controller = require('../controllers/userAction.controller');
 
-var router = express.Router();
+const router = express.Router();
 
 router.post('/like', controller.like);
 
