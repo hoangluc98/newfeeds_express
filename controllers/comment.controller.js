@@ -5,12 +5,6 @@ const url = require('url');
 require('dotenv').config();
 
 const commentController = {};
-let addLog = function(req, status, message, data){
-	req.data.status = status;
-	req.data.message = message;
-	req.data.data = data ? data : {};
-	Logger.create(req.data);
-}
 
 commentController.list = async function(req, res) {
 	const parse = url.parse(req.url, true);
@@ -26,13 +20,15 @@ commentController.list = async function(req, res) {
 			total = await Comment.countDocuments({articleId: articleId});
 		}
 
-		addLog(req, "200", "List comments", comments);
-		res.status(200).json({
+		let data = {
 			list: comments,
 			total
-		});
+		}
+		req.data = data;
+
+		res.status(200).json(data);
 	} catch(err){
-		addLog(req, "500", "List failed");
+		req.error = err;
 		res.status(500).json({error: err});
 	}
 };
@@ -41,11 +37,11 @@ commentController.item = function(req, res) {
 	Comment.find({_id: req.params.id})
 		.exec()
 		.then(doc => {
-			addLog(req, "200", "Item comment", doc);
+			req.data = doc;
 			res.status(200).json(doc);
 		})
 		.catch(err => {
-			addLog(req, "500", err);
+			req.error = err;
 			res.status(500).json({error: err});
 		});
 };
@@ -61,14 +57,14 @@ commentController.create = async function(req, res) {
 	comment
 		.save()
 		.then(result => {
-			addLog(req, "200", "Created comment", result);
+			req.data = result;
 			res.status(201).json({
 				message: "Handing POST request to /comments",
 				createdUser: result
 			});
 		})
 		.catch(err => {
-			addLog(req, "500", err);
+			req.error = err;
 			res.status(500).json({
 				error: err
 			});
@@ -89,14 +85,14 @@ commentController.update = async function(req, res) {
 	Comment.find({_id: commentId})
 		.exec()
 		.then(result => {
-			addLog(req, "200", "Updated comment", result);
+			req.data = result;
 			res.status(201).json({
 				message: "Handing POST request to /comments",
 				createdUser: result
 			});
 		})
 		.catch(err => {
-			addLog(req, "500", err);
+			req.error = err;
 			res.status(500).json({
 				error: err
 			});
@@ -107,11 +103,11 @@ commentController.delete = async function(req, res) {
 	Comment.findByIdAndRemove({_id: req.params.id})
 		.exec()
 		.then(result => {
-			addLog(req, "200", "Delete comment", result);
+			req.data = result;
 			res.status(200).json("Delete successful");
 		})
 		.catch(err => {
-			addLog(req, "500", err);
+			req.error = err;
 			res.status(500).json({
 				error: err
 			});

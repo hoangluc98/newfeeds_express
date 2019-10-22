@@ -7,12 +7,6 @@ const url = require('url');
 require('dotenv').config();
 
 const articleController = {};
-let addLog = function(req, status, message, data){
-	req.data.status = status;
-	req.data.message = message;
-	req.data.data = data ? data : {};
-	Logger.create(req.data);
-}
 
 articleController.list = async function(req, res) {
 	const parse = url.parse(req.url, true);
@@ -21,14 +15,16 @@ articleController.list = async function(req, res) {
 	try{
 		const articles = await Article.find().limit(10).skip(10*(page-1));
 		const total = await Article.countDocuments();
-		addLog(req, "200", "List articles", articles);
 
-		res.status(200).json({
+		let data = {
 			list: articles,
 			total
-		});
+		}
+		req.data = data;
+
+		res.status(200).json(data);
 	} catch(err){
-		addLog(req, "500", "List failed");
+		req.error = err;
 		res.status(500).json({error: err});
 	};
 };
@@ -37,11 +33,11 @@ articleController.item = function(req, res) {
 	Article.find({_id: req.params.id})
 		.exec()
 		.then(doc => {
-			addLog(req, "200", "Item article", doc);
+			req.data = doc;
 			res.status(200).json(doc);
 		})
 		.catch(err => {
-			addLog(req, "500", err);
+			req.error = err;
 			res.status(500).json({error: err});
 		});
 };
@@ -57,14 +53,14 @@ articleController.create = function(req, res) {
 	article
 		.save()
 		.then(result => {
-			addLog(req, "200", "Created article", result);
+			req.data = result;
 			res.status(201).json({
 				message: "Handing POST request to /articles",
 				createdUser: result
 			});
 		})
 		.catch(err => {
-			addLog(req, "500", err);
+			req.error = err;
 			res.status(500).json({
 				error: err
 			});
@@ -83,14 +79,14 @@ articleController.update = async function(req, res) {
 	Article.find({_id: articleId})
 		.exec()
 		.then(result => {
-			addLog(req, "200", "Updated article", result);
+			req.data = result;
 			res.status(201).json({
 				message: "Handing POST request to /articles",
 				createdUser: result
 			});
 		})
 		.catch(err => {
-			addLog(req, "500", err);
+			req.error = err;
 			res.status(500).json({
 				error: err
 			});
@@ -109,11 +105,11 @@ articleController.delete = async function(req, res) {
 	Article.findByIdAndRemove({_id: articleId})
 		.exec()
 		.then(result => {
-			addLog(req, "200", "Delete article", result);
+			req.data = result;
 			res.status(200).json("Delete successful");
 		})
 		.catch(err => {
-			addLog(req, "500", err);
+			req.error = err;
 			res.status(500).json({
 				error: err
 			});

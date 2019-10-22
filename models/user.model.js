@@ -40,7 +40,8 @@ let userSchema = new mongoose.Schema({
 	},
     token:{
         type:String,
-        required: true
+        required: true,
+        default: ' '
     },
 	created_At_: {
 		type: Date,

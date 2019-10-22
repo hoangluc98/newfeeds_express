@@ -1,15 +1,16 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-var cookieParser = require('cookie-parser');
-var mongoose = require('mongoose');
+const express = require('express');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const mongoose = require('mongoose');
+
 require('dotenv').config();
 
-var url = process.env.URL_MONGOOSE;
-mongoose.connect(url);
+const url = process.env.URL_MONGOOSE;
+mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true });
 
 //admin
-var userRoute = require('./routes/user.route');
-var authRoute = require('./routes/auth.route');
+const userRoute = require('./routes/user.route');
+const authRoute = require('./routes/auth.route');
 const articleRoute = require('./routes/article.route');
 const commentRoute = require('./routes/comment.route');
 const statisticalRoute = require('./routes/statistical.route');
@@ -22,15 +23,12 @@ const authMiddleware = require('./middlewares/auth.middleware');
 const port = 3000;
 
 const app = express();
-app.set("view engine", "ejs");
-app.set('views', './views');
 
-app.use(bodyParser.json()); // for parsing application/json
-app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
-// app.use(express.static('public'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Route admin
-app.use('/auth', authRoute);
+app.use('/auth', authMiddleware.requireAuth, authRoute);
 app.use('/users', authMiddleware.requireAuth, userRoute);
 app.use('/articles', authMiddleware.requireAuth, articleRoute);
 app.use('/comments', authMiddleware.requireAuth, commentRoute);

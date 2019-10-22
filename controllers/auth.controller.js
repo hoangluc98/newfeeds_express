@@ -2,8 +2,8 @@ const User = require('../models/user.model');
 const md5 = require('md5');
 const jwt = require('jsonwebtoken');
 const Logger = require('../models/logger.model');
-const redis = require('redis');
-const redisClient = redis.createClient({host : 'localhost'});
+// const redis = require('redis');
+// const redisClient = redis.createClient({host : 'localhost'});
 require('dotenv').config();
 
 const authController = {};
@@ -12,7 +12,6 @@ authController.postLogin = async function(req, res){
 	const email = req.body.email;
 	const password = req.body.password;
 	const hashedPassword = md5(password);
-	let data = {};
 
 	const user = await User.findOne({email: email});
 	if(!user){
@@ -25,69 +24,52 @@ authController.postLogin = async function(req, res){
 			message: "Wrong password"
 		});
 	}
+	if(user.token.length > 1){
+		return res.status(403).send({
+			message: "Account was accessed!"
+		});
+	}
 
-	const value = user.id;
+	req.userId = user.id;
 
-	redisClient.set(value, value);
-	redisClient.expire(value, 120);
+	// redisClient.set(value, value);
+	// redisClient.expire(value, 120);
 
-	const token = jwt.sign({ _id: user._id.toString() }, process.env.TOKEN_SECRETKEY, { expiresIn: '1h'});
+	let token = jwt.sign({ _id: user._id.toString() }, process.env.TOKEN_SECRETKEY, { expiresIn: '1d'});
 	user.token = token;
     await user.save();
 
-    url = req.originalUrl.split('/');
-	data.action = url[2];
-	data.category = url[1];
-	data.method = req.method;
-	data.createdBy = value;
-	data.data = {
-		email: email,
-		password: hashedPassword
-	};
-	data.status = "200";
-	data.message = "Auth successful";
-	Logger.create(data);
-
-	return res.status(200).json({
+	let data = {
 		message: "Auth successful",
 		token: token
-	});
+	};
+	req.data = data;
+
+	res.status(200).json(data);
 };
 
 authController.logout = async function(req, res){
 	const bearerHeader = req.headers['authorization'];
-	let data = {};
 	if(typeof bearerHeader !== 'undefined'){
 		const bearer = bearerHeader.split(' ');
 		const bearerToken = bearer[1];
-
 		if(bearerToken){
-			let decoded;
 			try{
+				let decoded;
 				decoded = jwt.verify(bearerToken, process.env.TOKEN_SECRETKEY);
+
+				const user  = await User.findOne({ _id:decoded._id });
+				user.token = " ";
+				// user.online = false;
+				await user.save();
+
+				return res.status(200).json({
+					message: 'Logout success'
+				});
 			} catch(err){
-				console.log(err);
+				req.error = err;
 				res.status(500).json({error: err});
 			};
-			console.log(decoded);
-
-			const user  = await User.findOne({ _id:decoded._id });
-			console.log(user);
-			user.token = ' ';
-			await user.save();
-
-			url = req.originalUrl.split('/');
-			data.action = url[2];
-			data.category = url[1];
-			data.method = req.method;
-			data.createdBy = user._id;
-			data.data = {};
-			data.status = "200";
-			data.message = "Logout successful";
-			Logger.create(data);
-			return res.status(200).json({
-				message: 'Logout success'
-			});
 		}
 	} else{
 		return res.status(401).json({

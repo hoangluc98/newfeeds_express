@@ -1,5 +1,5 @@
-const redis = require('redis');
-const redisClient = redis.createClient({host : 'localhost'});
+// const redis = require('redis');
+// const redisClient = redis.createClient({host : 'localhost'});
 const Logger = require('../models/logger.model');
 const Like = require('../models/like.model');
 const Article = require('../models/article.model');
@@ -8,12 +8,6 @@ const User = require('../models/user.model');
 const url = require('url');
 
 const statisticalController = {};
-let addLog = function(req, status, message, data){
-	req.data.status = status;
-	req.data.message = message;
-	req.data.data = data ? data : {};
-	Logger.create(req.data);
-}
 
 let statistical = async function(req, db){
 	const parse = url.parse(req.url, true);
@@ -32,7 +26,7 @@ let statistical = async function(req, db){
 
 		count = count[0].total;
 
-		addLog(req, "200", "Statistical of article", {number : count});
+		req.data = {count};
 	}
 
 	return count;
@@ -82,13 +76,14 @@ let statisticalOfUser = async function(req, db){
 
 	count = count[0].total;
 
-	addLog(req, "200", "Statistical of user", {number: count});
+	req.data = {count};
+
 	return count;
 }
 
 
 
-statisticalController.numberUserOnline = async function(req, res) {
+statisticalController.numberUserAccess = async function(req, res) {
 	try{
 		let userId = req.body.userId;
 		const parse = url.parse(req.url, true);
@@ -98,13 +93,15 @@ statisticalController.numberUserOnline = async function(req, res) {
 			let dateS = new Date(date);
 			let d = new Date(date);
 			d = d.setDate(d.getDate() + 1);
-			var dateF = new Date();
+			let dateF = new Date();
 			dateF.setTime(d);
 
 			let number = await Logger.aggregate([
 				{ "$match": 
 					{ 
-						created_At_ : { '$gte' : dateS, '$lt' : dateF }
+						created_At_ : { '$gte' : dateS, '$lt' : dateF },
+						url : '/auth/login',
+						status : '200'
 					}
 				},
 			 	{
@@ -115,17 +112,37 @@ statisticalController.numberUserOnline = async function(req, res) {
 			 	}
 			]);
 
-			addLog(req, "200", "Statistical number users online", {numberUser : number});
-			res.json(number.length);
+			let num = number.length
+			req.data = {num};
+
+			res.json(num);
 		} else{
-			redisClient.keys('*', function (err, keys) {
-				addLog(req, "200", "Statistical number users online", {numberUser : keys.length});
-				res.json(keys.length);
-			});
+			let timeCurrent = new Date();
+			timeCurrent.setTime(new Date().setHours(0,0,0,0));
+
+			let number = await Logger.aggregate([
+				{ "$match": 
+					{ 
+						created_At_ : { '$gte' : timeCurrent },
+						url : '/auth/login',
+						status : '200'
+					}
+				},
+			 	{
+			 		$group: {
+				 		_id: "$createdBy",
+				 		unique: { $addToSet: "$createdBy" }
+				 	}
+			 	}
+			]);
+
+			let num = number.length
+			req.data = {num};
+
+			res.json(num);
 		}
 	} catch(err){
-		addLog(req, "500", "Statistical failed");
-		return console.log(err);
+		return res.json(err);
 	}
 };
 
@@ -134,7 +151,7 @@ statisticalController.numberLikeOfArticle = async function(req, res) {
 		let number = await statistical(req, Like);
 		res.json(number);
 	} catch(err){
-		addLog(req, "500", err);
+		req.error = err;
 		res.status(500).json({error: err});
 	}
 };
@@ -144,7 +161,7 @@ statisticalController.numberCommentofArticle = async function(req, res) {
 		let number = await statistical(req, Comment);
 		res.json(count);
 	} catch(err){
-		addLog(req, "500", err);
+		req.error = err;
 		res.status(500).json({error: err});
 	}
 };
@@ -154,7 +171,7 @@ statisticalController.numberLikeOfUser = async function(req, res) {
 		let number = await statisticalOfUser(req, Like);
 		res.json(number);
 	} catch(err){
-		addLog(req, "500", err);
+		req.error = err;
 		res.status(500).json({error: err});
 	}
 };
@@ -164,7 +181,7 @@ statisticalController.numberCommentOfUser = async function(req, res) {
 		let number = await statisticalOfUser(req, Comment);
 		res.json(number);
 	} catch(err){
-		addLog(req, "500", err);
+		req.error = err;
 		res.status(500).json({error: err});
 	}
 };
@@ -175,7 +192,7 @@ statisticalController.numberArticleOfUser = async function(req, res) {
 		res.json(number);
 
 	} catch(err){
-		addLog(req, "500", err);
+		req.error = err;
 		res.status(500).json({error: err});
 	}
 };
