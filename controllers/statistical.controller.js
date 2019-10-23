@@ -1,5 +1,3 @@
-// const redis = require('redis');
-// const redisClient = redis.createClient({host : 'localhost'});
 const Logger = require('../models/logger.model');
 const Like = require('../models/like.model');
 const Article = require('../models/article.model');
@@ -9,7 +7,7 @@ const url = require('url');
 
 const statisticalController = {};
 
-let statistical = async function(req, db){
+let statisticalOfArticle = async function(req, db){
 	const parse = url.parse(req.url, true);
 	let count = await db.countDocuments();
 	const artId = parse.query.articleId;
@@ -148,7 +146,7 @@ statisticalController.numberUserAccess = async function(req, res) {
 
 statisticalController.numberLikeOfArticle = async function(req, res) {
 	try{
-		let number = await statistical(req, Like);
+		let number = await statisticalOfArticle(req, Like);
 		res.json(number);
 	} catch(err){
 		req.error = err;
@@ -158,7 +156,7 @@ statisticalController.numberLikeOfArticle = async function(req, res) {
 
 statisticalController.numberCommentofArticle = async function(req, res) {
 	try{
-		let number = await statistical(req, Comment);
+		let number = await statisticalOfArticle(req, Comment);
 		res.json(count);
 	} catch(err){
 		req.error = err;

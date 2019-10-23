@@ -24,38 +24,27 @@ module.exports.requireAuth = async function(req, res, next){
 	    	});
 			next();
 		} else if(typeof bearerHeader !== 'undefined'){
-			const bearer = bearerHeader.split(' ');
-
-			const bearerToken = bearer[1];
-
-			req.token = bearerToken;
-
-			if(req.token){
-				let decoded;
-				
-				decoded = jwt.verify(req.token, process.env.TOKEN_SECRETKEY);
-				
-				const value = decoded._id;
-				const user  = await User.findOne({ _id:value });
-				if(user.token.toString() !== req.token.toString()){
-					return res.status(500).json("Auth failed");
-				}
-				req.user = user;
-
-				// redisClient.set(value, value);
-				// redisClient.expire(value, 60*60);
-
-				res.on('finish', function () {
-					data.ip = req.ip;
-					data.url = req.url;
-					data.method = req.method;
-					data.createdBy = value;
-		       		data.status = res.statusCode;
-		       		data.data = req.data;
-		       		data.error = req.error;
-		       		Logger.create(data);
-		    	});
+			let decoded;
+			
+			decoded = jwt.verify(bearerHeader, process.env.TOKEN_SECRETKEY);
+			
+			const value = decoded._id;
+			const user  = await User.findOne({ _id:value });
+			if(user.token.toString() !== bearerHeader.toString()){
+				return res.status(500).json("Auth failed");
 			}
+			req.user = user;
+
+			res.on('finish',  ()=> {
+				data.ip = req.ip;
+				data.url = req.originalUrl;
+				data.method = req.method;
+				data.createdBy = req.userId;
+	       		data.status = res.statusCode;
+	       		data.data = req.data;
+	       		data.error = req.error;
+	       		Logger.create(data);
+	    	});
 
 			next();
 		} else{

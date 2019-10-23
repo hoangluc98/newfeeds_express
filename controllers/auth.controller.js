@@ -32,45 +32,39 @@ authController.postLogin = async function(req, res){
 
 	req.userId = user.id;
 
-	// redisClient.set(value, value);
-	// redisClient.expire(value, 120);
-
 	let token = jwt.sign({ _id: user._id.toString() }, process.env.TOKEN_SECRETKEY, { expiresIn: '1d'});
 	user.token = token;
     await user.save();
 
-	let data = {
+	req.data = {
+		email,
+		password
+	};
+
+	res.status(200).json({
 		message: "Auth successful",
 		token: token
-	};
-	req.data = data;
-
-	res.status(200).json(data);
+	});
 };
 
 authController.logout = async function(req, res){
 	const bearerHeader = req.headers['authorization'];
 	if(typeof bearerHeader !== 'undefined'){
-		const bearer = bearerHeader.split(' ');
-		const bearerToken = bearer[1];
-		if(bearerToken){
-			try{
-				let decoded;
-				decoded = jwt.verify(bearerToken, process.env.TOKEN_SECRETKEY);
+		try{
+			let decoded;
+			decoded = jwt.verify(bearerHeader, process.env.TOKEN_SECRETKEY);
 
-				const user  = await User.findOne({ _id:decoded._id });
-				user.token = " ";
-				// user.online = false;
-				await user.save();
+			const user  = await User.findOne({ _id:decoded._id });
+			user.token = " ";
+			await user.save();
 
-				return res.status(200).json({
-					message: 'Logout success'
-				});
-			} catch(err){
-				req.error = err;
-				res.status(500).json({error: err});
-			};
-		}
+			return res.status(200).json({
+				message: 'Logout success'
+			});
+		} catch(err){
+			req.error = err;
+			res.status(500).json({error: err});
+		};
 	} else{
 		return res.status(401).json({
 			message: 'Logout failed'
