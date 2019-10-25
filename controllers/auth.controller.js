@@ -2,8 +2,8 @@ const User = require('../models/user.model');
 const md5 = require('md5');
 const jwt = require('jsonwebtoken');
 const Logger = require('../models/logger.model');
-// const redis = require('redis');
-// const redisClient = redis.createClient({host : 'localhost'});
+const redis = require('redis');
+const redisClient = redis.createClient({host : 'localhost'});
 require('dotenv').config();
 
 const authController = {};
@@ -30,7 +30,10 @@ authController.postLogin = async function(req, res){
 		});
 	}
 
-	req.userId = user.id;
+	userId = user._id.toString();
+	req.userId = userId;
+	redisClient.set(userId, userId);
+	redisClient.expire(userId, 5*60);
 
 	let token = jwt.sign({ _id: user._id.toString() }, process.env.TOKEN_SECRETKEY, { expiresIn: '1d'});
 	user.token = token;
@@ -55,6 +58,11 @@ authController.logout = async function(req, res){
 			decoded = jwt.verify(bearerHeader, process.env.TOKEN_SECRETKEY);
 
 			const user  = await User.findOne({ _id:decoded._id });
+
+			req.userId = user._id.toString();
+			userId = user._id.toString();
+			redisClient.set(userId, userId);
+			redisClient.expire(userId, 0);
 			user.token = " ";
 			await user.save();
 

@@ -12,8 +12,8 @@ commentController.list = async function(req, res) {
 	const articleId = parse.query.articleId;
 
 	try{
-		const comments = await Comment.find().limit(10).skip(10*(page-1));
-		const total = await Comment.countDocuments();
+		let comments = await Comment.find().limit(10).skip(10*(page-1));
+		let total = await Comment.countDocuments();
 
 		if(articleId){
 			comments = await Comment.find({articleId: articleId}).limit(10).skip(10*(page-1));
@@ -104,7 +104,7 @@ commentController.delete = async function(req, res) {
 		.exec()
 		.then(result => {
 			req.data = result;
-			res.status(200).json("Delete successful");
+			res.status(204).json("Delete successful");
 		})
 		.catch(err => {
 			req.error = err;

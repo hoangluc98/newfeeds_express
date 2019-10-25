@@ -4,11 +4,13 @@ const Article = require('../models/article.model');
 const Comment = require('../models/comment.model');
 const User = require('../models/user.model');
 const url = require('url');
+const redis = require('redis');
+const redisClient = redis.createClient({host : 'localhost'});
 
 const statisticalController = {};
 
 let statisticalOfArticle = async function(req, db){
-	const parse = url.parse(req.url, true);
+	let parse = url.parse(req.url, true);
 	let count = await db.countDocuments();
 	const artId = parse.query.articleId;
 	if(artId){
@@ -23,7 +25,6 @@ let statisticalOfArticle = async function(req, db){
 		]);
 
 		count = count[0].total;
-
 		req.data = {count};
 	}
 
@@ -32,15 +33,15 @@ let statisticalOfArticle = async function(req, db){
 
 let statisticalOfUser = async function(req, db){
 	let userId = req.body.userId;
-	const parse = url.parse(req.url, true);
-	const date = parse.query.date;
+	let parse = url.parse(req.url, true);
+	let date = parse.query.date;
 	let count;
 
 	if(date){
 		let dateS = new Date(date);
 		let d = new Date(date);
 		d = d.setDate(d.getDate() + 1);
-		var dateF = new Date();
+		let dateF = new Date();
 		dateF.setTime(d);
 		count = await db.aggregate([
 			{ "$match": 
@@ -79,13 +80,23 @@ let statisticalOfUser = async function(req, db){
 	return count;
 }
 
-
+statisticalController.numberUserOnline = async function(req, res) {
+	redisClient.keys('*', (err, keys) => {
+		if (err){
+			req.error = err;
+			return res.json(err);
+		}
+		let numUserOnline = keys.length;
+		req.data = {numUserOnline};
+		res.json(numUserOnline);
+	});
+};
 
 statisticalController.numberUserAccess = async function(req, res) {
 	try{
 		let userId = req.body.userId;
-		const parse = url.parse(req.url, true);
-		const date = parse.query.date;
+		let parse = url.parse(req.url, true);
+		let date = parse.query.date;
 
 		if(date){
 			let dateS = new Date(date);
@@ -97,15 +108,16 @@ statisticalController.numberUserAccess = async function(req, res) {
 			let number = await Logger.aggregate([
 				{ "$match": 
 					{ 
-						created_At_ : { '$gte' : dateS, '$lt' : dateF },
-						url : '/auth/login',
-						status : '200'
+						created_At_ : { '$gte' : dateS, '$lt' : dateF }
+						// ,
+						// '$request.url' : '/auth/login',
+						// '$response.status' : '200'
 					}
 				},
 			 	{
 			 		$group: {
-				 		_id: "$createdBy",
-				 		unique: { $addToSet: "$createdBy" }
+				 		_id: "$request.createdBy",
+				 		unique: { $addToSet: "$request.createdBy" }
 				 	}
 			 	}
 			]);
@@ -121,9 +133,7 @@ statisticalController.numberUserAccess = async function(req, res) {
 			let number = await Logger.aggregate([
 				{ "$match": 
 					{ 
-						created_At_ : { '$gte' : timeCurrent },
-						url : '/auth/login',
-						status : '200'
+						created_At_ : { '$gte' : timeCurrent }
 					}
 				},
 			 	{
@@ -140,6 +150,7 @@ statisticalController.numberUserAccess = async function(req, res) {
 			res.json(num);
 		}
 	} catch(err){
+		req.error = err;
 		return res.json(err);
 	}
 };
@@ -157,7 +168,7 @@ statisticalController.numberLikeOfArticle = async function(req, res) {
 statisticalController.numberCommentofArticle = async function(req, res) {
 	try{
 		let number = await statisticalOfArticle(req, Comment);
-		res.json(count);
+		res.json(number);
 	} catch(err){
 		req.error = err;
 		res.status(500).json({error: err});

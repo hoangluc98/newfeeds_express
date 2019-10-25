@@ -2,25 +2,30 @@ const User = require('../models/user.model');
 const jwt = require('jsonwebtoken');
 const Logger = require('../models/logger.model');
 const url = require('url');
-// const redis = require('redis');
-// const redisClient = redis.createClient({host : 'localhost'});
+const redis = require('redis');
+const redisClient = redis.createClient({host : 'localhost'});
 require('dotenv').config();
 
 module.exports.requireAuth = async function(req, res, next){
 	try{
 		const bearerHeader = req.headers['authorization'];
-		let data = {};
+		// let data = {};
+		let request = {};
+		let response = {};
 
 		if(req.url == '/login'){
 			res.on('finish', function () {
-				data.ip = req.ip;
-				data.url = req.originalUrl;
-				data.method = req.method;
-				data.createdBy = req.userId;
-	       		data.status = res.statusCode;
-	       		data.data = req.data;
-	       		data.error = req.error;
-	       		Logger.create(data);
+				request.ip = req.ip;
+				request.url = req.originalUrl;
+				request.method = req.method;
+				request.createdBy = req.userId;
+	       		response.status = res.statusCode;
+	       		response.data = req.data;
+	       		response.error = req.error;
+	       		Logger.create({
+	       			request,
+	       			response
+	       		});
 	    	});
 			next();
 		} else if(typeof bearerHeader !== 'undefined'){
@@ -35,15 +40,21 @@ module.exports.requireAuth = async function(req, res, next){
 			}
 			req.user = user;
 
+			redisClient.set(value, value);
+			redisClient.expire(value, 5*60);
+
 			res.on('finish',  ()=> {
-				data.ip = req.ip;
-				data.url = req.originalUrl;
-				data.method = req.method;
-				data.createdBy = req.userId;
-	       		data.status = res.statusCode;
-	       		data.data = req.data;
-	       		data.error = req.error;
-	       		Logger.create(data);
+				request.ip = req.ip;
+				request.url = req.originalUrl;
+				request.method = req.method;
+				request.createdBy = value.toString();
+	       		response.status = res.statusCode;
+	       		response.data = req.data;
+	       		response.error = req.error;
+	       		Logger.create({
+	       			request,
+	       			response
+	       		});
 	    	});
 
 			next();

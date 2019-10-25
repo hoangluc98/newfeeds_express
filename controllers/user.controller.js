@@ -102,7 +102,7 @@ userController.delete = function(req, res) {
 		.exec()
 		.then(result => {
 			req.data = result;
-			res.status(200).json("Delete successful");
+			res.status(204).json("Delete successful");
 		})
 		.catch(err => {
 			req.error = err;

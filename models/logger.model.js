@@ -1,26 +1,13 @@
 const mongoose = require('mongoose');
 
 let loggerSchema = new mongoose.Schema({
-	ip: {
-		type: String
+	request: {
+		type: Object,
+		require: true
 	},
-	url: {
-		type: String
-	},
-	method: {
-		type: String
-	},
-	status: {
-		type: String
-	},
-	data: {
-		type: Object
-	},
-	error: {
-		type: String
-	},
-	createdBy: {
-		type: String
+	response: {
+		type: Object,
+		require: true
 	},
     created_At_: {
         type: Date,

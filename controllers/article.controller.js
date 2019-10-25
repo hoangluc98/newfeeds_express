@@ -11,10 +11,14 @@ const articleController = {};
 articleController.list = async function(req, res) {
 	const parse = url.parse(req.url, true);
 	const page = parseInt(parse.query.page) || 1;
-
+	let userId = parse.query.userId;
 	try{
-		const articles = await Article.find().limit(10).skip(10*(page-1));
-		const total = await Article.countDocuments();
+		let articles = await Article.find().limit(10).skip(10*(page-1));
+		let total = await Article.countDocuments();
+		if(userId){
+			articles = await Article.find({userId: userId}).limit(10).skip(10*(page-1));
+			total = await Article.countDocuments({userId: userId});
+		}
 
 		let data = {
 			list: articles,
@@ -106,7 +110,7 @@ articleController.delete = async function(req, res) {
 		.exec()
 		.then(result => {
 			req.data = result;
-			res.status(200).json("Delete successful");
+			res.status(204).json("Delete successful");
 		})
 		.catch(err => {
 			req.error = err;
