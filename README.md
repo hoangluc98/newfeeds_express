@@ -18,3 +18,24 @@ Bước 2.
 
 Bước 3.
 Chạy API
+- Login, Logout (emai: luc@gmail.com, password: luc)
+  - http://localhost:3000/auth/login
+  - http://localhost:3000/auth/logout
+- Users
+  - http://localhost:3000/users/list
+  - http://localhost:3000/users/item/:id
+  - http://localhost:3000/users/insert
+  - http://localhost:3000/users/update
+  - http://localhost:3000/users/delete/:id
+- Articles
+  - http://localhost:3000/articles/list?page=...&userId=...
+  - http://localhost:3000/articles/item/:id
+  - http://localhost:3000/articles/insert
+  - http://localhost:3000/articles/update
+  - http://localhost:3000/articles/delete/:id
+- Comments
+  - http://localhost:3000/comments/list?articleId=...
+  - http://localhost:3000/comments/item/:id
+  - http://localhost:3000/comments/insert
+  - http://localhost:3000/comments/update
+  - http://localhost:3000/comments/delete/:id
