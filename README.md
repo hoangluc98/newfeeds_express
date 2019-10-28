@@ -8,3 +8,10 @@ Bước 1.
 - Tải Redis
 
 Bước 2.
+- Chạy redis:
+  - redis-server.exe
+  - redis-cli.exe
+- Import file express-database
+- Chạy ứng dụng: pm2 start index.js
+
+Bước 3.
