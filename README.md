@@ -39,3 +39,11 @@ Chạy API
   - http://localhost:3000/comments/insert
   - http://localhost:3000/comments/update
   - http://localhost:3000/comments/delete/:id
+- Statisticals
+  - http://localhost:3000/statisticals/user-online
+  - http://localhost:3000/statisticals/user-access?date=2019-10-24
+  - http://localhost:3000/statisticals/like-of-article?articleId=...
+  - http://localhost:3000/statisticals/comment-of-article?articleId=...
+  - http://localhost:3000/statisticals/article-of-user
+  - http://localhost:3000/statisticals/like-of-user
+  - http://localhost:3000/statisticals/comment-of-user
