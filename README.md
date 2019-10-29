@@ -19,7 +19,7 @@ Bước 2.
 Bước 3.
 Chạy API
 - Login, Logout (emai: luc@gmail.com, password: luc)
-  - "http://localhost:3000/auth/login"
+  - http://localhost:3000/auth/login
   - http://localhost:3000/auth/logout
 - Users
   - http://localhost:3000/users/list
