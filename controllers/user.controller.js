@@ -42,7 +42,7 @@ userController.create = async function(req, res) {
 	if(!req.body.name || !req.body.email || !req.body.password)
 		return res.status(500).json("Created user failed");
 
-	req.body.password = md5(req.body.password);
+	req.body.password = req.body.password.toLowerCase();
 	req.body.created_At_ = Date.now();
 
 	let user;
@@ -72,7 +72,7 @@ userController.update = async function(req, res) {
 	const userId = req.body.userId;
 
 	if(req.body.password)
-		req.body.password = md5(req.body.password);
+		req.body.password = req.body.password.toLowerCase();
 
 	try{
 		await User.findByIdAndUpdate({_id: userId}, req.body);

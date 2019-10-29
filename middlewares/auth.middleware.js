@@ -32,11 +32,19 @@ module.exports.requireAuth = async function(req, res, next){
 			let decoded;
 			
 			decoded = jwt.verify(bearerHeader, process.env.TOKEN_SECRETKEY);
+
+			const now = Date.now().valueOf() / 1000;
+		  		if (typeof decoded.exp !== 'undefined' && decoded.exp < now) {
+		    		throw new Error(`token expired: ${JSON.stringify(decoded)}`);
+		  		}
+		  		if (typeof decoded.nbf !== 'undefined' && decoded.nbf > now) {
+		    		throw new Error(`token not yet valid: ${JSON.stringify(decoded)}`);
+		  		}
 			
 			const value = decoded._id;
 			const user  = await User.findOne({ _id:value });
 			if(user.token.toString() !== bearerHeader.toString()){
-				return res.status(500).json("Auth failed");
+				res.status(500).json("Auth failed");
 			}
 			req.user = user;
 
