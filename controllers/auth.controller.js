@@ -10,12 +10,12 @@ const authController = {};
 
 authController.postLogin = async function(req, res){
 	const email = req.body.email;
-	const password = req.body.password.toLowerCase();
-	// const hashedPassword = md5(password);
+	const password = req.body.password;
+	const hashedPassword = md5(password);
 
 	const user = await User.findOne({email: email});
 
-	if((!user) || (user.password.toLowerCase() !== password)){
+	if((!user) || (user.password.toLowerCase() !== hashedPassword.toLowerCase())){
 		return res.status(403).send({
 			message: "Acount wrong!"
 		});
@@ -53,7 +53,7 @@ authController.postLogin = async function(req, res){
 
 	req.data = {
 		email,
-		password,
+		hashedPassword,
 		timeExpire
 	};
 
