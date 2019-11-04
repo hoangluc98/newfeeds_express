@@ -1,10 +1,11 @@
 const User = require('../models/user.model');
+const Permission = require('../permission/permission');
 const url = require('url');
 const md5 = require('md5');
 
 const userController = {};
 
-userController.list = async function(req, res) {
+userController.list = async (req, res) => {
 	const parse = url.parse(req.url, true);
 	const page = parseInt(parse.query.page) || 1;
 
@@ -25,12 +26,12 @@ userController.list = async function(req, res) {
 	};
 };
 
-userController.item = function(req, res) {
+userController.item = (req, res) => {
 	User.find({_id: req.params.id})
 		.exec()
 		.then(doc => {
-			req.data = doc;
-			res.status(200).json(doc);
+			req.data = doc[0];
+			res.status(200).json(doc[0]);
 		})
 		.catch(err => {
 			req.error = err;
@@ -38,9 +39,17 @@ userController.item = function(req, res) {
 		});
 };
 
-userController.create = async function(req, res) {
+userController.create = async (req, res) => {
 	if(!req.body.name || !req.body.email || !req.body.password)
 		return res.status(500).json("Created user failed");
+
+	const permission = parseInt(req.body.permission);
+	if(permission){
+		if(permission <= 3 && permission >= 0)
+			req.body.permission = Permission[permission];
+		else
+			return res.status(500).json("Permission wrong");
+	}
 
 	req.body.password = req.body.password.toLowerCase();
 	req.body.created_At_ = Date.now();
@@ -55,10 +64,7 @@ userController.create = async function(req, res) {
 	user.save()
 		.then(result => {
 			req.data = result;
-			res.status(201).json({
-				message: "Handing POST request to /users",
-				createdUser: result
-			});
+			res.status(201).json(result);
 		})
 		.catch(err => {
 			req.error = err;
@@ -68,14 +74,21 @@ userController.create = async function(req, res) {
 		});
 };
 
-userController.update = async function(req, res) {
+userController.update = async (req, res) => {
 	const userId = req.body.userId;
+	const permission = parseInt(req.body.permission);
+	if(permission){
+		if(permission <= 3 && permission >= 0)
+			req.body.permission = Permission[permission];
+		else
+			return res.status(500).json("Permission wrong");
+	}
 
 	if(req.body.password)
 		req.body.password = req.body.password.toLowerCase();
 
 	try{
-		await User.findByIdAndUpdate({_id: userId}, req.body);
+		await User.findOneAndUpdate({_id: userId}, req.body);
 	} catch(err){
 		res.status(500).json({error: err});
 	};
@@ -84,10 +97,7 @@ userController.update = async function(req, res) {
 		.exec()
 		.then(result => {
 			req.data = result;
-			res.status(201).json({
-				message: "Handing POST request to /users",
-				createdUser: result
-			});
+			res.status(201).json(result[0]);
 		})
 		.catch(err => {
 			req.error = err;
@@ -97,11 +107,12 @@ userController.update = async function(req, res) {
 		});
 };
 
-userController.delete = function(req, res) {
-	User.findByIdAndRemove({_id: req.params.id})
+userController.delete = (req, res) => {
+	User.findOneAndDelete({_id: req.params.id})
 		.exec()
 		.then(result => {
 			req.data = result;
+			console.log("delete");
 			res.status(204).json("Delete successful");
 		})
 		.catch(err => {

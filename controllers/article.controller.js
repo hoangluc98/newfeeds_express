@@ -8,7 +8,7 @@ require('dotenv').config();
 
 const articleController = {};
 
-articleController.list = async function(req, res) {
+articleController.list = async (req, res) => {
 	const parse = url.parse(req.url, true);
 	const page = parseInt(parse.query.page) || 1;
 	let userId = parse.query.userId;
@@ -33,12 +33,12 @@ articleController.list = async function(req, res) {
 	};
 };
 
-articleController.item = function(req, res) {
+articleController.item = (req, res) => {
 	Article.find({_id: req.params.id})
 		.exec()
 		.then(doc => {
-			req.data = doc;
-			res.status(200).json(doc);
+			req.data = doc[0];
+			res.status(200).json(doc[0]);
 		})
 		.catch(err => {
 			req.error = err;
@@ -46,7 +46,7 @@ articleController.item = function(req, res) {
 		});
 };
 
-articleController.create = function(req, res) {
+articleController.create = (req, res) => {
 	if(!req.body.content)
 		return res.status(500).json("Created article failed");
 
@@ -58,10 +58,7 @@ articleController.create = function(req, res) {
 		.save()
 		.then(result => {
 			req.data = result;
-			res.status(201).json({
-				message: "Handing POST request to /articles",
-				createdUser: result
-			});
+			res.status(201).json(result);
 		})
 		.catch(err => {
 			req.error = err;
@@ -71,10 +68,10 @@ articleController.create = function(req, res) {
 		});;
 };
 
-articleController.update = async function(req, res) {
+articleController.update = async (req, res) => {
 	const articleId = req.body.articleId;
 	try{
-		await Article.findByIdAndUpdate({_id: articleId}, req.body);
+		await Article.findOneAndUpdate({_id: articleId}, req.body);
 	} catch(err){
 		res.status(500).json({error: err});
 	};
@@ -84,10 +81,7 @@ articleController.update = async function(req, res) {
 		.exec()
 		.then(result => {
 			req.data = result;
-			res.status(201).json({
-				message: "Handing POST request to /articles",
-				createdUser: result
-			});
+			res.status(201).json(result);
 		})
 		.catch(err => {
 			req.error = err;
@@ -97,7 +91,7 @@ articleController.update = async function(req, res) {
 		});
 };
 
-articleController.delete = async function(req, res) {
+articleController.delete = async (req, res) => {
 	const articleId = req.params.id;
 	try{
 		await Comment.remove({articleId: articleId});
@@ -106,7 +100,7 @@ articleController.delete = async function(req, res) {
 		res.status(500).json({error: err});
 	}
 
-	Article.findByIdAndRemove({_id: articleId})
+	Article.findOneAndRemove({_id: articleId})
 		.exec()
 		.then(result => {
 			req.data = result;

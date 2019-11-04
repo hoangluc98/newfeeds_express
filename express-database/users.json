@@ -1,33 +1,103 @@
 { 
-    "_id" : ObjectId("5db03355e6aa1a14f46de6fa"), 
-    "token" : "", 
-    "email" : "luc@gmail.com", 
-    "password" : "2e6fdbc573b2975790d504991183519e", 
-    "name" : "luc", 
-    "accountType" : "admin", 
-    "created_At_" : ISODate("2019-10-23T11:02:45.080+0000"), 
-    "updated_At_" : ISODate("2019-10-23T11:02:45.086+0000"), 
-    "__v" : NumberInt(0)
-}
-{ 
     "_id" : ObjectId("5db10457f9b46e06945ceae1"), 
-    "token" : "", 
     "email" : "hoang@gmail.com", 
-    "password" : "f82e62d7c3ea69cc12b5cdb8d621dab6", 
+    "password" : "F82E62D7C3EA69CC12B5CDB8D621DAB6", 
     "name" : "hoang", 
-    "accountType" : "admin", 
     "created_At_" : ISODate("2019-10-24T01:54:31.940+0000"), 
     "updated_At_" : ISODate("2019-10-24T01:54:31.941+0000"), 
-    "__v" : NumberInt(0)
+    "__v" : NumberInt(0), 
+    "permission" : {
+        "level" : "1", 
+        "listPermission" : [
+            "list", 
+            "item", 
+            "create", 
+            "update", 
+            "delete", 
+            "statistical"
+        ]
+    }
 }
 { 
     "_id" : ObjectId("5db104814536331a20d38765"), 
-    "token" : " ", 
     "email" : "dinh@gmail.com", 
     "password" : "45eea262ec1d46cc5ee3817bc821e757", 
     "name" : "Dinh", 
-    "accountType" : "admin", 
     "created_At_" : ISODate("2019-10-24T01:55:13.090+0000"), 
     "updated_At_" : ISODate("2019-10-24T01:55:13.092+0000"), 
+    "__v" : NumberInt(0), 
+    "permission" : {
+        "level" : "1", 
+        "listPermission" : [
+            "list", 
+            "item", 
+            "create", 
+            "update", 
+            "delete", 
+            "statistical"
+        ]
+    }, 
+    "accessToken" : "", 
+    "refreshToken" : ""
+}
+{ 
+    "_id" : ObjectId("5dbb93a7dde44a03d4221090"), 
+    "accessToken" : " ", 
+    "refreshToken" : " ", 
+    "email" : "test@gmail.com", 
+    "password" : "098f6bcd4621d373cade4e832627b4f6", 
+    "name" : "test", 
+    "permission" : {
+        "level" : "3", 
+        "listPermission" : [
+            "list", 
+            "item"
+        ]
+    }, 
+    "created_At_" : ISODate("2019-11-01T02:08:39.989+0000"), 
+    "updated_At_" : ISODate("2019-11-01T02:08:39.989+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dbbe4446cec461ab8346b59"), 
+    "accessToken" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Il9pZCI6IjVkYmJlNDQ0NmNlYzQ2MWFiODM0NmI1OSIsImVtYWlsIjoibHVjQGdtYWlsLmNvbSJ9LCJpYXQiOjE1NzI4MzQ5NzYsImV4cCI6MTU3MjgzODU3Nn0.IHxM71MeszWz_swusRTZFxT9FiHxC96BGba0KwHgTaU", 
+    "refreshToken" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Il9pZCI6IjVkYmJlNDQ0NmNlYzQ2MWFiODM0NmI1OSIsImVtYWlsIjoibHVjQGdtYWlsLmNvbSJ9LCJpYXQiOjE1NzI4MzQ4OTksImV4cCI6MTg4ODE5NDg5OX0.1WTjWnBV1b2ta-v5ZBBDZMB6t6eKMifAHBxg8Z7rtqU", 
+    "email" : "luc@gmail.com", 
+    "password" : "2e6fdbc573b2975790d504991183519e", 
+    "name" : "luc", 
+    "permission" : {
+        "level" : "0", 
+        "listPermission" : [
+            "list", 
+            "item", 
+            "create", 
+            "update", 
+            "delete", 
+            "statistical"
+        ]
+    }, 
+    "created_At_" : ISODate("2019-11-01T07:52:36.793+0000"), 
+    "updated_At_" : ISODate("2019-11-01T07:52:36.793+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dbbf64109f32b1994c47c0c"), 
+    "accessToken" : " ", 
+    "refreshToken" : " ", 
+    "email" : "check@gmail.com", 
+    "password" : "0ba4439ee9a46d9d9f14c60f88f45f87", 
+    "name" : "check", 
+    "permission" : {
+        "level" : NumberInt(2), 
+        "listPermission" : [
+            "list", 
+            "item", 
+            "create", 
+            "update", 
+            "statistical"
+        ]
+    }, 
+    "created_At_" : ISODate("2019-11-01T09:09:21.551+0000"), 
+    "updated_At_" : ISODate("2019-11-01T09:09:21.554+0000"), 
     "__v" : NumberInt(0)
 }

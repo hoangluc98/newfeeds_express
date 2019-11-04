@@ -34,11 +34,16 @@ let userSchema = new mongoose.Schema({
 		trim: true,
 		required: true
 	},
-	accountType: {
-		type: String,
+	permission: {
+		type: Object,
 		required: true
 	},
-    token:{
+    accessToken:{
+        type:String,
+        required: true,
+        default: ' '
+    },
+    refreshToken:{
         type:String,
         required: true,
         default: ' '

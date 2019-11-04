@@ -9,7 +9,7 @@ const redisClient = redis.createClient({host : 'localhost'});
 
 const statisticalController = {};
 
-let statisticalOfArticle = async function(req, db){
+let statisticalOfArticle = async (req, res) => {
 	let parse = url.parse(req.url, true);
 	let count = await db.countDocuments();
 	const artId = parse.query.articleId;
@@ -31,7 +31,7 @@ let statisticalOfArticle = async function(req, db){
 	return count;
 }
 
-let statisticalOfUser = async function(req, db){
+let statisticalOfUser = async (req, res) => {
 	let userId = req.body.userId;
 	let parse = url.parse(req.url, true);
 	let date = parse.query.date;
@@ -80,19 +80,18 @@ let statisticalOfUser = async function(req, db){
 	return count;
 }
 
-statisticalController.numberUserOnline = async function(req, res) {
-	redisClient.keys('*', (err, keys) => {
+statisticalController.numberUserOnline = async (req, res) => {
+	redisClient.scard('userOnline', (err, num) => {
 		if (err){
 			req.error = err;
 			return res.json(err);
 		}
-		let numUserOnline = keys.length;
-		req.data = {numUserOnline};
-		res.json(numUserOnline);
+		req.data = {num};
+		res.json(num);
 	});
 };
 
-statisticalController.numberUserAccess = async function(req, res) {
+statisticalController.numberUserAccess = async (req, res) => {
 	try{
 		let userId = req.body.userId;
 		let parse = url.parse(req.url, true);
@@ -155,7 +154,7 @@ statisticalController.numberUserAccess = async function(req, res) {
 	}
 };
 
-statisticalController.numberLikeOfArticle = async function(req, res) {
+statisticalController.numberLikeOfArticle = async (req, res) => {
 	try{
 		let number = await statisticalOfArticle(req, Like);
 		res.json(number);
@@ -165,7 +164,7 @@ statisticalController.numberLikeOfArticle = async function(req, res) {
 	}
 };
 
-statisticalController.numberCommentofArticle = async function(req, res) {
+statisticalController.numberCommentofArticle = async (req, res) => {
 	try{
 		let number = await statisticalOfArticle(req, Comment);
 		res.json(number);
@@ -175,7 +174,7 @@ statisticalController.numberCommentofArticle = async function(req, res) {
 	}
 };
 
-statisticalController.numberLikeOfUser = async function(req, res) {
+statisticalController.numberLikeOfUser = async (req, res) => {
 	try{
 		let number = await statisticalOfUser(req, Like);
 		res.json(number);
@@ -185,7 +184,7 @@ statisticalController.numberLikeOfUser = async function(req, res) {
 	}
 };
 
-statisticalController.numberCommentOfUser = async function(req, res) {
+statisticalController.numberCommentOfUser = async (req, res) => {
 	try{
 		let number = await statisticalOfUser(req, Comment);
 		res.json(number);
@@ -195,7 +194,7 @@ statisticalController.numberCommentOfUser = async function(req, res) {
 	}
 };
 
-statisticalController.numberArticleOfUser = async function(req, res) {
+statisticalController.numberArticleOfUser = async (req, res) => {
 	try{
 		let number = await statisticalOfUser(req, Article);
 		res.json(number);

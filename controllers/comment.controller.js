@@ -6,7 +6,7 @@ require('dotenv').config();
 
 const commentController = {};
 
-commentController.list = async function(req, res) {
+commentController.list = async (req, res) => {
 	const parse = url.parse(req.url, true);
 	const page = parseInt(parse.query.page) || 1;
 	const articleId = parse.query.articleId;
@@ -33,12 +33,12 @@ commentController.list = async function(req, res) {
 	}
 };
 
-commentController.item = function(req, res) {
+commentController.item = (req, res) => {
 	Comment.find({_id: req.params.id})
 		.exec()
 		.then(doc => {
-			req.data = doc;
-			res.status(200).json(doc);
+			req.data = doc[0];
+			res.status(200).json(doc[0]);
 		})
 		.catch(err => {
 			req.error = err;
@@ -46,7 +46,7 @@ commentController.item = function(req, res) {
 		});
 };
 
-commentController.create = async function(req, res) {
+commentController.create = async (req, res) => {
 	req.body.userId = req.user._id;
 
 	if(!req.body.content)
@@ -58,10 +58,7 @@ commentController.create = async function(req, res) {
 		.save()
 		.then(result => {
 			req.data = result;
-			res.status(201).json({
-				message: "Handing POST request to /comments",
-				createdUser: result
-			});
+			res.status(201).json(result);
 		})
 		.catch(err => {
 			req.error = err;
@@ -71,11 +68,11 @@ commentController.create = async function(req, res) {
 		});;
 };
 
-commentController.update = async function(req, res) {
+commentController.update = async (req, res) => {
 	let commentId = req.body.commentId;
 
 	try{
-		await Comment.findByIdAndUpdate({_id: commentId}, req.body)
+		await Comment.findOneAndUpdate({_id: commentId}, req.body)
 	} catch(err){
 		res.status(500).json({error: err});
 	};
@@ -86,10 +83,7 @@ commentController.update = async function(req, res) {
 		.exec()
 		.then(result => {
 			req.data = result;
-			res.status(201).json({
-				message: "Handing POST request to /comments",
-				createdUser: result
-			});
+			res.status(201).json(result);
 		})
 		.catch(err => {
 			req.error = err;
@@ -99,8 +93,8 @@ commentController.update = async function(req, res) {
 		});
 };
 
-commentController.delete = async function(req, res) {
-	Comment.findByIdAndRemove({_id: req.params.id})
+commentController.delete = async (req, res) => {
+	Comment.findOneAndRemove({_id: req.params.id})
 		.exec()
 		.then(result => {
 			req.data = result;

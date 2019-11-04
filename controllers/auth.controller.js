@@ -1,14 +1,22 @@
 const User = require('../models/user.model');
 const md5 = require('md5');
 const jwt = require('jsonwebtoken');
-const Logger = require('../models/logger.model');
+const jwtHelper = require("../helpers/jwt.helper");
+const logHelper = require("../helpers/log.helper");
 const redis = require('redis');
 const redisClient = redis.createClient({host : 'localhost'});
 require('dotenv').config();
 
+const accessTokenLife = process.env.ACCESS_TOKEN_LIFE || "1h";
+const accessTokenSecret = process.env.ACCESS_TOKEN_SECRET || "access-token-secret";
+
+const refreshTokenLife = process.env.REFRESH_TOKEN_LIFE || "3650d";
+const refreshTokenSecret = process.env.REFRESH_TOKEN_SECRET || "refresh-token-secret";
+
+
 const authController = {};
 
-authController.postLogin = async function(req, res){
+authController.postLogin = async (req, res) => {
 	const email = req.body.email;
 	const password = req.body.password;
 	const hashedPassword = md5(password);
@@ -20,79 +28,92 @@ authController.postLogin = async function(req, res){
 			message: "Acount wrong!"
 		});
 	}
-	if(user.token.length > 1){
-		let decoded = jwt.decode(user.token);
-
-		const now = Date.now().valueOf() / 1000;
-	  		if (typeof decoded.exp !== 'undefined' && decoded.exp > now) {
-	    		return res.status(403).send({
-					message: "Account was accessed!"
-				});
-	  		}
-	  		if (typeof decoded.nbf !== 'undefined' && decoded.nbf < now) {
-	    		return res.status(403).send({
-					message: "Account was accessed!"
-				});
-	  		}
-	  	if(user.token == decoded){
-	  		return res.status(403).send({
-				message: "Account was accessed!"
-			});
-	  	}
+	
+	if(await jwtHelper.checkLogin(user, res)){
+		return res.status(403).send({
+            message: "Account was accessed!"
+        });
 	}
 
 	userId = user._id.toString();
 	req.userId = userId;
-	redisClient.set(userId, userId);
-	redisClient.expire(userId, 5*60);
+	redisClient.sadd("userOnline", userId);
 
-	const timeExpire = '1d';
-	let token = jwt.sign({ _id: user._id.toString() }, process.env.TOKEN_SECRETKEY, { expiresIn: timeExpire});
-	user.token = token;
+	let userData = {
+		_id: userId,
+		email: email
+	}
+
+	const accessToken = await jwtHelper.generateToken(userData, accessTokenSecret, accessTokenLife); 
+    const refreshToken = await jwtHelper.generateToken(userData, refreshTokenSecret, refreshTokenLife);
+
+	user.accessToken = accessToken;
+	user.refreshToken = refreshToken;
     await user.save();
 
 	req.data = {
 		email,
-		hashedPassword,
-		timeExpire
+		hashedPassword
 	};
 
-	res.status(200).json({
-		message: "Auth successful",
-		token: token,
+	logHelper.log(req, res);
 
+	res.status(200).json({
+		accessToken,
+		refreshToken
 	});
 };
 
-authController.logout = async function(req, res){
-	const bearerHeader = req.headers['authorization'];
-	if(typeof bearerHeader !== 'undefined'){
-		try{
-			let decoded;
-			decoded = jwt.verify(bearerHeader, process.env.TOKEN_SECRETKEY);
 
-			const user  = await User.findOne({ _id:decoded._id });
+authController.refreshToken = async (req, res) => {
+	const refreshTokenFromClient = req.body.refreshToken;
 
-			req.userId = user._id.toString();
-			userId = user._id.toString();
-			redisClient.set(userId, userId);
-			redisClient.expire(userId, 0);
-			user.token = jwt.sign({ _id: user._id.toString() }, process.env.TOKEN_SECRETKEY, { expiresIn: '-1d'});
-			// user.token = " ";
+	if (refreshTokenFromClient) {
+	    try {
+			const decoded = await jwtHelper.verifyToken(refreshTokenFromClient, refreshTokenSecret);
+
+			const userData = decoded.data;
+
+			const accessToken = await jwtHelper.generateToken(userData, accessTokenSecret, accessTokenLife);
+			const user = await User.findOne({_id: userData._id});
+			user.accessToken = accessToken;
 			await user.save();
 
-			return res.status(200).json({
-				message: 'Logout success'
+			req.userId = userData._id;
+			logHelper.log(req, res);
+
+			return res.status(200).json({accessToken});
+	    } catch (error) {
+			return res.status(403).json({
+				message: 'Invalid refresh token.',
 			});
-		} catch(err){
-			req.error = err;
-			res.status(500).json({error: err});
-		};
-	} else{
-		return res.status(401).json({
-			message: 'Logout failed'
+	    }
+	} else {
+		return res.status(403).send({
+		 	message: 'No token provided.',
 		});
 	}
+}
+
+
+authController.logout = async (req, res) => {
+	try{
+		const user = req.user;
+		const userId = req.userId;
+
+		redisClient.srem('userOnline', userId);
+		
+		user.accessToken = ' ';
+		user.refreshToken = ' ';
+		await user.save();
+		
+		return res.status(200).json({
+			message: 'Logout success'
+		});
+	} catch(err){
+		req.error = err;
+		res.status(500).json({error: err});
+	};
 };
 
 module.exports = authController;
