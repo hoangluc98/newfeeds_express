@@ -2,10 +2,13 @@ const Logger = require('../models/logger.model');
 const Like = require('../models/like.model');
 const Article = require('../models/article.model');
 const Comment = require('../models/comment.model');
+const Statistical = require('../models/statistical.model');
 const User = require('../models/user.model');
+const statisticalHelper = require("../helpers/statistical.helper");
 const url = require('url');
 const redis = require('redis');
 const redisClient = redis.createClient({host : 'localhost'});
+const CronJob = require('cron').CronJob;
 
 const statisticalController = {};
 
@@ -23,7 +26,6 @@ let statisticalOfArticle = async (req, res) => {
 			 	}
 		 	}
 		]);
-
 		count = count[0].total;
 		req.data = {count};
 	}
@@ -74,83 +76,90 @@ let statisticalOfUser = async (req, res) => {
 	}
 
 	count = count[0].total;
-
 	req.data = {count};
-
 	return count;
 }
 
 statisticalController.numberUserOnline = async (req, res) => {
-	redisClient.scard('userOnline', (err, num) => {
-		if (err){
+	let parse = url.parse(req.url, true);
+	let time = parse.query.time;
+	if(!time){
+		redisClient.keys('*', (err, keys) => {
+			if (err){
+				req.error = err;
+				return res.json(err);
+			}
+			let num = keys.length - 1;
+			req.data = num;
+			res.json(num);
+		});
+	} else{
+		try{
+			let timeS = new Date(time);
+			let d = new Date(time);
+			d = d.setHours(d.getHours() + 1);
+			let timeF = new Date();
+			timeF.setTime(d);
+			let count = await Statistical.aggregate([
+				{ "$match": 
+					{ 
+						created_At_ : { '$gte' : timeS, '$lt' : timeF }
+					}
+				},
+			 	{
+			 		$group: {
+				 		_id: "$numUserOnline"
+				 	}
+			 	}
+			]);
+
+			count = parseInt(count[0]._id);
+			res.json(count);
+		} catch(err){
 			req.error = err;
-			return res.json(err);
-		}
-		req.data = {num};
-		res.json(num);
-	});
+			res.status(500).json({error: err});
+		};
+	}
 };
 
 statisticalController.numberUserAccess = async (req, res) => {
-	try{
-		let userId = req.body.userId;
-		let parse = url.parse(req.url, true);
-		let date = parse.query.date;
-
-		if(date){
-			let dateS = new Date(date);
-			let d = new Date(date);
-			d = d.setDate(d.getDate() + 1);
-			let dateF = new Date();
-			dateF.setTime(d);
-
-			let number = await Logger.aggregate([
+	let parse = url.parse(req.url, true);
+	let time = parse.query.time;
+	if(!time){
+		redisClient.scard('userAccess', (err, num) => {
+			if (err){
+				req.error = err;
+				return res.json(err);
+			}
+			req.data = num;
+			res.json(num);
+		});
+	} else{
+		try{
+			let timeS = new Date(time);
+			let d = new Date(time);
+			d = d.setHours(d.getHours() + 1);
+			let timeF = new Date();
+			timeF.setTime(d);
+			let count = await Statistical.aggregate([
 				{ "$match": 
 					{ 
-						created_At_ : { '$gte' : dateS, '$lt' : dateF }
-						// ,
-						// '$request.url' : '/auth/login',
-						// '$response.status' : '200'
+						created_At_ : { '$gte' : timeS, '$lt' : timeF }
 					}
 				},
 			 	{
 			 		$group: {
-				 		_id: "$request.createdBy",
-				 		unique: { $addToSet: "$request.createdBy" }
+				 		_id: "$numUserAccess"
 				 	}
 			 	}
 			]);
 
-			let num = number.length
-			req.data = {num};
-
-			res.json(num);
-		} else{
-			let timeCurrent = new Date();
-			timeCurrent.setTime(new Date().setHours(0,0,0,0));
-
-			let number = await Logger.aggregate([
-				{ "$match": 
-					{ 
-						created_At_ : { '$gte' : timeCurrent }
-					}
-				},
-			 	{
-			 		$group: {
-				 		_id: "$createdBy",
-				 		unique: { $addToSet: "$createdBy" }
-				 	}
-			 	}
-			]);
-
-			let num = number.length
-			req.data = {num};
-
-			res.json(num);
-		}
-	} catch(err){
-		req.error = err;
-		return res.json(err);
+			count = parseInt(count[0]._id);
+			res.json(count);
+		} catch(err){
+			req.error = err;
+			res.status(500).json({error: err});
+		};
 	}
 };
 

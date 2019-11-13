@@ -2,29 +2,15 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
-const CronJob = require('cron').CronJob;
-
-console.log('Before job instantiation');
-const job = new CronJob({
-	cronTime: '* * * * * *', 
-	onTick: function() {
-		const d = new Date();
-		d.setHours(new Date().getHours() + 7);
-		console.log('At Ten Minutes:', d);
-	},
-	start: false,
-	timeZone: 'Asia/Ho_Chi_Minh'
-});
-console.log('After job instantiation');
-job.start();
 
 require('dotenv').config();
 
 const url = process.env.URL_MONGOOSE;
-mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true });
+mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false });
 
 // Require route admin
 const userRoute = require('./routes/user.route');
+const groupUserRoute = require('./routes/groupUser.route');
 const authRoute = require('./routes/auth.route');
 const articleRoute = require('./routes/article.route');
 const commentRoute = require('./routes/comment.route');
@@ -47,12 +33,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Route admin
 app.use('/auth', authRoute);
 app.use('/users', authMiddleware.requireAuth, authMiddleware.authenticate, userRoute);
+app.use('/groupUsers', authMiddleware.requireAuth, authMiddleware.authenticate, groupUserRoute);
 app.use('/articles', authMiddleware.requireAuth, authMiddleware.authenticate, articleRoute);
 app.use('/comments', authMiddleware.requireAuth, authMiddleware.authenticate, commentRoute);
-app.use('/statisticals', authMiddleware.requireAuth, statisticalRoute);
-
-// Route user
-app.use('/userAction', authMiddleware.requireAuth, userActionRoute);
+app.use('/statisticals', authMiddleware.requireAuth, authMiddleware.authenticate, statisticalRoute);
 
 // Listen
 server.listen(port, function() {

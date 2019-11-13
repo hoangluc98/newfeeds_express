@@ -3,8 +3,10 @@ const md5 = require('md5');
 const jwt = require('jsonwebtoken');
 const jwtHelper = require("../helpers/jwt.helper");
 const logHelper = require("../helpers/log.helper");
+const statisticalHelper = require("../helpers/statistical.helper");
 const redis = require('redis');
 const redisClient = redis.createClient({host : 'localhost'});
+const os = require('os');
 require('dotenv').config();
 
 const accessTokenLife = process.env.ACCESS_TOKEN_LIFE || "1h";
@@ -37,11 +39,15 @@ authController.postLogin = async (req, res) => {
 
 	userId = user._id.toString();
 	req.userId = userId;
-	redisClient.sadd("userOnline", userId);
+	redisClient.sadd("userAccess", userId);
+	redisClient.set(userId, userId);
+	redisClient.expire(userId, 5*60);
 
+	const computerName = os.hostname();
 	let userData = {
 		_id: userId,
-		email: email
+		email: email,
+		device: computerName
 	}
 
 	const accessToken = await jwtHelper.generateToken(userData, accessTokenSecret, accessTokenLife); 
@@ -71,10 +77,9 @@ authController.refreshToken = async (req, res) => {
 	if (refreshTokenFromClient) {
 	    try {
 			const decoded = await jwtHelper.verifyToken(refreshTokenFromClient, refreshTokenSecret);
-
 			const userData = decoded.data;
-
 			const accessToken = await jwtHelper.generateToken(userData, accessTokenSecret, accessTokenLife);
+			
 			const user = await User.findOne({_id: userData._id});
 			user.accessToken = accessToken;
 			await user.save();
@@ -101,7 +106,8 @@ authController.logout = async (req, res) => {
 		const user = req.user;
 		const userId = req.userId;
 
-		redisClient.srem('userOnline', userId);
+		redisClient.del(userId);
+		redisClient.srem('userAccess', userId);
 		
 		user.accessToken = ' ';
 		user.refreshToken = ' ';

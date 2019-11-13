@@ -53,44 +53,33 @@ commentController.create = async (req, res) => {
 		return res.status(500).json("Created comment failed");
 
 	req.body.created_At_ = Date.now();
-	const comment = new Comment(req.body);
-	comment
-		.save()
-		.then(result => {
-			req.data = result;
-			res.status(201).json(result);
-		})
-		.catch(err => {
-			req.error = err;
-			res.status(500).json({
-				error: err
-			});
-		});;
+
+	try{
+		const result = await Comment.create(req.body);
+		req.data = result;
+		res.status(201).json(result);
+
+	} catch(err){
+		req.error = err;
+		res.status(500).json({error: err});
+	};
 };
 
 commentController.update = async (req, res) => {
 	let commentId = req.body.commentId;
 
 	try{
-		await Comment.findOneAndUpdate({_id: commentId}, req.body)
+		await Comment.findOneAndUpdate({_id: commentId}, req.body);
+		req.body.userId = req.user._id;
+
+		let result = Comment.find({_id: commentId});
+		req.data = result;
+		res.status(201).json(result);
+
 	} catch(err){
+		req.error = err;
 		res.status(500).json({error: err});
 	};
-
-	req.body.userId = req.user._id;
-		
-	Comment.find({_id: commentId})
-		.exec()
-		.then(result => {
-			req.data = result;
-			res.status(201).json(result);
-		})
-		.catch(err => {
-			req.error = err;
-			res.status(500).json({
-				error: err
-			});
-		});
 };
 
 commentController.delete = async (req, res) => {

@@ -2,41 +2,29 @@ let permission = [
 	{
 		"level": 0,
 		"listPermission": [
-				"list",
-				"item",
-				"create",
-				"update",
-				"delete",
-				"statistical"
+				"/users",
+				"/articles",
+				"/comments",
+				"/groupUsers",
+				"/statisticals"
 			]
 	},
 	{
 		"level": 1,
 		"listPermission": [
-				"list",
-				"item",
-				"create",
-				"update",
-				"delete",
-				"statistical"
+				"/articles",
+				"/comments",
+				"/statisticals"
 			]
 	},
 	{
 		"level": 2,
 		"listPermission": [
-				"list",
-				"item",
-				"create",
-				"update",
-				"statistical"
-			]
-	},
-	{
-		"level": 3,
-		"listPermission": [
-				"list",
-				"item",
-				"statistical"
+				"/articles/list",
+				"/articles/item",
+				"/comments/list",
+				"/comments/item",
+				"/statisticals"
 			]
 	}
 ];

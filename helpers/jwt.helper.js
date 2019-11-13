@@ -7,6 +7,7 @@ let generateToken = (user, secretSignature, tokenLife) => {
         const userData = {
                 _id: user._id,
                 email: user.email,
+                device: user.device
             }
             
         jwt.sign({

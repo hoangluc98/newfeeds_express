@@ -34,17 +34,21 @@ let userSchema = new mongoose.Schema({
 		trim: true,
 		required: true
 	},
-	permission: {
-		type: Object,
-		required: true
+	type: {
+		type: String,
+        required: true
 	},
+    group: {
+        type: Array,
+        required: true
+    },
     accessToken:{
-        type:String,
+        type: String,
         required: true,
         default: ' '
     },
     refreshToken:{
-        type:String,
+        type: String,
         required: true,
         default: ' '
     },
@@ -59,13 +63,13 @@ let userSchema = new mongoose.Schema({
 });
 
 
-userSchema.methods.newAuthToken = async function(){
-    let user  = this;
-    const token =  jwt.sign({ _id: user._id.toString() },'thisismynewblog', {expiresIn: "7 days"});
-    user.token = token;
-    await user.save();
-    return token;
-}
+// userSchema.methods.newAuthToken = async function(){
+//     let user  = this;
+//     const token =  jwt.sign({ _id: user._id.toString() },'thisismynewblog', {expiresIn: "7 days"});
+//     user.token = token;
+//     await user.save();
+//     return token;
+// }
 
 let User = mongoose.model('User', userSchema, 'users');
 

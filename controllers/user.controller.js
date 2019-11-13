@@ -1,4 +1,5 @@
 const User = require('../models/user.model');
+const GroupUser = require('../models/groupUser.model');
 const Permission = require('../permission/permission');
 const url = require('url');
 const md5 = require('md5');
@@ -40,80 +41,54 @@ userController.item = (req, res) => {
 };
 
 userController.create = async (req, res) => {
-	if(!req.body.name || !req.body.email || !req.body.password)
+	const password = req.body.password;
+	const group = req.body.group;
+	if(!req.body.name || !req.body.email || !password || !group)
 		return res.status(500).json("Created user failed");
 
-	const permission = parseInt(req.body.permission);
-	if(permission){
-		if(permission <= 3 && permission >= 0)
-			req.body.permission = Permission[permission];
-		else
-			return res.status(500).json("Permission wrong");
+	for(i = 0; i < group.length; i++){
+		let groupUser = await GroupUser.find({_id: group[i]});
+		if(!groupUser)
+			return res.status(500).json("Group is not exist");
 	}
 
-	req.body.password = req.body.password.toLowerCase();
+	req.body.password = password.toLowerCase();
 	req.body.created_At_ = Date.now();
 
-	let user;
 	try{
-		user = new User(req.body);
+		let result = await User.create(req.body);
+		req.data = result;
+		res.status(201).json(result);
 	} catch(err){
+		req.error = err;
 		res.status(500).json({error: err});
 	};
-    
-	user.save()
-		.then(result => {
-			req.data = result;
-			res.status(201).json(result);
-		})
-		.catch(err => {
-			req.error = err;
-			res.status(500).json({
-				error: err
-			});
-		});
 };
 
 userController.update = async (req, res) => {
 	const userId = req.body.userId;
-	const permission = parseInt(req.body.permission);
-	if(permission){
-		if(permission <= 3 && permission >= 0)
-			req.body.permission = Permission[permission];
-		else
-			return res.status(500).json("Permission wrong");
-	}
 
 	if(req.body.password)
 		req.body.password = req.body.password.toLowerCase();
 
 	try{
-		await User.findOneAndUpdate({_id: userId}, req.body);
+		await User.findByIdAndUpdate({_id: userId}, req.body);
+
+		let result = await User.find({_id: userId});
+		req.data = result;
+		res.status(201).json(result[0]);
 	} catch(err){
+		req.error = err;
 		res.status(500).json({error: err});
 	};
-
-	User.find({_id: userId})
-		.exec()
-		.then(result => {
-			req.data = result;
-			res.status(201).json(result[0]);
-		})
-		.catch(err => {
-			req.error = err;
-			res.status(500).json({
-				error: err
-			});
-		});
 };
 
 userController.delete = (req, res) => {
-	User.findOneAndDelete({_id: req.params.id})
+	User.findByIdAndDelete({_id: req.params.id})
 		.exec()
 		.then(result => {
 			req.data = result;
-			console.log("delete");
-			res.status(204).json("Delete successful");
+			res.status(201).json("Delete successful");
 		})
 		.catch(err => {
 			req.error = err;

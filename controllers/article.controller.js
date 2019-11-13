@@ -46,49 +46,37 @@ articleController.item = (req, res) => {
 		});
 };
 
-articleController.create = (req, res) => {
+articleController.create = async (req, res) => {
 	if(!req.body.content)
 		return res.status(500).json("Created article failed");
 
 	req.body.userId = req.user._id;
 	req.body.created_At_ = Date.now();
-	
-	const article = new Article(req.body)
-	article
-		.save()
-		.then(result => {
-			req.data = result;
-			res.status(201).json(result);
-		})
-		.catch(err => {
-			req.error = err;
-			res.status(500).json({
-				error: err
-			});
-		});;
+	try{
+		const result = await Article.create(req.body);
+		req.data = result;
+		res.status(201).json(result);
+
+	} catch(err){
+		req.error = err;
+		res.status(500).json({error: err});
+	};
 };
 
 articleController.update = async (req, res) => {
 	const articleId = req.body.articleId;
 	try{
 		await Article.findOneAndUpdate({_id: articleId}, req.body);
+		req.body.userId = req.user._id;
+
+		let result = Article.find({_id: articleId});
+		req.data = result;
+		res.status(201).json(result);
+
 	} catch(err){
+		req.error = err;
 		res.status(500).json({error: err});
 	};
-	req.body.userId = req.user._id;
-
-	Article.find({_id: articleId})
-		.exec()
-		.then(result => {
-			req.data = result;
-			res.status(201).json(result);
-		})
-		.catch(err => {
-			req.error = err;
-			res.status(500).json({
-				error: err
-			});
-		});
 };
 
 articleController.delete = async (req, res) => {
@@ -96,22 +84,14 @@ articleController.delete = async (req, res) => {
 	try{
 		await Comment.remove({articleId: articleId});
 		await Like.remove({articleId: articleId});
+
+		let result = Article.findOneAndRemove({_id: articleId});
+		req.data = result;
+		res.status(204).json("Delete successful");
 	} catch(err){
+		req.error = err;
 		res.status(500).json({error: err});
 	}
-
-	Article.findOneAndRemove({_id: articleId})
-		.exec()
-		.then(result => {
-			req.data = result;
-			res.status(204).json("Delete successful");
-		})
-		.catch(err => {
-			req.error = err;
-			res.status(500).json({
-				error: err
-			});
-		});
 };
 
 module.exports = articleController;

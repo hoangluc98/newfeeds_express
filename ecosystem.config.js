@@ -2,7 +2,7 @@ module.exports = {
   apps : [{
     name: 'API',
     script: 'index.js',
-
+    statistical: 'helpers/statistical.helper.js',
     // Options reference: https://pm2.io/doc/en/runtime/reference/ecosystem-file/
     args: 'one two',
     instances: 1,
