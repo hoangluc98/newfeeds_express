@@ -1,0 +1,97 @@
+{ 
+    "_id" : ObjectId("5dca116be2c8cd0d94b3a2c7"), 
+    "status" : "enable", 
+    "permission" : {
+        "articles" : [
+            "list", 
+            "item", 
+            "insert", 
+            "update", 
+            "delete"
+        ], 
+        "comments" : [
+            "list", 
+            "item", 
+            "insert", 
+            "update", 
+            "delete"
+        ], 
+        "statisticals" : [
+            "user-online", 
+            "user-access", 
+            "like-of-article", 
+            "comment-of-article", 
+            "article-of-user", 
+            "like-of-user", 
+            "comment-of-user"
+        ]
+    }, 
+    "created_At_" : ISODate("2019-11-12T01:56:59.988+0000"), 
+    "updated_At_" : ISODate("2019-11-12T01:56:59.992+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dca2547eec4860e50c01cfb"), 
+    "status" : "enable", 
+    "permission" : {
+        "users" : [
+            "list", 
+            "item", 
+            "insert", 
+            "update", 
+            "delete"
+        ], 
+        "articles" : [
+            "list", 
+            "item", 
+            "insert", 
+            "update", 
+            "delete"
+        ], 
+        "comments" : [
+            "list", 
+            "item", 
+            "insert", 
+            "update", 
+            "delete"
+        ], 
+        "statisticals" : [
+            "user-online", 
+            "user-access", 
+            "like-of-article", 
+            "comment-of-article", 
+            "article-of-user", 
+            "like-of-user", 
+            "comment-of-user"
+        ]
+    }, 
+    "created_At_" : ISODate("2019-11-12T03:21:43.167+0000"), 
+    "updated_At_" : ISODate("2019-11-12T03:21:43.168+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb6dd23860a41d08a52900"), 
+    "status" : "enable", 
+    "permission" : {
+        "articles" : [
+            "list", 
+            "item"
+        ], 
+        "comments" : [
+            "list", 
+            "item"
+        ], 
+        "statisticals" : [
+            "user-online", 
+            "user-access", 
+            "like-of-article", 
+            "comment-of-article", 
+            "article-of-user", 
+            "like-of-user", 
+            "comment-of-user"
+        ]
+    }, 
+    "created_At_" : ISODate("2019-11-13T02:43:30.997+0000"), 
+    "updated_At_" : ISODate("2019-11-13T02:43:30.998+0000"), 
+    "__v" : NumberInt(0)
+}

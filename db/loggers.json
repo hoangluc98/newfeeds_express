@@ -1,0 +1,3192 @@
+{ 
+    "_id" : ObjectId("5dcb6039b7b8e304a0774eb8"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/auth/login", 
+        "method" : "POST", 
+        "createdBy" : "5dbbe4446cec461ab8346b59"
+    }, 
+    "response" : {
+        "status" : NumberInt(200), 
+        "data" : {
+            "email" : "luc@gmail.com", 
+            "hashedPassword" : "2e6fdbc573b2975790d504991183519e"
+        }
+    }, 
+    "created_At_" : ISODate("2019-11-13T01:45:29.703+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb6060b7b8e304a0774eb9"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/statisticals/user-online", 
+        "method" : "GET", 
+        "createdBy" : "5dbbe4446cec461ab8346b59"
+    }, 
+    "response" : {
+        "status" : NumberInt(200), 
+        "data" : NumberInt(2)
+    }, 
+    "created_At_" : ISODate("2019-11-13T01:46:08.387+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb60799d482e067c3de4ce"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/statisticals/user-online", 
+        "method" : "GET", 
+        "createdBy" : "5dbbe4446cec461ab8346b59"
+    }, 
+    "response" : {
+        "status" : NumberInt(200), 
+        "data" : NumberInt(1)
+    }, 
+    "created_At_" : ISODate("2019-11-13T01:46:33.037+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb609b9d482e067c3de4cf"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/statisticals/user-access", 
+        "method" : "GET", 
+        "createdBy" : "5dbbe4446cec461ab8346b59"
+    }, 
+    "response" : {
+        "status" : NumberInt(200), 
+        "data" : {
+            "num" : NumberInt(0)
+        }
+    }, 
+    "created_At_" : ISODate("2019-11-13T01:47:07.383+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb6111038ec221a437b96e"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/auth/logout", 
+        "method" : "GET", 
+        "createdBy" : "5dbbe4446cec461ab8346b59"
+    }, 
+    "response" : {
+        "status" : NumberInt(200)
+    }, 
+    "created_At_" : ISODate("2019-11-13T01:49:05.742+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb6125038ec221a437b96f"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/auth/login", 
+        "method" : "POST", 
+        "createdBy" : "5dbbe4446cec461ab8346b59"
+    }, 
+    "response" : {
+        "status" : NumberInt(200), 
+        "data" : {
+            "email" : "luc@gmail.com", 
+            "hashedPassword" : "2e6fdbc573b2975790d504991183519e"
+        }
+    }, 
+    "created_At_" : ISODate("2019-11-13T01:49:25.347+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb6155465c682b9c504817"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/statisticals/user-access", 
+        "method" : "GET", 
+        "createdBy" : "5dbbe4446cec461ab8346b59"
+    }, 
+    "response" : {
+        "status" : NumberInt(200), 
+        "data" : NumberInt(1)
+    }, 
+    "created_At_" : ISODate("2019-11-13T01:50:13.557+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb661b2186351540037aaf"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/auth/logout", 
+        "method" : "GET", 
+        "createdBy" : "5dbbe4446cec461ab8346b59"
+    }, 
+    "response" : {
+        "status" : NumberInt(200)
+    }, 
+    "created_At_" : ISODate("2019-11-13T02:10:35.817+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb662c2186351540037ab0"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/auth/login", 
+        "method" : "POST", 
+        "createdBy" : "5dbbe4446cec461ab8346b59"
+    }, 
+    "response" : {
+        "status" : NumberInt(200), 
+        "data" : {
+            "email" : "luc@gmail.com", 
+            "hashedPassword" : "2e6fdbc573b2975790d504991183519e"
+        }
+    }, 
+    "created_At_" : ISODate("2019-11-13T02:10:52.912+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb680500a3742798fa5652"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/auth/logout", 
+        "method" : "GET", 
+        "createdBy" : "5dbbe4446cec461ab8346b59"
+    }, 
+    "response" : {
+        "status" : NumberInt(200)
+    }, 
+    "created_At_" : ISODate("2019-11-13T02:18:45.846+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb680800a3742798fa5653"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/auth/login", 
+        "method" : "POST", 
+        "createdBy" : "5dbbe4446cec461ab8346b59"
+    }, 
+    "response" : {
+        "status" : NumberInt(200), 
+        "data" : {
+            "email" : "luc@gmail.com", 
+            "hashedPassword" : "2e6fdbc573b2975790d504991183519e"
+        }
+    }, 
+    "created_At_" : ISODate("2019-11-13T02:18:48.198+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb6d433860a41d08a528ff"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/groupUsers/list", 
+        "method" : "GET", 
+        "createdBy" : "5dbbe4446cec461ab8346b59"
+    }, 
+    "response" : {
+        "status" : NumberInt(200), 
+        "data" : {
+            "list" : [
+                {
+                    "_id" : ObjectId("5dca116be2c8cd0d94b3a2c7"), 
+                    "permission" : {
+                        "articles" : [
+                            "list", 
+                            "item", 
+                            "insert", 
+                            "update", 
+                            "delete"
+                        ], 
+                        "comments" : [
+                            "list", 
+                            "item", 
+                            "insert", 
+                            "update", 
+                            "delete"
+                        ], 
+                        "statisticals" : [
+                            "user-online", 
+                            "user-access", 
+                            "like-of-article", 
+                            "comment-of-article", 
+                            "article-of-user", 
+                            "like-of-user", 
+                            "comment-of-user"
+                        ]
+                    }, 
+                    "created_At_" : ISODate("2019-11-12T01:56:59.988+0000"), 
+                    "updated_At_" : ISODate("2019-11-12T01:56:59.992+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5dca2547eec4860e50c01cfb"), 
+                    "permission" : {
+                        "users" : [
+                            "list", 
+                            "item", 
+                            "insert", 
+                            "update", 
+                            "delete"
+                        ], 
+                        "articles" : [
+                            "list", 
+                            "item", 
+                            "insert", 
+                            "update", 
+                            "delete"
+                        ], 
+                        "comments" : [
+                            "list", 
+                            "item", 
+                            "insert", 
+                            "update", 
+                            "delete"
+                        ], 
+                        "statisticals" : [
+                            "user-online", 
+                            "user-access", 
+                            "like-of-article", 
+                            "comment-of-article", 
+                            "article-of-user", 
+                            "like-of-user", 
+                            "comment-of-user"
+                        ]
+                    }, 
+                    "created_At_" : ISODate("2019-11-12T03:21:43.167+0000"), 
+                    "updated_At_" : ISODate("2019-11-12T03:21:43.168+0000"), 
+                    "__v" : NumberInt(0)
+                }
+            ], 
+            "total" : NumberInt(2)
+        }
+    }, 
+    "created_At_" : ISODate("2019-11-13T02:41:07.938+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb6dd33860a41d08a52901"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/groupUsers/insert", 
+        "method" : "POST", 
+        "createdBy" : "5dbbe4446cec461ab8346b59"
+    }, 
+    "response" : {
+        "status" : NumberInt(201), 
+        "data" : {
+            "_id" : ObjectId("5dcb6dd23860a41d08a52900"), 
+            "permission" : {
+                "articles" : [
+                    "list", 
+                    "item"
+                ], 
+                "comments" : [
+                    "list", 
+                    "item"
+                ], 
+                "statisticals" : [
+                    "user-online", 
+                    "user-access", 
+                    "like-of-article", 
+                    "comment-of-article", 
+                    "article-of-user", 
+                    "like-of-user", 
+                    "comment-of-user"
+                ]
+            }, 
+            "created_At_" : ISODate("2019-11-13T02:43:30.997+0000"), 
+            "updated_At_" : ISODate("2019-11-13T02:43:30.998+0000"), 
+            "__v" : NumberInt(0)
+        }
+    }, 
+    "created_At_" : ISODate("2019-11-13T02:43:31.004+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb6e193860a41d08a52902"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/groupUsers/list", 
+        "method" : "GET", 
+        "createdBy" : "5dbbe4446cec461ab8346b59"
+    }, 
+    "response" : {
+        "status" : NumberInt(200), 
+        "data" : {
+            "list" : [
+                {
+                    "_id" : ObjectId("5dca116be2c8cd0d94b3a2c7"), 
+                    "permission" : {
+                        "articles" : [
+                            "list", 
+                            "item", 
+                            "insert", 
+                            "update", 
+                            "delete"
+                        ], 
+                        "comments" : [
+                            "list", 
+                            "item", 
+                            "insert", 
+                            "update", 
+                            "delete"
+                        ], 
+                        "statisticals" : [
+                            "user-online", 
+                            "user-access", 
+                            "like-of-article", 
+                            "comment-of-article", 
+                            "article-of-user", 
+                            "like-of-user", 
+                            "comment-of-user"
+                        ]
+                    }, 
+                    "created_At_" : ISODate("2019-11-12T01:56:59.988+0000"), 
+                    "updated_At_" : ISODate("2019-11-12T01:56:59.992+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5dca2547eec4860e50c01cfb"), 
+                    "permission" : {
+                        "users" : [
+                            "list", 
+                            "item", 
+                            "insert", 
+                            "update", 
+                            "delete"
+                        ], 
+                        "articles" : [
+                            "list", 
+                            "item", 
+                            "insert", 
+                            "update", 
+                            "delete"
+                        ], 
+                        "comments" : [
+                            "list", 
+                            "item", 
+                            "insert", 
+                            "update", 
+                            "delete"
+                        ], 
+                        "statisticals" : [
+                            "user-online", 
+                            "user-access", 
+                            "like-of-article", 
+                            "comment-of-article", 
+                            "article-of-user", 
+                            "like-of-user", 
+                            "comment-of-user"
+                        ]
+                    }, 
+                    "created_At_" : ISODate("2019-11-12T03:21:43.167+0000"), 
+                    "updated_At_" : ISODate("2019-11-12T03:21:43.168+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5dcb6dd23860a41d08a52900"), 
+                    "permission" : {
+                        "articles" : [
+                            "list", 
+                            "item"
+                        ], 
+                        "comments" : [
+                            "list", 
+                            "item"
+                        ], 
+                        "statisticals" : [
+                            "user-online", 
+                            "user-access", 
+                            "like-of-article", 
+                            "comment-of-article", 
+                            "article-of-user", 
+                            "like-of-user", 
+                            "comment-of-user"
+                        ]
+                    }, 
+                    "created_At_" : ISODate("2019-11-13T02:43:30.997+0000"), 
+                    "updated_At_" : ISODate("2019-11-13T02:43:30.998+0000"), 
+                    "__v" : NumberInt(0)
+                }
+            ], 
+            "total" : NumberInt(3)
+        }
+    }, 
+    "created_At_" : ISODate("2019-11-13T02:44:41.402+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb6e263860a41d08a52903"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/groupUsers/update", 
+        "method" : "POST", 
+        "createdBy" : "5dbbe4446cec461ab8346b59"
+    }, 
+    "response" : {
+        "status" : NumberInt(404)
+    }, 
+    "created_At_" : ISODate("2019-11-13T02:44:54.907+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb6e4d70e0f706ec811654"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/groupUsers/update", 
+        "method" : "POST", 
+        "createdBy" : "5dbbe4446cec461ab8346b59"
+    }, 
+    "response" : {
+        "status" : NumberInt(201), 
+        "data" : [
+            {
+                "_id" : ObjectId("5dcb6dd23860a41d08a52900"), 
+                "permission" : {
+                    "articles" : [
+                        "list", 
+                        "item"
+                    ], 
+                    "comments" : [
+                        "list", 
+                        "item"
+                    ], 
+                    "statisticals" : [
+                        "user-online", 
+                        "user-access", 
+                        "like-of-article", 
+                        "comment-of-article", 
+                        "article-of-user", 
+                        "like-of-user"
+                    ]
+                }, 
+                "created_At_" : ISODate("2019-11-13T02:43:30.997+0000"), 
+                "updated_At_" : ISODate("2019-11-13T02:43:30.998+0000"), 
+                "__v" : NumberInt(0)
+            }
+        ]
+    }, 
+    "created_At_" : ISODate("2019-11-13T02:45:33.091+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb6e5470e0f706ec811655"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/groupUsers/list", 
+        "method" : "GET", 
+        "createdBy" : "5dbbe4446cec461ab8346b59"
+    }, 
+    "response" : {
+        "status" : NumberInt(200), 
+        "data" : {
+            "list" : [
+                {
+                    "_id" : ObjectId("5dca116be2c8cd0d94b3a2c7"), 
+                    "permission" : {
+                        "articles" : [
+                            "list", 
+                            "item", 
+                            "insert", 
+                            "update", 
+                            "delete"
+                        ], 
+                        "comments" : [
+                            "list", 
+                            "item", 
+                            "insert", 
+                            "update", 
+                            "delete"
+                        ], 
+                        "statisticals" : [
+                            "user-online", 
+                            "user-access", 
+                            "like-of-article", 
+                            "comment-of-article", 
+                            "article-of-user", 
+                            "like-of-user", 
+                            "comment-of-user"
+                        ]
+                    }, 
+                    "created_At_" : ISODate("2019-11-12T01:56:59.988+0000"), 
+                    "updated_At_" : ISODate("2019-11-12T01:56:59.992+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5dca2547eec4860e50c01cfb"), 
+                    "permission" : {
+                        "users" : [
+                            "list", 
+                            "item", 
+                            "insert", 
+                            "update", 
+                            "delete"
+                        ], 
+                        "articles" : [
+                            "list", 
+                            "item", 
+                            "insert", 
+                            "update", 
+                            "delete"
+                        ], 
+                        "comments" : [
+                            "list", 
+                            "item", 
+                            "insert", 
+                            "update", 
+                            "delete"
+                        ], 
+                        "statisticals" : [
+                            "user-online", 
+                            "user-access", 
+                            "like-of-article", 
+                            "comment-of-article", 
+                            "article-of-user", 
+                            "like-of-user", 
+                            "comment-of-user"
+                        ]
+                    }, 
+                    "created_At_" : ISODate("2019-11-12T03:21:43.167+0000"), 
+                    "updated_At_" : ISODate("2019-11-12T03:21:43.168+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5dcb6dd23860a41d08a52900"), 
+                    "permission" : {
+                        "articles" : [
+                            "list", 
+                            "item"
+                        ], 
+                        "comments" : [
+                            "list", 
+                            "item"
+                        ], 
+                        "statisticals" : [
+                            "user-online", 
+                            "user-access", 
+                            "like-of-article", 
+                            "comment-of-article", 
+                            "article-of-user", 
+                            "like-of-user"
+                        ]
+                    }, 
+                    "created_At_" : ISODate("2019-11-13T02:43:30.997+0000"), 
+                    "updated_At_" : ISODate("2019-11-13T02:43:30.998+0000"), 
+                    "__v" : NumberInt(0)
+                }
+            ], 
+            "total" : NumberInt(3)
+        }
+    }, 
+    "created_At_" : ISODate("2019-11-13T02:45:40.150+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb6e5e70e0f706ec811656"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/groupUsers/update", 
+        "method" : "POST", 
+        "createdBy" : "5dbbe4446cec461ab8346b59"
+    }, 
+    "response" : {
+        "status" : NumberInt(201), 
+        "data" : [
+            {
+                "_id" : ObjectId("5dcb6dd23860a41d08a52900"), 
+                "permission" : {
+                    "articles" : [
+                        "list", 
+                        "item"
+                    ], 
+                    "comments" : [
+                        "list", 
+                        "item"
+                    ], 
+                    "statisticals" : [
+                        "user-online", 
+                        "user-access", 
+                        "like-of-article", 
+                        "comment-of-article", 
+                        "article-of-user", 
+                        "like-of-user", 
+                        "comment-of-user"
+                    ]
+                }, 
+                "created_At_" : ISODate("2019-11-13T02:43:30.997+0000"), 
+                "updated_At_" : ISODate("2019-11-13T02:43:30.998+0000"), 
+                "__v" : NumberInt(0)
+            }
+        ]
+    }, 
+    "created_At_" : ISODate("2019-11-13T02:45:50.265+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb6ecc70e0f706ec811658"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/users/insert", 
+        "method" : "POST", 
+        "createdBy" : "5dbbe4446cec461ab8346b59"
+    }, 
+    "response" : {
+        "status" : NumberInt(201), 
+        "data" : {
+            "group" : [
+                "5dcb6dd23860a41d08a52900"
+            ], 
+            "accessToken" : " ", 
+            "refreshToken" : " ", 
+            "_id" : ObjectId("5dcb6ecc70e0f706ec811657"), 
+            "email" : "user1@gmail.com", 
+            "password" : "24c9e15e52afc47c225b757e7bee1f9d", 
+            "name" : "user2", 
+            "type" : "user", 
+            "created_At_" : ISODate("2019-11-13T02:47:40.119+0000"), 
+            "updated_At_" : ISODate("2019-11-13T02:47:40.120+0000"), 
+            "__v" : NumberInt(0)
+        }
+    }, 
+    "created_At_" : ISODate("2019-11-13T02:47:40.132+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb6ee770e0f706ec81165a"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/users/insert", 
+        "method" : "POST", 
+        "createdBy" : "5dbbe4446cec461ab8346b59"
+    }, 
+    "response" : {
+        "status" : NumberInt(201), 
+        "data" : {
+            "group" : [
+                "5dcb6dd23860a41d08a52900"
+            ], 
+            "accessToken" : " ", 
+            "refreshToken" : " ", 
+            "_id" : ObjectId("5dcb6ee770e0f706ec811659"), 
+            "email" : "user2@gmail.com", 
+            "password" : "7e58d63b60197ceb55a1c487989a3720", 
+            "name" : "user2", 
+            "type" : "user", 
+            "created_At_" : ISODate("2019-11-13T02:48:07.681+0000"), 
+            "updated_At_" : ISODate("2019-11-13T02:48:07.681+0000"), 
+            "__v" : NumberInt(0)
+        }
+    }, 
+    "created_At_" : ISODate("2019-11-13T02:48:07.685+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb6ef970e0f706ec81165c"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/users/insert", 
+        "method" : "POST", 
+        "createdBy" : "5dbbe4446cec461ab8346b59"
+    }, 
+    "response" : {
+        "status" : NumberInt(201), 
+        "data" : {
+            "group" : [
+                "5dcb6dd23860a41d08a52900"
+            ], 
+            "accessToken" : " ", 
+            "refreshToken" : " ", 
+            "_id" : ObjectId("5dcb6ef970e0f706ec81165b"), 
+            "email" : "user3@gmail.com", 
+            "password" : "92877af70a45fd6a2ed7fe81e1236b78", 
+            "name" : "user3", 
+            "type" : "user", 
+            "created_At_" : ISODate("2019-11-13T02:48:25.802+0000"), 
+            "updated_At_" : ISODate("2019-11-13T02:48:25.802+0000"), 
+            "__v" : NumberInt(0)
+        }
+    }, 
+    "created_At_" : ISODate("2019-11-13T02:48:25.806+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb6f1870e0f706ec81165d"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/groupUsers/list", 
+        "method" : "GET", 
+        "createdBy" : "5dbbe4446cec461ab8346b59"
+    }, 
+    "response" : {
+        "status" : NumberInt(200), 
+        "data" : {
+            "list" : [
+                {
+                    "_id" : ObjectId("5dca116be2c8cd0d94b3a2c7"), 
+                    "permission" : {
+                        "articles" : [
+                            "list", 
+                            "item", 
+                            "insert", 
+                            "update", 
+                            "delete"
+                        ], 
+                        "comments" : [
+                            "list", 
+                            "item", 
+                            "insert", 
+                            "update", 
+                            "delete"
+                        ], 
+                        "statisticals" : [
+                            "user-online", 
+                            "user-access", 
+                            "like-of-article", 
+                            "comment-of-article", 
+                            "article-of-user", 
+                            "like-of-user", 
+                            "comment-of-user"
+                        ]
+                    }, 
+                    "created_At_" : ISODate("2019-11-12T01:56:59.988+0000"), 
+                    "updated_At_" : ISODate("2019-11-12T01:56:59.992+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5dca2547eec4860e50c01cfb"), 
+                    "permission" : {
+                        "users" : [
+                            "list", 
+                            "item", 
+                            "insert", 
+                            "update", 
+                            "delete"
+                        ], 
+                        "articles" : [
+                            "list", 
+                            "item", 
+                            "insert", 
+                            "update", 
+                            "delete"
+                        ], 
+                        "comments" : [
+                            "list", 
+                            "item", 
+                            "insert", 
+                            "update", 
+                            "delete"
+                        ], 
+                        "statisticals" : [
+                            "user-online", 
+                            "user-access", 
+                            "like-of-article", 
+                            "comment-of-article", 
+                            "article-of-user", 
+                            "like-of-user", 
+                            "comment-of-user"
+                        ]
+                    }, 
+                    "created_At_" : ISODate("2019-11-12T03:21:43.167+0000"), 
+                    "updated_At_" : ISODate("2019-11-12T03:21:43.168+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5dcb6dd23860a41d08a52900"), 
+                    "permission" : {
+                        "articles" : [
+                            "list", 
+                            "item"
+                        ], 
+                        "comments" : [
+                            "list", 
+                            "item"
+                        ], 
+                        "statisticals" : [
+                            "user-online", 
+                            "user-access", 
+                            "like-of-article", 
+                            "comment-of-article", 
+                            "article-of-user", 
+                            "like-of-user", 
+                            "comment-of-user"
+                        ]
+                    }, 
+                    "created_At_" : ISODate("2019-11-13T02:43:30.997+0000"), 
+                    "updated_At_" : ISODate("2019-11-13T02:43:30.998+0000"), 
+                    "__v" : NumberInt(0)
+                }
+            ], 
+            "total" : NumberInt(3)
+        }
+    }, 
+    "created_At_" : ISODate("2019-11-13T02:48:56.650+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb6f2670e0f706ec81165e"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/users/list", 
+        "method" : "GET", 
+        "createdBy" : "5dbbe4446cec461ab8346b59"
+    }, 
+    "response" : {
+        "status" : NumberInt(200), 
+        "data" : {
+            "list" : [
+                {
+                    "group" : [
+                        "5dca2547eec4860e50c01cfb"
+                    ], 
+                    "accessToken" : "", 
+                    "refreshToken" : "", 
+                    "_id" : ObjectId("5db10457f9b46e06945ceae1"), 
+                    "email" : "hoang@gmail.com", 
+                    "password" : "F82E62D7C3EA69CC12B5CDB8D621DAB6", 
+                    "name" : "hoang", 
+                    "created_At_" : ISODate("2019-10-24T01:54:31.940+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T01:54:31.941+0000"), 
+                    "__v" : NumberInt(0), 
+                    "type" : "admin"
+                }, 
+                {
+                    "group" : [
+                        "5dca2547eec4860e50c01cfb"
+                    ], 
+                    "accessToken" : "", 
+                    "refreshToken" : "", 
+                    "_id" : ObjectId("5db104814536331a20d38765"), 
+                    "email" : "dinh@gmail.com", 
+                    "password" : "45eea262ec1d46cc5ee3817bc821e757", 
+                    "name" : "Dinh", 
+                    "created_At_" : ISODate("2019-10-24T01:55:13.090+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T01:55:13.092+0000"), 
+                    "__v" : NumberInt(0), 
+                    "type" : "admin"
+                }, 
+                {
+                    "group" : [
+                        "5dca116be2c8cd0d94b3a2c7"
+                    ], 
+                    "accessToken" : " ", 
+                    "refreshToken" : " ", 
+                    "_id" : ObjectId("5dbb93a7dde44a03d4221090"), 
+                    "email" : "test@gmail.com", 
+                    "password" : "098f6bcd4621d373cade4e832627b4f6", 
+                    "name" : "test", 
+                    "type" : "user", 
+                    "created_At_" : ISODate("2019-11-01T02:08:39.989+0000"), 
+                    "updated_At_" : ISODate("2019-11-01T02:08:39.989+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "group" : [
+                        "5dca2547eec4860e50c01cfb"
+                    ], 
+                    "accessToken" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Il9pZCI6IjVkYmJlNDQ0NmNlYzQ2MWFiODM0NmI1OSIsImVtYWlsIjoibHVjQGdtYWlsLmNvbSIsImRldmljZSI6IkRFU0tUT1AtVkVISlNHMyJ9LCJpYXQiOjE1NzM2MTE1MjgsImV4cCI6MTU3MzYyMjMyOH0.30RvkiZLhHWeERTjk-hu1GKxAIwt1iEjn8OEAwzlh0U", 
+                    "refreshToken" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Il9pZCI6IjVkYmJlNDQ0NmNlYzQ2MWFiODM0NmI1OSIsImVtYWlsIjoibHVjQGdtYWlsLmNvbSIsImRldmljZSI6IkRFU0tUT1AtVkVISlNHMyJ9LCJpYXQiOjE1NzM2MTE1MjgsImV4cCI6MTg4ODk3MTUyOH0.ifU7v_Hz75OUGBSDZZG5qf69n93QsiN2mAkT9L2oNyo", 
+                    "_id" : ObjectId("5dbbe4446cec461ab8346b59"), 
+                    "email" : "luc@gmail.com", 
+                    "password" : "2e6fdbc573b2975790d504991183519e", 
+                    "name" : "luc", 
+                    "type" : "admin", 
+                    "created_At_" : ISODate("2019-11-01T07:52:36.793+0000"), 
+                    "updated_At_" : ISODate("2019-11-01T07:52:36.793+0000"), 
+                    "__v" : NumberInt(2)
+                }, 
+                {
+                    "group" : [
+                        "5dca116be2c8cd0d94b3a2c7"
+                    ], 
+                    "accessToken" : " ", 
+                    "refreshToken" : " ", 
+                    "_id" : ObjectId("5dbbf64109f32b1994c47c0c"), 
+                    "email" : "check@gmail.com", 
+                    "password" : "0ba4439ee9a46d9d9f14c60f88f45f87", 
+                    "name" : "check", 
+                    "type" : "user", 
+                    "created_At_" : ISODate("2019-11-01T09:09:21.551+0000"), 
+                    "updated_At_" : ISODate("2019-11-01T09:09:21.554+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "group" : [
+                        "5dca116be2c8cd0d94b3a2c7"
+                    ], 
+                    "accessToken" : " ", 
+                    "refreshToken" : " ", 
+                    "_id" : ObjectId("5dc3cd56eb072c2b4c8a477f"), 
+                    "email" : "example@gmail.com", 
+                    "password" : "1a79a4d60de6718e8e5b326e338ae533", 
+                    "name" : "example", 
+                    "type" : "user", 
+                    "created_At_" : ISODate("2019-11-07T07:52:54.062+0000"), 
+                    "updated_At_" : ISODate("2019-11-07T07:52:54.063+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "group" : [
+                        "5dcb6dd23860a41d08a52900"
+                    ], 
+                    "accessToken" : " ", 
+                    "refreshToken" : " ", 
+                    "_id" : ObjectId("5dcb6ecc70e0f706ec811657"), 
+                    "email" : "user1@gmail.com", 
+                    "password" : "24c9e15e52afc47c225b757e7bee1f9d", 
+                    "name" : "user2", 
+                    "type" : "user", 
+                    "created_At_" : ISODate("2019-11-13T02:47:40.119+0000"), 
+                    "updated_At_" : ISODate("2019-11-13T02:47:40.120+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "group" : [
+                        "5dcb6dd23860a41d08a52900"
+                    ], 
+                    "accessToken" : " ", 
+                    "refreshToken" : " ", 
+                    "_id" : ObjectId("5dcb6ee770e0f706ec811659"), 
+                    "email" : "user2@gmail.com", 
+                    "password" : "7e58d63b60197ceb55a1c487989a3720", 
+                    "name" : "user2", 
+                    "type" : "user", 
+                    "created_At_" : ISODate("2019-11-13T02:48:07.681+0000"), 
+                    "updated_At_" : ISODate("2019-11-13T02:48:07.681+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "group" : [
+                        "5dcb6dd23860a41d08a52900"
+                    ], 
+                    "accessToken" : " ", 
+                    "refreshToken" : " ", 
+                    "_id" : ObjectId("5dcb6ef970e0f706ec81165b"), 
+                    "email" : "user3@gmail.com", 
+                    "password" : "92877af70a45fd6a2ed7fe81e1236b78", 
+                    "name" : "user3", 
+                    "type" : "user", 
+                    "created_At_" : ISODate("2019-11-13T02:48:25.802+0000"), 
+                    "updated_At_" : ISODate("2019-11-13T02:48:25.802+0000"), 
+                    "__v" : NumberInt(0)
+                }
+            ], 
+            "total" : NumberInt(9)
+        }
+    }, 
+    "created_At_" : ISODate("2019-11-13T02:49:10.577+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb768568a6aa23f063df58"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/auth/logout", 
+        "method" : "GET", 
+        "createdBy" : "5dbbe4446cec461ab8346b59"
+    }, 
+    "response" : {
+        "status" : NumberInt(200)
+    }, 
+    "created_At_" : ISODate("2019-11-13T03:20:37.465+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb768f68a6aa23f063df59"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/auth/login", 
+        "method" : "POST", 
+        "createdBy" : "5dbbe4446cec461ab8346b59"
+    }, 
+    "response" : {
+        "status" : NumberInt(200), 
+        "data" : {
+            "email" : "luc@gmail.com", 
+            "hashedPassword" : "2e6fdbc573b2975790d504991183519e"
+        }
+    }, 
+    "created_At_" : ISODate("2019-11-13T03:20:47.154+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb769968a6aa23f063df5a"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/groupUsers/list", 
+        "method" : "GET", 
+        "createdBy" : "5dbbe4446cec461ab8346b59"
+    }, 
+    "response" : {
+        "status" : NumberInt(200), 
+        "data" : {
+            "list" : [
+                {
+                    "_id" : ObjectId("5dca116be2c8cd0d94b3a2c7"), 
+                    "permission" : {
+                        "articles" : [
+                            "list", 
+                            "item", 
+                            "insert", 
+                            "update", 
+                            "delete"
+                        ], 
+                        "comments" : [
+                            "list", 
+                            "item", 
+                            "insert", 
+                            "update", 
+                            "delete"
+                        ], 
+                        "statisticals" : [
+                            "user-online", 
+                            "user-access", 
+                            "like-of-article", 
+                            "comment-of-article", 
+                            "article-of-user", 
+                            "like-of-user", 
+                            "comment-of-user"
+                        ]
+                    }, 
+                    "created_At_" : ISODate("2019-11-12T01:56:59.988+0000"), 
+                    "updated_At_" : ISODate("2019-11-12T01:56:59.992+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5dca2547eec4860e50c01cfb"), 
+                    "permission" : {
+                        "users" : [
+                            "list", 
+                            "item", 
+                            "insert", 
+                            "update", 
+                            "delete"
+                        ], 
+                        "articles" : [
+                            "list", 
+                            "item", 
+                            "insert", 
+                            "update", 
+                            "delete"
+                        ], 
+                        "comments" : [
+                            "list", 
+                            "item", 
+                            "insert", 
+                            "update", 
+                            "delete"
+                        ], 
+                        "statisticals" : [
+                            "user-online", 
+                            "user-access", 
+                            "like-of-article", 
+                            "comment-of-article", 
+                            "article-of-user", 
+                            "like-of-user", 
+                            "comment-of-user"
+                        ]
+                    }, 
+                    "created_At_" : ISODate("2019-11-12T03:21:43.167+0000"), 
+                    "updated_At_" : ISODate("2019-11-12T03:21:43.168+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5dcb6dd23860a41d08a52900"), 
+                    "permission" : {
+                        "articles" : [
+                            "list", 
+                            "item"
+                        ], 
+                        "comments" : [
+                            "list", 
+                            "item"
+                        ], 
+                        "statisticals" : [
+                            "user-online", 
+                            "user-access", 
+                            "like-of-article", 
+                            "comment-of-article", 
+                            "article-of-user", 
+                            "like-of-user", 
+                            "comment-of-user"
+                        ]
+                    }, 
+                    "created_At_" : ISODate("2019-11-13T02:43:30.997+0000"), 
+                    "updated_At_" : ISODate("2019-11-13T02:43:30.998+0000"), 
+                    "__v" : NumberInt(0)
+                }
+            ], 
+            "total" : NumberInt(3)
+        }
+    }, 
+    "created_At_" : ISODate("2019-11-13T03:20:57.359+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb76a668a6aa23f063df5b"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/users/list", 
+        "method" : "GET", 
+        "createdBy" : "5dbbe4446cec461ab8346b59"
+    }, 
+    "response" : {
+        "status" : NumberInt(200), 
+        "data" : {
+            "list" : [
+                {
+                    "group" : [
+                        "5dca2547eec4860e50c01cfb"
+                    ], 
+                    "accessToken" : "", 
+                    "refreshToken" : "", 
+                    "_id" : ObjectId("5db10457f9b46e06945ceae1"), 
+                    "email" : "hoang@gmail.com", 
+                    "password" : "F82E62D7C3EA69CC12B5CDB8D621DAB6", 
+                    "name" : "hoang", 
+                    "created_At_" : ISODate("2019-10-24T01:54:31.940+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T01:54:31.941+0000"), 
+                    "__v" : NumberInt(0), 
+                    "type" : "admin"
+                }, 
+                {
+                    "group" : [
+                        "5dca2547eec4860e50c01cfb"
+                    ], 
+                    "accessToken" : "", 
+                    "refreshToken" : "", 
+                    "_id" : ObjectId("5db104814536331a20d38765"), 
+                    "email" : "dinh@gmail.com", 
+                    "password" : "45eea262ec1d46cc5ee3817bc821e757", 
+                    "name" : "Dinh", 
+                    "created_At_" : ISODate("2019-10-24T01:55:13.090+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T01:55:13.092+0000"), 
+                    "__v" : NumberInt(0), 
+                    "type" : "admin"
+                }, 
+                {
+                    "group" : [
+                        "5dca116be2c8cd0d94b3a2c7"
+                    ], 
+                    "accessToken" : " ", 
+                    "refreshToken" : " ", 
+                    "_id" : ObjectId("5dbb93a7dde44a03d4221090"), 
+                    "email" : "test@gmail.com", 
+                    "password" : "098f6bcd4621d373cade4e832627b4f6", 
+                    "name" : "test", 
+                    "type" : "user", 
+                    "created_At_" : ISODate("2019-11-01T02:08:39.989+0000"), 
+                    "updated_At_" : ISODate("2019-11-01T02:08:39.989+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "group" : [
+                        "5dca2547eec4860e50c01cfb"
+                    ], 
+                    "accessToken" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Il9pZCI6IjVkYmJlNDQ0NmNlYzQ2MWFiODM0NmI1OSIsImVtYWlsIjoibHVjQGdtYWlsLmNvbSIsImRldmljZSI6IkRFU0tUT1AtVkVISlNHMyJ9LCJpYXQiOjE1NzM2MTUyNDcsImV4cCI6MTU3MzYyNjA0N30.flnsCGflgdDczsC82p6ylQPKGqpw1poE2m5a7CVT9nk", 
+                    "refreshToken" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Il9pZCI6IjVkYmJlNDQ0NmNlYzQ2MWFiODM0NmI1OSIsImVtYWlsIjoibHVjQGdtYWlsLmNvbSIsImRldmljZSI6IkRFU0tUT1AtVkVISlNHMyJ9LCJpYXQiOjE1NzM2MTUyNDcsImV4cCI6MTg4ODk3NTI0N30.q24t2XITZHvRoulBwry0F5u29xQzHgmPxsV81sOg-wo", 
+                    "_id" : ObjectId("5dbbe4446cec461ab8346b59"), 
+                    "email" : "luc@gmail.com", 
+                    "password" : "2e6fdbc573b2975790d504991183519e", 
+                    "name" : "luc", 
+                    "type" : "admin", 
+                    "created_At_" : ISODate("2019-11-01T07:52:36.793+0000"), 
+                    "updated_At_" : ISODate("2019-11-01T07:52:36.793+0000"), 
+                    "__v" : NumberInt(2)
+                }, 
+                {
+                    "group" : [
+                        "5dca116be2c8cd0d94b3a2c7"
+                    ], 
+                    "accessToken" : " ", 
+                    "refreshToken" : " ", 
+                    "_id" : ObjectId("5dbbf64109f32b1994c47c0c"), 
+                    "email" : "check@gmail.com", 
+                    "password" : "0ba4439ee9a46d9d9f14c60f88f45f87", 
+                    "name" : "check", 
+                    "type" : "user", 
+                    "created_At_" : ISODate("2019-11-01T09:09:21.551+0000"), 
+                    "updated_At_" : ISODate("2019-11-01T09:09:21.554+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "group" : [
+                        "5dca116be2c8cd0d94b3a2c7"
+                    ], 
+                    "accessToken" : " ", 
+                    "refreshToken" : " ", 
+                    "_id" : ObjectId("5dc3cd56eb072c2b4c8a477f"), 
+                    "email" : "example@gmail.com", 
+                    "password" : "1a79a4d60de6718e8e5b326e338ae533", 
+                    "name" : "example", 
+                    "type" : "user", 
+                    "created_At_" : ISODate("2019-11-07T07:52:54.062+0000"), 
+                    "updated_At_" : ISODate("2019-11-07T07:52:54.063+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "group" : [
+                        "5dcb6dd23860a41d08a52900"
+                    ], 
+                    "accessToken" : " ", 
+                    "refreshToken" : " ", 
+                    "_id" : ObjectId("5dcb6ecc70e0f706ec811657"), 
+                    "email" : "user1@gmail.com", 
+                    "password" : "24c9e15e52afc47c225b757e7bee1f9d", 
+                    "name" : "user2", 
+                    "type" : "user", 
+                    "created_At_" : ISODate("2019-11-13T02:47:40.119+0000"), 
+                    "updated_At_" : ISODate("2019-11-13T02:47:40.120+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "group" : [
+                        "5dcb6dd23860a41d08a52900"
+                    ], 
+                    "accessToken" : " ", 
+                    "refreshToken" : " ", 
+                    "_id" : ObjectId("5dcb6ee770e0f706ec811659"), 
+                    "email" : "user2@gmail.com", 
+                    "password" : "7e58d63b60197ceb55a1c487989a3720", 
+                    "name" : "user2", 
+                    "type" : "user", 
+                    "created_At_" : ISODate("2019-11-13T02:48:07.681+0000"), 
+                    "updated_At_" : ISODate("2019-11-13T02:48:07.681+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "group" : [
+                        "5dcb6dd23860a41d08a52900"
+                    ], 
+                    "accessToken" : " ", 
+                    "refreshToken" : " ", 
+                    "_id" : ObjectId("5dcb6ef970e0f706ec81165b"), 
+                    "email" : "user3@gmail.com", 
+                    "password" : "92877af70a45fd6a2ed7fe81e1236b78", 
+                    "name" : "user3", 
+                    "type" : "user", 
+                    "created_At_" : ISODate("2019-11-13T02:48:25.802+0000"), 
+                    "updated_At_" : ISODate("2019-11-13T02:48:25.802+0000"), 
+                    "__v" : NumberInt(0)
+                }
+            ], 
+            "total" : NumberInt(9)
+        }
+    }, 
+    "created_At_" : ISODate("2019-11-13T03:21:10.282+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb76b668a6aa23f063df5c"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/articles/list?page=1&userId=5db10457f9b46e06945ceae1", 
+        "method" : "GET", 
+        "createdBy" : "5dbbe4446cec461ab8346b59"
+    }, 
+    "response" : {
+        "status" : NumberInt(200), 
+        "data" : {
+            "list" : [
+                {
+                    "_id" : ObjectId("5db167be67dac608c0a44ed5"), 
+                    "status" : "vestibulum ac est lacinia nisi venenatis tristique fusce congue diam", 
+                    "content" : "lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo", 
+                    "image" : "http://dummyimage.com/144x213.bmp/cc0000/ffffff", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:58:38.518+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:58:38.518+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5db167c767dac608c0a44ed7"), 
+                    "status" : "integer aliquet massa id lobortis convallis tortor risus dapibus augue", 
+                    "content" : "primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo", 
+                    "image" : "http://dummyimage.com/124x207.png/cc0000/ffffff", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:58:47.849+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:58:47.849+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5db167cd67dac608c0a44ed9"), 
+                    "status" : "suscipit ligula in lacus curabitur at", 
+                    "content" : "eu sapien cursus vestibulum proin eu mi nulla ac enim in tempor turpis nec euismod scelerisque", 
+                    "image" : "http://dummyimage.com/102x110.png/5fa2dd/ffffff", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:58:53.007+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:58:53.008+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5db167d167dac608c0a44edb"), 
+                    "status" : "est donec odio justo sollicitudin ut suscipit", 
+                    "content" : "tellus nulla ut erat id mauris vulputate elementum nullam varius", 
+                    "image" : "http://dummyimage.com/128x106.bmp/5fa2dd/ffffff", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:58:57.696+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:58:57.696+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5db167d767dac608c0a44edd"), 
+                    "status" : "elit proin risus praesent lectus vestibulum", 
+                    "content" : "in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at", 
+                    "image" : "http://dummyimage.com/196x164.jpg/dddddd/000000", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:59:03.229+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:59:03.229+0000"), 
+                    "__v" : NumberInt(0)
+                }
+            ], 
+            "total" : NumberInt(5)
+        }
+    }, 
+    "created_At_" : ISODate("2019-11-13T03:21:26.992+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb76bc68a6aa23f063df5d"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/groupUsers/list", 
+        "method" : "GET", 
+        "createdBy" : "5dbbe4446cec461ab8346b59"
+    }, 
+    "response" : {
+        "status" : NumberInt(200), 
+        "data" : {
+            "list" : [
+                {
+                    "_id" : ObjectId("5dca116be2c8cd0d94b3a2c7"), 
+                    "permission" : {
+                        "articles" : [
+                            "list", 
+                            "item", 
+                            "insert", 
+                            "update", 
+                            "delete"
+                        ], 
+                        "comments" : [
+                            "list", 
+                            "item", 
+                            "insert", 
+                            "update", 
+                            "delete"
+                        ], 
+                        "statisticals" : [
+                            "user-online", 
+                            "user-access", 
+                            "like-of-article", 
+                            "comment-of-article", 
+                            "article-of-user", 
+                            "like-of-user", 
+                            "comment-of-user"
+                        ]
+                    }, 
+                    "created_At_" : ISODate("2019-11-12T01:56:59.988+0000"), 
+                    "updated_At_" : ISODate("2019-11-12T01:56:59.992+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5dca2547eec4860e50c01cfb"), 
+                    "permission" : {
+                        "users" : [
+                            "list", 
+                            "item", 
+                            "insert", 
+                            "update", 
+                            "delete"
+                        ], 
+                        "articles" : [
+                            "list", 
+                            "item", 
+                            "insert", 
+                            "update", 
+                            "delete"
+                        ], 
+                        "comments" : [
+                            "list", 
+                            "item", 
+                            "insert", 
+                            "update", 
+                            "delete"
+                        ], 
+                        "statisticals" : [
+                            "user-online", 
+                            "user-access", 
+                            "like-of-article", 
+                            "comment-of-article", 
+                            "article-of-user", 
+                            "like-of-user", 
+                            "comment-of-user"
+                        ]
+                    }, 
+                    "created_At_" : ISODate("2019-11-12T03:21:43.167+0000"), 
+                    "updated_At_" : ISODate("2019-11-12T03:21:43.168+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5dcb6dd23860a41d08a52900"), 
+                    "permission" : {
+                        "articles" : [
+                            "list", 
+                            "item"
+                        ], 
+                        "comments" : [
+                            "list", 
+                            "item"
+                        ], 
+                        "statisticals" : [
+                            "user-online", 
+                            "user-access", 
+                            "like-of-article", 
+                            "comment-of-article", 
+                            "article-of-user", 
+                            "like-of-user", 
+                            "comment-of-user"
+                        ]
+                    }, 
+                    "created_At_" : ISODate("2019-11-13T02:43:30.997+0000"), 
+                    "updated_At_" : ISODate("2019-11-13T02:43:30.998+0000"), 
+                    "__v" : NumberInt(0)
+                }
+            ], 
+            "total" : NumberInt(3)
+        }
+    }, 
+    "created_At_" : ISODate("2019-11-13T03:21:32.687+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb76f768a6aa23f063df5e"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/groupUsers/item/5dca116be2c8cd0d94b3a2c7", 
+        "method" : "GET", 
+        "createdBy" : "5dbbe4446cec461ab8346b59"
+    }, 
+    "response" : {
+        "status" : NumberInt(200)
+    }, 
+    "created_At_" : ISODate("2019-11-13T03:22:31.241+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb7725fdd41e166c0437fe"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/groupUsers/item/5dca116be2c8cd0d94b3a2c7", 
+        "method" : "GET", 
+        "createdBy" : "5dbbe4446cec461ab8346b59"
+    }, 
+    "response" : {
+        "status" : NumberInt(200), 
+        "data" : {
+            "_id" : ObjectId("5dca116be2c8cd0d94b3a2c7"), 
+            "permission" : {
+                "articles" : [
+                    "list", 
+                    "item", 
+                    "insert", 
+                    "update", 
+                    "delete"
+                ], 
+                "comments" : [
+                    "list", 
+                    "item", 
+                    "insert", 
+                    "update", 
+                    "delete"
+                ], 
+                "statisticals" : [
+                    "user-online", 
+                    "user-access", 
+                    "like-of-article", 
+                    "comment-of-article", 
+                    "article-of-user", 
+                    "like-of-user", 
+                    "comment-of-user"
+                ]
+            }, 
+            "created_At_" : ISODate("2019-11-12T01:56:59.988+0000"), 
+            "updated_At_" : ISODate("2019-11-12T01:56:59.992+0000"), 
+            "__v" : NumberInt(0)
+        }
+    }, 
+    "created_At_" : ISODate("2019-11-13T03:23:17.929+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb772cfdd41e166c0437ff"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/groupUsers/list", 
+        "method" : "GET", 
+        "createdBy" : "5dbbe4446cec461ab8346b59"
+    }, 
+    "response" : {
+        "status" : NumberInt(200), 
+        "data" : {
+            "list" : [
+                {
+                    "_id" : ObjectId("5dca116be2c8cd0d94b3a2c7"), 
+                    "permission" : {
+                        "articles" : [
+                            "list", 
+                            "item", 
+                            "insert", 
+                            "update", 
+                            "delete"
+                        ], 
+                        "comments" : [
+                            "list", 
+                            "item", 
+                            "insert", 
+                            "update", 
+                            "delete"
+                        ], 
+                        "statisticals" : [
+                            "user-online", 
+                            "user-access", 
+                            "like-of-article", 
+                            "comment-of-article", 
+                            "article-of-user", 
+                            "like-of-user", 
+                            "comment-of-user"
+                        ]
+                    }, 
+                    "created_At_" : ISODate("2019-11-12T01:56:59.988+0000"), 
+                    "updated_At_" : ISODate("2019-11-12T01:56:59.992+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5dca2547eec4860e50c01cfb"), 
+                    "permission" : {
+                        "users" : [
+                            "list", 
+                            "item", 
+                            "insert", 
+                            "update", 
+                            "delete"
+                        ], 
+                        "articles" : [
+                            "list", 
+                            "item", 
+                            "insert", 
+                            "update", 
+                            "delete"
+                        ], 
+                        "comments" : [
+                            "list", 
+                            "item", 
+                            "insert", 
+                            "update", 
+                            "delete"
+                        ], 
+                        "statisticals" : [
+                            "user-online", 
+                            "user-access", 
+                            "like-of-article", 
+                            "comment-of-article", 
+                            "article-of-user", 
+                            "like-of-user", 
+                            "comment-of-user"
+                        ]
+                    }, 
+                    "created_At_" : ISODate("2019-11-12T03:21:43.167+0000"), 
+                    "updated_At_" : ISODate("2019-11-12T03:21:43.168+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5dcb6dd23860a41d08a52900"), 
+                    "permission" : {
+                        "articles" : [
+                            "list", 
+                            "item"
+                        ], 
+                        "comments" : [
+                            "list", 
+                            "item"
+                        ], 
+                        "statisticals" : [
+                            "user-online", 
+                            "user-access", 
+                            "like-of-article", 
+                            "comment-of-article", 
+                            "article-of-user", 
+                            "like-of-user", 
+                            "comment-of-user"
+                        ]
+                    }, 
+                    "created_At_" : ISODate("2019-11-13T02:43:30.997+0000"), 
+                    "updated_At_" : ISODate("2019-11-13T02:43:30.998+0000"), 
+                    "__v" : NumberInt(0)
+                }
+            ], 
+            "total" : NumberInt(3)
+        }
+    }, 
+    "created_At_" : ISODate("2019-11-13T03:23:24.291+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb817b46bd5d22006eef99"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/groupUsers/list", 
+        "method" : "GET", 
+        "createdBy" : "5dbbe4446cec461ab8346b59"
+    }, 
+    "response" : {
+        "status" : NumberInt(200), 
+        "data" : {
+            "list" : [
+                {
+                    "_id" : ObjectId("5dca116be2c8cd0d94b3a2c7"), 
+                    "status" : "enable", 
+                    "permission" : {
+                        "articles" : [
+                            "list", 
+                            "item", 
+                            "insert", 
+                            "update", 
+                            "delete"
+                        ], 
+                        "comments" : [
+                            "list", 
+                            "item", 
+                            "insert", 
+                            "update", 
+                            "delete"
+                        ], 
+                        "statisticals" : [
+                            "user-online", 
+                            "user-access", 
+                            "like-of-article", 
+                            "comment-of-article", 
+                            "article-of-user", 
+                            "like-of-user", 
+                            "comment-of-user"
+                        ]
+                    }, 
+                    "created_At_" : ISODate("2019-11-12T01:56:59.988+0000"), 
+                    "updated_At_" : ISODate("2019-11-12T01:56:59.992+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5dca2547eec4860e50c01cfb"), 
+                    "status" : "enable", 
+                    "permission" : {
+                        "users" : [
+                            "list", 
+                            "item", 
+                            "insert", 
+                            "update", 
+                            "delete"
+                        ], 
+                        "articles" : [
+                            "list", 
+                            "item", 
+                            "insert", 
+                            "update", 
+                            "delete"
+                        ], 
+                        "comments" : [
+                            "list", 
+                            "item", 
+                            "insert", 
+                            "update", 
+                            "delete"
+                        ], 
+                        "statisticals" : [
+                            "user-online", 
+                            "user-access", 
+                            "like-of-article", 
+                            "comment-of-article", 
+                            "article-of-user", 
+                            "like-of-user", 
+                            "comment-of-user"
+                        ]
+                    }, 
+                    "created_At_" : ISODate("2019-11-12T03:21:43.167+0000"), 
+                    "updated_At_" : ISODate("2019-11-12T03:21:43.168+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5dcb6dd23860a41d08a52900"), 
+                    "status" : "enable", 
+                    "permission" : {
+                        "articles" : [
+                            "list", 
+                            "item"
+                        ], 
+                        "comments" : [
+                            "list", 
+                            "item"
+                        ], 
+                        "statisticals" : [
+                            "user-online", 
+                            "user-access", 
+                            "like-of-article", 
+                            "comment-of-article", 
+                            "article-of-user", 
+                            "like-of-user", 
+                            "comment-of-user"
+                        ]
+                    }, 
+                    "created_At_" : ISODate("2019-11-13T02:43:30.997+0000"), 
+                    "updated_At_" : ISODate("2019-11-13T02:43:30.998+0000"), 
+                    "__v" : NumberInt(0)
+                }
+            ], 
+            "total" : NumberInt(3)
+        }
+    }, 
+    "created_At_" : ISODate("2019-11-13T04:07:23.421+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb819a46bd5d22006eef9a"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/auth/logout", 
+        "method" : "GET", 
+        "createdBy" : "5dbbe4446cec461ab8346b59"
+    }, 
+    "response" : {
+        "status" : NumberInt(200)
+    }, 
+    "created_At_" : ISODate("2019-11-13T04:07:54.195+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb81a746bd5d22006eef9b"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/auth/login", 
+        "method" : "POST", 
+        "createdBy" : "5dbb93a7dde44a03d4221090"
+    }, 
+    "response" : {
+        "status" : NumberInt(200), 
+        "data" : {
+            "email" : "test@gmail.com", 
+            "hashedPassword" : "098f6bcd4621d373cade4e832627b4f6"
+        }
+    }, 
+    "created_At_" : ISODate("2019-11-13T04:08:07.123+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb81b546bd5d22006eef9c"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/groupUsers/list", 
+        "method" : "GET", 
+        "createdBy" : "5dbb93a7dde44a03d4221090"
+    }, 
+    "response" : {
+        "status" : NumberInt(500)
+    }, 
+    "created_At_" : ISODate("2019-11-13T04:08:21.747+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb81cb46bd5d22006eef9d"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/articles/list?page=1&userId=5db10457f9b46e06945ceae1", 
+        "method" : "GET", 
+        "createdBy" : "5dbb93a7dde44a03d4221090"
+    }, 
+    "response" : {
+        "status" : NumberInt(200), 
+        "data" : {
+            "list" : [
+                {
+                    "_id" : ObjectId("5db167be67dac608c0a44ed5"), 
+                    "status" : "vestibulum ac est lacinia nisi venenatis tristique fusce congue diam", 
+                    "content" : "lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo", 
+                    "image" : "http://dummyimage.com/144x213.bmp/cc0000/ffffff", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:58:38.518+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:58:38.518+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5db167c767dac608c0a44ed7"), 
+                    "status" : "integer aliquet massa id lobortis convallis tortor risus dapibus augue", 
+                    "content" : "primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo", 
+                    "image" : "http://dummyimage.com/124x207.png/cc0000/ffffff", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:58:47.849+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:58:47.849+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5db167cd67dac608c0a44ed9"), 
+                    "status" : "suscipit ligula in lacus curabitur at", 
+                    "content" : "eu sapien cursus vestibulum proin eu mi nulla ac enim in tempor turpis nec euismod scelerisque", 
+                    "image" : "http://dummyimage.com/102x110.png/5fa2dd/ffffff", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:58:53.007+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:58:53.008+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5db167d167dac608c0a44edb"), 
+                    "status" : "est donec odio justo sollicitudin ut suscipit", 
+                    "content" : "tellus nulla ut erat id mauris vulputate elementum nullam varius", 
+                    "image" : "http://dummyimage.com/128x106.bmp/5fa2dd/ffffff", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:58:57.696+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:58:57.696+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5db167d767dac608c0a44edd"), 
+                    "status" : "elit proin risus praesent lectus vestibulum", 
+                    "content" : "in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at", 
+                    "image" : "http://dummyimage.com/196x164.jpg/dddddd/000000", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:59:03.229+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:59:03.229+0000"), 
+                    "__v" : NumberInt(0)
+                }
+            ], 
+            "total" : NumberInt(5)
+        }
+    }, 
+    "created_At_" : ISODate("2019-11-13T04:08:43.123+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb81f843be8309143408dd"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/articles/list?page=1&userId=5db10457f9b46e06945ceae1", 
+        "method" : "GET", 
+        "createdBy" : "5dbb93a7dde44a03d4221090"
+    }, 
+    "response" : {
+        "status" : NumberInt(200), 
+        "data" : {
+            "list" : [
+                {
+                    "_id" : ObjectId("5db167be67dac608c0a44ed5"), 
+                    "status" : "vestibulum ac est lacinia nisi venenatis tristique fusce congue diam", 
+                    "content" : "lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo", 
+                    "image" : "http://dummyimage.com/144x213.bmp/cc0000/ffffff", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:58:38.518+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:58:38.518+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5db167c767dac608c0a44ed7"), 
+                    "status" : "integer aliquet massa id lobortis convallis tortor risus dapibus augue", 
+                    "content" : "primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo", 
+                    "image" : "http://dummyimage.com/124x207.png/cc0000/ffffff", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:58:47.849+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:58:47.849+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5db167cd67dac608c0a44ed9"), 
+                    "status" : "suscipit ligula in lacus curabitur at", 
+                    "content" : "eu sapien cursus vestibulum proin eu mi nulla ac enim in tempor turpis nec euismod scelerisque", 
+                    "image" : "http://dummyimage.com/102x110.png/5fa2dd/ffffff", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:58:53.007+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:58:53.008+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5db167d167dac608c0a44edb"), 
+                    "status" : "est donec odio justo sollicitudin ut suscipit", 
+                    "content" : "tellus nulla ut erat id mauris vulputate elementum nullam varius", 
+                    "image" : "http://dummyimage.com/128x106.bmp/5fa2dd/ffffff", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:58:57.696+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:58:57.696+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5db167d767dac608c0a44edd"), 
+                    "status" : "elit proin risus praesent lectus vestibulum", 
+                    "content" : "in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at", 
+                    "image" : "http://dummyimage.com/196x164.jpg/dddddd/000000", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:59:03.229+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:59:03.229+0000"), 
+                    "__v" : NumberInt(0)
+                }
+            ], 
+            "total" : NumberInt(5)
+        }
+    }, 
+    "created_At_" : ISODate("2019-11-13T04:09:28.369+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb82b443be8309143408de"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/articles/list?page=1&userId=5db10457f9b46e06945ceae1", 
+        "method" : "GET", 
+        "createdBy" : "5dbb93a7dde44a03d4221090"
+    }, 
+    "response" : {
+        "status" : NumberInt(200), 
+        "data" : {
+            "list" : [
+                {
+                    "_id" : ObjectId("5db167be67dac608c0a44ed5"), 
+                    "status" : "vestibulum ac est lacinia nisi venenatis tristique fusce congue diam", 
+                    "content" : "lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo", 
+                    "image" : "http://dummyimage.com/144x213.bmp/cc0000/ffffff", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:58:38.518+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:58:38.518+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5db167c767dac608c0a44ed7"), 
+                    "status" : "integer aliquet massa id lobortis convallis tortor risus dapibus augue", 
+                    "content" : "primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo", 
+                    "image" : "http://dummyimage.com/124x207.png/cc0000/ffffff", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:58:47.849+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:58:47.849+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5db167cd67dac608c0a44ed9"), 
+                    "status" : "suscipit ligula in lacus curabitur at", 
+                    "content" : "eu sapien cursus vestibulum proin eu mi nulla ac enim in tempor turpis nec euismod scelerisque", 
+                    "image" : "http://dummyimage.com/102x110.png/5fa2dd/ffffff", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:58:53.007+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:58:53.008+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5db167d167dac608c0a44edb"), 
+                    "status" : "est donec odio justo sollicitudin ut suscipit", 
+                    "content" : "tellus nulla ut erat id mauris vulputate elementum nullam varius", 
+                    "image" : "http://dummyimage.com/128x106.bmp/5fa2dd/ffffff", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:58:57.696+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:58:57.696+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5db167d767dac608c0a44edd"), 
+                    "status" : "elit proin risus praesent lectus vestibulum", 
+                    "content" : "in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at", 
+                    "image" : "http://dummyimage.com/196x164.jpg/dddddd/000000", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:59:03.229+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:59:03.229+0000"), 
+                    "__v" : NumberInt(0)
+                }
+            ], 
+            "total" : NumberInt(5)
+        }
+    }, 
+    "created_At_" : ISODate("2019-11-13T04:12:36.724+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb82cd3c50821d782b55c8"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/articles/list?page=1&userId=5db10457f9b46e06945ceae1", 
+        "method" : "GET", 
+        "createdBy" : "5dbb93a7dde44a03d4221090"
+    }, 
+    "response" : {
+        "status" : NumberInt(200), 
+        "data" : {
+            "list" : [
+                {
+                    "_id" : ObjectId("5db167be67dac608c0a44ed5"), 
+                    "status" : "vestibulum ac est lacinia nisi venenatis tristique fusce congue diam", 
+                    "content" : "lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo", 
+                    "image" : "http://dummyimage.com/144x213.bmp/cc0000/ffffff", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:58:38.518+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:58:38.518+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5db167c767dac608c0a44ed7"), 
+                    "status" : "integer aliquet massa id lobortis convallis tortor risus dapibus augue", 
+                    "content" : "primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo", 
+                    "image" : "http://dummyimage.com/124x207.png/cc0000/ffffff", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:58:47.849+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:58:47.849+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5db167cd67dac608c0a44ed9"), 
+                    "status" : "suscipit ligula in lacus curabitur at", 
+                    "content" : "eu sapien cursus vestibulum proin eu mi nulla ac enim in tempor turpis nec euismod scelerisque", 
+                    "image" : "http://dummyimage.com/102x110.png/5fa2dd/ffffff", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:58:53.007+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:58:53.008+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5db167d167dac608c0a44edb"), 
+                    "status" : "est donec odio justo sollicitudin ut suscipit", 
+                    "content" : "tellus nulla ut erat id mauris vulputate elementum nullam varius", 
+                    "image" : "http://dummyimage.com/128x106.bmp/5fa2dd/ffffff", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:58:57.696+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:58:57.696+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5db167d767dac608c0a44edd"), 
+                    "status" : "elit proin risus praesent lectus vestibulum", 
+                    "content" : "in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at", 
+                    "image" : "http://dummyimage.com/196x164.jpg/dddddd/000000", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:59:03.229+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:59:03.229+0000"), 
+                    "__v" : NumberInt(0)
+                }
+            ], 
+            "total" : NumberInt(5)
+        }
+    }, 
+    "created_At_" : ISODate("2019-11-13T04:13:01.064+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb8474e881e222249a809d"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/articles/insert", 
+        "method" : "POST", 
+        "createdBy" : "5dbb93a7dde44a03d4221090"
+    }, 
+    "response" : {
+        "status" : NumberInt(500)
+    }, 
+    "created_At_" : ISODate("2019-11-13T04:20:04.300+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb854614a46d11a449c114"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/articles/insert", 
+        "method" : "POST", 
+        "createdBy" : "5dbb93a7dde44a03d4221090"
+    }, 
+    "response" : {
+        "status" : NumberInt(201), 
+        "data" : {
+            "_id" : ObjectId("5dcb854614a46d11a449c113"), 
+            "status" : "risus praesent lectus vestibulum", 
+            "content" : "cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at", 
+            "image" : "http://dummyimage.com/196x164.jpg/dddddd/000000", 
+            "userId" : "5dbb93a7dde44a03d4221090", 
+            "created_At_" : ISODate("2019-11-13T04:23:34.407+0000"), 
+            "updated_At_" : ISODate("2019-11-13T04:23:34.411+0000"), 
+            "__v" : NumberInt(0)
+        }
+    }, 
+    "created_At_" : ISODate("2019-11-13T04:23:34.430+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb8706ae198c0a9cf9d5bf"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/articles/list?page=1&userId=5db10457f9b46e06945ceae1", 
+        "method" : "GET", 
+        "createdBy" : "5dbb93a7dde44a03d4221090"
+    }, 
+    "response" : {
+        "status" : NumberInt(404)
+    }, 
+    "created_At_" : ISODate("2019-11-13T04:31:02.481+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb8738aaafc622403ee894"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/articles/list?page=1&userId=5db10457f9b46e06945ceae1", 
+        "method" : "GET", 
+        "createdBy" : "5dbb93a7dde44a03d4221090"
+    }, 
+    "response" : {
+        "status" : NumberInt(404)
+    }, 
+    "created_At_" : ISODate("2019-11-13T04:31:52.869+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb8754251ae2291454acdb"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/articles/list?page=1&userId=5db10457f9b46e06945ceae1", 
+        "method" : "GET", 
+        "createdBy" : "5dbb93a7dde44a03d4221090"
+    }, 
+    "response" : {
+        "status" : NumberInt(404)
+    }, 
+    "created_At_" : ISODate("2019-11-13T04:32:21.004+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb877f79fd931d30361e9e"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/articles/list?page=1&userId=5db10457f9b46e06945ceae1", 
+        "method" : "GET", 
+        "createdBy" : "5dbb93a7dde44a03d4221090"
+    }, 
+    "response" : {
+        "status" : NumberInt(404)
+    }, 
+    "created_At_" : ISODate("2019-11-13T04:33:03.349+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb878c79fd931d30361e9f"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/comments/list?articleId=5db1063f4536331a20d38772", 
+        "method" : "GET", 
+        "createdBy" : "5dbb93a7dde44a03d4221090"
+    }, 
+    "response" : {
+        "status" : NumberInt(404)
+    }, 
+    "created_At_" : ISODate("2019-11-13T04:33:16.536+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb87a658b99706e4a82e2e"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/articles/list?page=1&userId=5db10457f9b46e06945ceae1", 
+        "method" : "GET", 
+        "createdBy" : "5dbb93a7dde44a03d4221090"
+    }, 
+    "response" : {
+        "status" : NumberInt(200), 
+        "data" : {
+            "list" : [
+                {
+                    "_id" : ObjectId("5db167be67dac608c0a44ed5"), 
+                    "status" : "vestibulum ac est lacinia nisi venenatis tristique fusce congue diam", 
+                    "content" : "lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo", 
+                    "image" : "http://dummyimage.com/144x213.bmp/cc0000/ffffff", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:58:38.518+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:58:38.518+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5db167c767dac608c0a44ed7"), 
+                    "status" : "integer aliquet massa id lobortis convallis tortor risus dapibus augue", 
+                    "content" : "primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo", 
+                    "image" : "http://dummyimage.com/124x207.png/cc0000/ffffff", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:58:47.849+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:58:47.849+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5db167cd67dac608c0a44ed9"), 
+                    "status" : "suscipit ligula in lacus curabitur at", 
+                    "content" : "eu sapien cursus vestibulum proin eu mi nulla ac enim in tempor turpis nec euismod scelerisque", 
+                    "image" : "http://dummyimage.com/102x110.png/5fa2dd/ffffff", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:58:53.007+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:58:53.008+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5db167d167dac608c0a44edb"), 
+                    "status" : "est donec odio justo sollicitudin ut suscipit", 
+                    "content" : "tellus nulla ut erat id mauris vulputate elementum nullam varius", 
+                    "image" : "http://dummyimage.com/128x106.bmp/5fa2dd/ffffff", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:58:57.696+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:58:57.696+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5db167d767dac608c0a44edd"), 
+                    "status" : "elit proin risus praesent lectus vestibulum", 
+                    "content" : "in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at", 
+                    "image" : "http://dummyimage.com/196x164.jpg/dddddd/000000", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:59:03.229+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:59:03.229+0000"), 
+                    "__v" : NumberInt(0)
+                }
+            ], 
+            "total" : NumberInt(5)
+        }
+    }, 
+    "created_At_" : ISODate("2019-11-13T04:33:42.491+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb87cfd2a0280a9c9eefe8"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/articles/list?page=1&userId=5db10457f9b46e06945ceae1", 
+        "method" : "GET", 
+        "createdBy" : "5dbb93a7dde44a03d4221090"
+    }, 
+    "response" : {
+        "status" : NumberInt(404)
+    }, 
+    "created_At_" : ISODate("2019-11-13T04:34:23.777+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb87f0efd4fa112cfbcc22"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/articles/list?page=1&userId=5db10457f9b46e06945ceae1", 
+        "method" : "GET", 
+        "createdBy" : "5dbb93a7dde44a03d4221090"
+    }, 
+    "response" : {
+        "status" : NumberInt(404)
+    }, 
+    "created_At_" : ISODate("2019-11-13T04:34:56.903+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb8813795650274850b933"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/articles/list?page=1&userId=5db10457f9b46e06945ceae1", 
+        "method" : "GET", 
+        "createdBy" : "5dbb93a7dde44a03d4221090"
+    }, 
+    "response" : {
+        "status" : NumberInt(404)
+    }, 
+    "created_At_" : ISODate("2019-11-13T04:35:31.969+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb882d0f358f1c1cb56458"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/articles/list?page=1&userId=5db10457f9b46e06945ceae1", 
+        "method" : "GET", 
+        "createdBy" : "5dbb93a7dde44a03d4221090"
+    }, 
+    "response" : {
+        "status" : NumberInt(200), 
+        "data" : {
+            "list" : [
+                {
+                    "_id" : ObjectId("5db167be67dac608c0a44ed5"), 
+                    "status" : "vestibulum ac est lacinia nisi venenatis tristique fusce congue diam", 
+                    "content" : "lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo", 
+                    "image" : "http://dummyimage.com/144x213.bmp/cc0000/ffffff", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:58:38.518+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:58:38.518+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5db167c767dac608c0a44ed7"), 
+                    "status" : "integer aliquet massa id lobortis convallis tortor risus dapibus augue", 
+                    "content" : "primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo", 
+                    "image" : "http://dummyimage.com/124x207.png/cc0000/ffffff", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:58:47.849+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:58:47.849+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5db167cd67dac608c0a44ed9"), 
+                    "status" : "suscipit ligula in lacus curabitur at", 
+                    "content" : "eu sapien cursus vestibulum proin eu mi nulla ac enim in tempor turpis nec euismod scelerisque", 
+                    "image" : "http://dummyimage.com/102x110.png/5fa2dd/ffffff", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:58:53.007+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:58:53.008+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5db167d167dac608c0a44edb"), 
+                    "status" : "est donec odio justo sollicitudin ut suscipit", 
+                    "content" : "tellus nulla ut erat id mauris vulputate elementum nullam varius", 
+                    "image" : "http://dummyimage.com/128x106.bmp/5fa2dd/ffffff", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:58:57.696+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:58:57.696+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5db167d767dac608c0a44edd"), 
+                    "status" : "elit proin risus praesent lectus vestibulum", 
+                    "content" : "in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at", 
+                    "image" : "http://dummyimage.com/196x164.jpg/dddddd/000000", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:59:03.229+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:59:03.229+0000"), 
+                    "__v" : NumberInt(0)
+                }
+            ], 
+            "total" : NumberInt(5)
+        }
+    }, 
+    "created_At_" : ISODate("2019-11-13T04:35:57.826+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb88609dfd4c26b899ce5c"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/articles/list?page=1&userId=5db10457f9b46e06945ceae1", 
+        "method" : "GET", 
+        "createdBy" : "5dbb93a7dde44a03d4221090"
+    }, 
+    "response" : {
+        "status" : NumberInt(404)
+    }, 
+    "created_At_" : ISODate("2019-11-13T04:36:48.733+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb889f2f07221d30f77325"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/articles/list?page=1&userId=5db10457f9b46e06945ceae1", 
+        "method" : "GET", 
+        "createdBy" : "5dbb93a7dde44a03d4221090"
+    }, 
+    "response" : {
+        "status" : NumberInt(404)
+    }, 
+    "created_At_" : ISODate("2019-11-13T04:37:51.681+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb88bc38fef02b88c74f39"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/articles/list?page=1&userId=5db10457f9b46e06945ceae1", 
+        "method" : "GET", 
+        "createdBy" : "5dbb93a7dde44a03d4221090"
+    }, 
+    "response" : {
+        "status" : NumberInt(500), 
+        "error" : {
+
+        }
+    }, 
+    "created_At_" : ISODate("2019-11-13T04:38:20.742+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb89549be4c80dd0a33dce"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/articles/list?page=1&userId=5db10457f9b46e06945ceae1", 
+        "method" : "GET", 
+        "createdBy" : "5dbb93a7dde44a03d4221090"
+    }, 
+    "response" : {
+        "status" : NumberInt(404)
+    }, 
+    "created_At_" : ISODate("2019-11-13T04:40:52.304+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb8a6df7bb020d94abda7a"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/articles/insert", 
+        "method" : "POST", 
+        "createdBy" : "5dbb93a7dde44a03d4221090"
+    }, 
+    "response" : {
+        "status" : NumberInt(201), 
+        "data" : {
+            "_id" : ObjectId("5dcb8a6df7bb020d94abda79"), 
+            "status" : "risus praesent lectus vestibulum", 
+            "content" : "cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at", 
+            "image" : "http://dummyimage.com/196x164.jpg/dddddd/000000", 
+            "userId" : "5dbb93a7dde44a03d4221090", 
+            "created_At_" : ISODate("2019-11-13T04:45:33.498+0000"), 
+            "updated_At_" : ISODate("2019-11-13T04:45:33.500+0000"), 
+            "__v" : NumberInt(0)
+        }
+    }, 
+    "created_At_" : ISODate("2019-11-13T04:45:33.513+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb8a8e0a488d12287e9737"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/articles/insert", 
+        "method" : "POST", 
+        "createdBy" : "5dbb93a7dde44a03d4221090"
+    }, 
+    "response" : {
+        "status" : NumberInt(201), 
+        "data" : {
+            "_id" : ObjectId("5dcb8a8e0a488d12287e9736"), 
+            "status" : "risus pramjhnfgbdfvesent lectus vestibulum", 
+            "content" : "cubilia curae maurnhfgbdvfis viverra diam vitae quam suspendisse potenti nullam porttitor lacus at", 
+            "image" : "http://dummyimage.com/196x164.jpg/dddddd/000000", 
+            "userId" : "5dbb93a7dde44a03d4221090", 
+            "created_At_" : ISODate("2019-11-13T04:46:06.037+0000"), 
+            "updated_At_" : ISODate("2019-11-13T04:46:06.039+0000"), 
+            "__v" : NumberInt(0)
+        }
+    }, 
+    "created_At_" : ISODate("2019-11-13T04:46:06.052+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb8ad0bea4de2144a1ba1a"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/articles/list?page=1&userId=5db10457f9b46e06945ceae1", 
+        "method" : "GET", 
+        "createdBy" : "5dbb93a7dde44a03d4221090"
+    }, 
+    "response" : {
+        "status" : NumberInt(200), 
+        "data" : {
+            "list" : [
+                {
+                    "_id" : ObjectId("5db167be67dac608c0a44ed5"), 
+                    "status" : "vestibulum ac est lacinia nisi venenatis tristique fusce congue diam", 
+                    "content" : "lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo", 
+                    "image" : "http://dummyimage.com/144x213.bmp/cc0000/ffffff", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:58:38.518+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:58:38.518+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5db167c767dac608c0a44ed7"), 
+                    "status" : "integer aliquet massa id lobortis convallis tortor risus dapibus augue", 
+                    "content" : "primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo", 
+                    "image" : "http://dummyimage.com/124x207.png/cc0000/ffffff", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:58:47.849+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:58:47.849+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5db167cd67dac608c0a44ed9"), 
+                    "status" : "suscipit ligula in lacus curabitur at", 
+                    "content" : "eu sapien cursus vestibulum proin eu mi nulla ac enim in tempor turpis nec euismod scelerisque", 
+                    "image" : "http://dummyimage.com/102x110.png/5fa2dd/ffffff", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:58:53.007+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:58:53.008+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5db167d167dac608c0a44edb"), 
+                    "status" : "est donec odio justo sollicitudin ut suscipit", 
+                    "content" : "tellus nulla ut erat id mauris vulputate elementum nullam varius", 
+                    "image" : "http://dummyimage.com/128x106.bmp/5fa2dd/ffffff", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:58:57.696+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:58:57.696+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5db167d767dac608c0a44edd"), 
+                    "status" : "elit proin risus praesent lectus vestibulum", 
+                    "content" : "in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at", 
+                    "image" : "http://dummyimage.com/196x164.jpg/dddddd/000000", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:59:03.229+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:59:03.229+0000"), 
+                    "__v" : NumberInt(0)
+                }
+            ], 
+            "total" : NumberInt(5)
+        }
+    }, 
+    "created_At_" : ISODate("2019-11-13T04:47:12.593+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb8ad2bea4de2144a1ba1b"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/articles/list?page=1&userId=5db10457f9b46e06945ceae1", 
+        "method" : "GET", 
+        "createdBy" : "5dbb93a7dde44a03d4221090"
+    }, 
+    "response" : {
+        "status" : NumberInt(200), 
+        "data" : {
+            "list" : [
+                {
+                    "_id" : ObjectId("5db167be67dac608c0a44ed5"), 
+                    "status" : "vestibulum ac est lacinia nisi venenatis tristique fusce congue diam", 
+                    "content" : "lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo", 
+                    "image" : "http://dummyimage.com/144x213.bmp/cc0000/ffffff", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:58:38.518+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:58:38.518+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5db167c767dac608c0a44ed7"), 
+                    "status" : "integer aliquet massa id lobortis convallis tortor risus dapibus augue", 
+                    "content" : "primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo", 
+                    "image" : "http://dummyimage.com/124x207.png/cc0000/ffffff", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:58:47.849+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:58:47.849+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5db167cd67dac608c0a44ed9"), 
+                    "status" : "suscipit ligula in lacus curabitur at", 
+                    "content" : "eu sapien cursus vestibulum proin eu mi nulla ac enim in tempor turpis nec euismod scelerisque", 
+                    "image" : "http://dummyimage.com/102x110.png/5fa2dd/ffffff", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:58:53.007+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:58:53.008+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5db167d167dac608c0a44edb"), 
+                    "status" : "est donec odio justo sollicitudin ut suscipit", 
+                    "content" : "tellus nulla ut erat id mauris vulputate elementum nullam varius", 
+                    "image" : "http://dummyimage.com/128x106.bmp/5fa2dd/ffffff", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:58:57.696+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:58:57.696+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5db167d767dac608c0a44edd"), 
+                    "status" : "elit proin risus praesent lectus vestibulum", 
+                    "content" : "in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at", 
+                    "image" : "http://dummyimage.com/196x164.jpg/dddddd/000000", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:59:03.229+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:59:03.229+0000"), 
+                    "__v" : NumberInt(0)
+                }
+            ], 
+            "total" : NumberInt(5)
+        }
+    }, 
+    "created_At_" : ISODate("2019-11-13T04:47:14.524+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb8c802dabf207b83349d4"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/articles/list?page=1&userId=5db10457f9b46e06945ceae1", 
+        "method" : "GET", 
+        "createdBy" : "5dbb93a7dde44a03d4221090"
+    }, 
+    "response" : {
+        "status" : NumberInt(200), 
+        "data" : {
+            "list" : [
+                {
+                    "_id" : ObjectId("5db167be67dac608c0a44ed5"), 
+                    "status" : "vestibulum ac est lacinia nisi venenatis tristique fusce congue diam", 
+                    "content" : "lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo", 
+                    "image" : "http://dummyimage.com/144x213.bmp/cc0000/ffffff", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:58:38.518+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:58:38.518+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5db167c767dac608c0a44ed7"), 
+                    "status" : "integer aliquet massa id lobortis convallis tortor risus dapibus augue", 
+                    "content" : "primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo", 
+                    "image" : "http://dummyimage.com/124x207.png/cc0000/ffffff", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:58:47.849+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:58:47.849+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5db167cd67dac608c0a44ed9"), 
+                    "status" : "suscipit ligula in lacus curabitur at", 
+                    "content" : "eu sapien cursus vestibulum proin eu mi nulla ac enim in tempor turpis nec euismod scelerisque", 
+                    "image" : "http://dummyimage.com/102x110.png/5fa2dd/ffffff", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:58:53.007+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:58:53.008+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5db167d167dac608c0a44edb"), 
+                    "status" : "est donec odio justo sollicitudin ut suscipit", 
+                    "content" : "tellus nulla ut erat id mauris vulputate elementum nullam varius", 
+                    "image" : "http://dummyimage.com/128x106.bmp/5fa2dd/ffffff", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:58:57.696+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:58:57.696+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5db167d767dac608c0a44edd"), 
+                    "status" : "elit proin risus praesent lectus vestibulum", 
+                    "content" : "in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at", 
+                    "image" : "http://dummyimage.com/196x164.jpg/dddddd/000000", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:59:03.229+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:59:03.229+0000"), 
+                    "__v" : NumberInt(0)
+                }
+            ], 
+            "total" : NumberInt(5)
+        }
+    }, 
+    "created_At_" : ISODate("2019-11-13T04:54:24.324+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb8c952dabf207b83349d5"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/users/list", 
+        "method" : "GET", 
+        "createdBy" : "5dbb93a7dde44a03d4221090"
+    }, 
+    "response" : {
+        "status" : NumberInt(500), 
+        "error" : {
+
+        }
+    }, 
+    "created_At_" : ISODate("2019-11-13T04:54:45.322+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb8cd5cb5fb80ee424789b"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/users/list", 
+        "method" : "GET", 
+        "createdBy" : "5dbb93a7dde44a03d4221090"
+    }, 
+    "response" : {
+        "status" : NumberInt(500), 
+        "error" : {
+
+        }
+    }, 
+    "created_At_" : ISODate("2019-11-13T04:55:49.117+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb8cfdcb5fb80ee424789c"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/articles/list?page=1&userId=5db10457f9b46e06945ceae1", 
+        "method" : "GET", 
+        "createdBy" : "5dbb93a7dde44a03d4221090"
+    }, 
+    "response" : {
+        "status" : NumberInt(200), 
+        "data" : {
+            "list" : [
+                {
+                    "_id" : ObjectId("5db167be67dac608c0a44ed5"), 
+                    "status" : "vestibulum ac est lacinia nisi venenatis tristique fusce congue diam", 
+                    "content" : "lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo", 
+                    "image" : "http://dummyimage.com/144x213.bmp/cc0000/ffffff", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:58:38.518+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:58:38.518+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5db167c767dac608c0a44ed7"), 
+                    "status" : "integer aliquet massa id lobortis convallis tortor risus dapibus augue", 
+                    "content" : "primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo", 
+                    "image" : "http://dummyimage.com/124x207.png/cc0000/ffffff", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:58:47.849+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:58:47.849+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5db167cd67dac608c0a44ed9"), 
+                    "status" : "suscipit ligula in lacus curabitur at", 
+                    "content" : "eu sapien cursus vestibulum proin eu mi nulla ac enim in tempor turpis nec euismod scelerisque", 
+                    "image" : "http://dummyimage.com/102x110.png/5fa2dd/ffffff", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:58:53.007+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:58:53.008+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5db167d167dac608c0a44edb"), 
+                    "status" : "est donec odio justo sollicitudin ut suscipit", 
+                    "content" : "tellus nulla ut erat id mauris vulputate elementum nullam varius", 
+                    "image" : "http://dummyimage.com/128x106.bmp/5fa2dd/ffffff", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:58:57.696+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:58:57.696+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "_id" : ObjectId("5db167d767dac608c0a44edd"), 
+                    "status" : "elit proin risus praesent lectus vestibulum", 
+                    "content" : "in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at", 
+                    "image" : "http://dummyimage.com/196x164.jpg/dddddd/000000", 
+                    "userId" : "5db10457f9b46e06945ceae1", 
+                    "created_At_" : ISODate("2019-10-24T08:59:03.229+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T08:59:03.229+0000"), 
+                    "__v" : NumberInt(0)
+                }
+            ], 
+            "total" : NumberInt(5)
+        }
+    }, 
+    "created_At_" : ISODate("2019-11-13T04:56:29.503+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb8d2975a1d2129cd53c74"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/users/list", 
+        "method" : "GET", 
+        "createdBy" : "5dbb93a7dde44a03d4221090"
+    }, 
+    "response" : {
+        "status" : NumberInt(500), 
+        "error" : {
+
+        }
+    }, 
+    "created_At_" : ISODate("2019-11-13T04:57:13.447+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb8d61a206c90bac776f9e"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/users/list", 
+        "method" : "GET", 
+        "createdBy" : "5dbb93a7dde44a03d4221090"
+    }, 
+    "response" : {
+        "status" : NumberInt(500)
+    }, 
+    "created_At_" : ISODate("2019-11-13T04:58:09.315+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb8df9453a73227425c153"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/users/list", 
+        "method" : "GET", 
+        "createdBy" : "5dbb93a7dde44a03d4221090"
+    }, 
+    "response" : {
+        "status" : NumberInt(500)
+    }, 
+    "created_At_" : ISODate("2019-11-13T05:00:41.647+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb8e1b453a73227425c154"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/auth/logout", 
+        "method" : "GET", 
+        "createdBy" : "5dbb93a7dde44a03d4221090"
+    }, 
+    "response" : {
+        "status" : NumberInt(200)
+    }, 
+    "created_At_" : ISODate("2019-11-13T05:01:15.399+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb8e2e453a73227425c155"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/auth/login", 
+        "method" : "POST", 
+        "createdBy" : "5db10457f9b46e06945ceae1"
+    }, 
+    "response" : {
+        "status" : NumberInt(200), 
+        "data" : {
+            "email" : "hoang@gmail.com", 
+            "hashedPassword" : "f82e62d7c3ea69cc12b5cdb8d621dab6"
+        }
+    }, 
+    "created_At_" : ISODate("2019-11-13T05:01:34.450+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb8e41453a73227425c156"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/users/list", 
+        "method" : "GET", 
+        "createdBy" : "5db10457f9b46e06945ceae1"
+    }, 
+    "response" : {
+        "status" : NumberInt(200), 
+        "data" : {
+            "list" : [
+                {
+                    "group" : [
+                        "5dca2547eec4860e50c01cfb"
+                    ], 
+                    "accessToken" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Il9pZCI6IjVkYjEwNDU3ZjliNDZlMDY5NDVjZWFlMSIsImVtYWlsIjoiaG9hbmdAZ21haWwuY29tIiwiZGV2aWNlIjoiREVTS1RPUC1WRUhKU0czIn0sImlhdCI6MTU3MzYyMTI5NCwiZXhwIjoxNTczNjMyMDk0fQ.ZMCLYUOAaCjBV5kLOOHuDAlClXRKD_tFIL93_ZlOR2I", 
+                    "refreshToken" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Il9pZCI6IjVkYjEwNDU3ZjliNDZlMDY5NDVjZWFlMSIsImVtYWlsIjoiaG9hbmdAZ21haWwuY29tIiwiZGV2aWNlIjoiREVTS1RPUC1WRUhKU0czIn0sImlhdCI6MTU3MzYyMTI5NCwiZXhwIjoxODg4OTgxMjk0fQ.OkMobv0UkiNANp2StNrQzqPS8JFOZqWnJdcryTOAJg8", 
+                    "_id" : ObjectId("5db10457f9b46e06945ceae1"), 
+                    "email" : "hoang@gmail.com", 
+                    "password" : "F82E62D7C3EA69CC12B5CDB8D621DAB6", 
+                    "name" : "hoang", 
+                    "created_At_" : ISODate("2019-10-24T01:54:31.940+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T01:54:31.941+0000"), 
+                    "__v" : NumberInt(0), 
+                    "type" : "admin"
+                }, 
+                {
+                    "group" : [
+                        "5dca2547eec4860e50c01cfb"
+                    ], 
+                    "accessToken" : "", 
+                    "refreshToken" : "", 
+                    "_id" : ObjectId("5db104814536331a20d38765"), 
+                    "email" : "dinh@gmail.com", 
+                    "password" : "45eea262ec1d46cc5ee3817bc821e757", 
+                    "name" : "Dinh", 
+                    "created_At_" : ISODate("2019-10-24T01:55:13.090+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T01:55:13.092+0000"), 
+                    "__v" : NumberInt(0), 
+                    "type" : "admin"
+                }, 
+                {
+                    "group" : [
+                        "5dcb6dd23860a41d08a52900", 
+                        "5dca116be2c8cd0d94b3a2c7"
+                    ], 
+                    "accessToken" : " ", 
+                    "refreshToken" : " ", 
+                    "_id" : ObjectId("5dbb93a7dde44a03d4221090"), 
+                    "email" : "test@gmail.com", 
+                    "password" : "098f6bcd4621d373cade4e832627b4f6", 
+                    "name" : "test", 
+                    "type" : "user", 
+                    "created_At_" : ISODate("2019-11-01T02:08:39.989+0000"), 
+                    "updated_At_" : ISODate("2019-11-01T02:08:39.989+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "group" : [
+                        "5dca2547eec4860e50c01cfb"
+                    ], 
+                    "accessToken" : " ", 
+                    "refreshToken" : " ", 
+                    "_id" : ObjectId("5dbbe4446cec461ab8346b59"), 
+                    "email" : "luc@gmail.com", 
+                    "password" : "2e6fdbc573b2975790d504991183519e", 
+                    "name" : "luc", 
+                    "type" : "superAdmin", 
+                    "created_At_" : ISODate("2019-11-01T07:52:36.793+0000"), 
+                    "updated_At_" : ISODate("2019-11-01T07:52:36.793+0000"), 
+                    "__v" : NumberInt(2)
+                }, 
+                {
+                    "group" : [
+                        "5dca116be2c8cd0d94b3a2c7"
+                    ], 
+                    "accessToken" : " ", 
+                    "refreshToken" : " ", 
+                    "_id" : ObjectId("5dbbf64109f32b1994c47c0c"), 
+                    "email" : "check@gmail.com", 
+                    "password" : "0ba4439ee9a46d9d9f14c60f88f45f87", 
+                    "name" : "check", 
+                    "type" : "user", 
+                    "created_At_" : ISODate("2019-11-01T09:09:21.551+0000"), 
+                    "updated_At_" : ISODate("2019-11-01T09:09:21.554+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "group" : [
+                        "5dca116be2c8cd0d94b3a2c7"
+                    ], 
+                    "accessToken" : " ", 
+                    "refreshToken" : " ", 
+                    "_id" : ObjectId("5dc3cd56eb072c2b4c8a477f"), 
+                    "email" : "example@gmail.com", 
+                    "password" : "1a79a4d60de6718e8e5b326e338ae533", 
+                    "name" : "example", 
+                    "type" : "user", 
+                    "created_At_" : ISODate("2019-11-07T07:52:54.062+0000"), 
+                    "updated_At_" : ISODate("2019-11-07T07:52:54.063+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "group" : [
+                        "5dcb6dd23860a41d08a52900"
+                    ], 
+                    "accessToken" : " ", 
+                    "refreshToken" : " ", 
+                    "_id" : ObjectId("5dcb6ecc70e0f706ec811657"), 
+                    "email" : "user1@gmail.com", 
+                    "password" : "24c9e15e52afc47c225b757e7bee1f9d", 
+                    "name" : "user1", 
+                    "type" : "user", 
+                    "created_At_" : ISODate("2019-11-13T02:47:40.119+0000"), 
+                    "updated_At_" : ISODate("2019-11-13T02:47:40.120+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "group" : [
+                        "5dcb6dd23860a41d08a52900"
+                    ], 
+                    "accessToken" : " ", 
+                    "refreshToken" : " ", 
+                    "_id" : ObjectId("5dcb6ee770e0f706ec811659"), 
+                    "email" : "user2@gmail.com", 
+                    "password" : "7e58d63b60197ceb55a1c487989a3720", 
+                    "name" : "user2", 
+                    "type" : "user", 
+                    "created_At_" : ISODate("2019-11-13T02:48:07.681+0000"), 
+                    "updated_At_" : ISODate("2019-11-13T02:48:07.681+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "group" : [
+                        "5dcb6dd23860a41d08a52900"
+                    ], 
+                    "accessToken" : " ", 
+                    "refreshToken" : " ", 
+                    "_id" : ObjectId("5dcb6ef970e0f706ec81165b"), 
+                    "email" : "user3@gmail.com", 
+                    "password" : "92877af70a45fd6a2ed7fe81e1236b78", 
+                    "name" : "user3", 
+                    "type" : "user", 
+                    "created_At_" : ISODate("2019-11-13T02:48:25.802+0000"), 
+                    "updated_At_" : ISODate("2019-11-13T02:48:25.802+0000"), 
+                    "__v" : NumberInt(0)
+                }
+            ], 
+            "total" : NumberInt(9)
+        }
+    }, 
+    "created_At_" : ISODate("2019-11-13T05:01:53.469+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb8e6a453a73227425c157"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/users/update", 
+        "method" : "POST", 
+        "createdBy" : "5db10457f9b46e06945ceae1"
+    }, 
+    "response" : {
+        "status" : NumberInt(500)
+    }, 
+    "created_At_" : ISODate("2019-11-13T05:02:34.333+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcbcd0233714f05b4981465"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/auth/login", 
+        "method" : "POST", 
+        "createdBy" : "5db10457f9b46e06945ceae1"
+    }, 
+    "response" : {
+        "status" : NumberInt(200), 
+        "data" : {
+            "email" : "hoang@gmail.com", 
+            "hashedPassword" : "f82e62d7c3ea69cc12b5cdb8d621dab6"
+        }
+    }, 
+    "created_At_" : ISODate("2019-11-13T09:29:38.154+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcbcd0c33714f05b4981466"), 
+    "request" : {
+        "ip" : "::1", 
+        "url" : "/users/list", 
+        "method" : "GET", 
+        "createdBy" : "5db10457f9b46e06945ceae1"
+    }, 
+    "response" : {
+        "status" : NumberInt(200), 
+        "data" : {
+            "list" : [
+                {
+                    "group" : [
+                        "5dca2547eec4860e50c01cfb"
+                    ], 
+                    "accessToken" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Il9pZCI6IjVkYjEwNDU3ZjliNDZlMDY5NDVjZWFlMSIsImVtYWlsIjoiaG9hbmdAZ21haWwuY29tIiwiZGV2aWNlIjoiREVTS1RPUC1WRUhKU0czIn0sImlhdCI6MTU3MzYzNzM3OCwiZXhwIjoxNTczNjQ4MTc4fQ.0hRYXrpxUtTfRgP-xbOUj8Y1JQXGZqJvXE9sRtHOyrk", 
+                    "refreshToken" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7Il9pZCI6IjVkYjEwNDU3ZjliNDZlMDY5NDVjZWFlMSIsImVtYWlsIjoiaG9hbmdAZ21haWwuY29tIiwiZGV2aWNlIjoiREVTS1RPUC1WRUhKU0czIn0sImlhdCI6MTU3MzYzNzM3OCwiZXhwIjoxODg4OTk3Mzc4fQ.u_4odeI96Z4wrYLexVfqb-DmzZE-CcaRan8d6HNBn_o", 
+                    "_id" : ObjectId("5db10457f9b46e06945ceae1"), 
+                    "email" : "hoang@gmail.com", 
+                    "password" : "F82E62D7C3EA69CC12B5CDB8D621DAB6", 
+                    "name" : "hoang", 
+                    "created_At_" : ISODate("2019-10-24T01:54:31.940+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T01:54:31.941+0000"), 
+                    "__v" : NumberInt(0), 
+                    "type" : "admin"
+                }, 
+                {
+                    "group" : [
+                        "5dca2547eec4860e50c01cfb"
+                    ], 
+                    "accessToken" : "", 
+                    "refreshToken" : "", 
+                    "_id" : ObjectId("5db104814536331a20d38765"), 
+                    "email" : "dinh@gmail.com", 
+                    "password" : "45eea262ec1d46cc5ee3817bc821e757", 
+                    "name" : "Dinh", 
+                    "created_At_" : ISODate("2019-10-24T01:55:13.090+0000"), 
+                    "updated_At_" : ISODate("2019-10-24T01:55:13.092+0000"), 
+                    "__v" : NumberInt(0), 
+                    "type" : "admin"
+                }, 
+                {
+                    "group" : [
+                        "5dcb6dd23860a41d08a52900", 
+                        "5dca116be2c8cd0d94b3a2c7"
+                    ], 
+                    "accessToken" : " ", 
+                    "refreshToken" : " ", 
+                    "_id" : ObjectId("5dbb93a7dde44a03d4221090"), 
+                    "email" : "test@gmail.com", 
+                    "password" : "098f6bcd4621d373cade4e832627b4f6", 
+                    "name" : "test", 
+                    "type" : "user", 
+                    "created_At_" : ISODate("2019-11-01T02:08:39.989+0000"), 
+                    "updated_At_" : ISODate("2019-11-01T02:08:39.989+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "group" : [
+                        "5dca2547eec4860e50c01cfb"
+                    ], 
+                    "accessToken" : " ", 
+                    "refreshToken" : " ", 
+                    "_id" : ObjectId("5dbbe4446cec461ab8346b59"), 
+                    "email" : "luc@gmail.com", 
+                    "password" : "2e6fdbc573b2975790d504991183519e", 
+                    "name" : "luc", 
+                    "type" : "superAdmin", 
+                    "created_At_" : ISODate("2019-11-01T07:52:36.793+0000"), 
+                    "updated_At_" : ISODate("2019-11-01T07:52:36.793+0000"), 
+                    "__v" : NumberInt(2)
+                }, 
+                {
+                    "group" : [
+                        "5dca116be2c8cd0d94b3a2c7"
+                    ], 
+                    "accessToken" : " ", 
+                    "refreshToken" : " ", 
+                    "_id" : ObjectId("5dbbf64109f32b1994c47c0c"), 
+                    "email" : "check@gmail.com", 
+                    "password" : "0ba4439ee9a46d9d9f14c60f88f45f87", 
+                    "name" : "check", 
+                    "type" : "user", 
+                    "created_At_" : ISODate("2019-11-01T09:09:21.551+0000"), 
+                    "updated_At_" : ISODate("2019-11-01T09:09:21.554+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "group" : [
+                        "5dca116be2c8cd0d94b3a2c7"
+                    ], 
+                    "accessToken" : " ", 
+                    "refreshToken" : " ", 
+                    "_id" : ObjectId("5dc3cd56eb072c2b4c8a477f"), 
+                    "email" : "example@gmail.com", 
+                    "password" : "1a79a4d60de6718e8e5b326e338ae533", 
+                    "name" : "example", 
+                    "type" : "user", 
+                    "created_At_" : ISODate("2019-11-07T07:52:54.062+0000"), 
+                    "updated_At_" : ISODate("2019-11-07T07:52:54.063+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "group" : [
+                        "5dcb6dd23860a41d08a52900"
+                    ], 
+                    "accessToken" : " ", 
+                    "refreshToken" : " ", 
+                    "_id" : ObjectId("5dcb6ecc70e0f706ec811657"), 
+                    "email" : "user1@gmail.com", 
+                    "password" : "24c9e15e52afc47c225b757e7bee1f9d", 
+                    "name" : "user1", 
+                    "type" : "user", 
+                    "created_At_" : ISODate("2019-11-13T02:47:40.119+0000"), 
+                    "updated_At_" : ISODate("2019-11-13T02:47:40.120+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "group" : [
+                        "5dcb6dd23860a41d08a52900"
+                    ], 
+                    "accessToken" : " ", 
+                    "refreshToken" : " ", 
+                    "_id" : ObjectId("5dcb6ee770e0f706ec811659"), 
+                    "email" : "user2@gmail.com", 
+                    "password" : "7e58d63b60197ceb55a1c487989a3720", 
+                    "name" : "user2", 
+                    "type" : "user", 
+                    "created_At_" : ISODate("2019-11-13T02:48:07.681+0000"), 
+                    "updated_At_" : ISODate("2019-11-13T02:48:07.681+0000"), 
+                    "__v" : NumberInt(0)
+                }, 
+                {
+                    "group" : [
+                        "5dcb6dd23860a41d08a52900"
+                    ], 
+                    "accessToken" : " ", 
+                    "refreshToken" : " ", 
+                    "_id" : ObjectId("5dcb6ef970e0f706ec81165b"), 
+                    "email" : "user3@gmail.com", 
+                    "password" : "92877af70a45fd6a2ed7fe81e1236b78", 
+                    "name" : "user3", 
+                    "type" : "user", 
+                    "created_At_" : ISODate("2019-11-13T02:48:25.802+0000"), 
+                    "updated_At_" : ISODate("2019-11-13T02:48:25.802+0000"), 
+                    "__v" : NumberInt(0)
+                }
+            ], 
+            "total" : NumberInt(9)
+        }
+    }, 
+    "created_At_" : ISODate("2019-11-13T09:29:48.327+0000"), 
+    "__v" : NumberInt(0)
+}

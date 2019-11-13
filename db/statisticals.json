@@ -1,0 +1,21 @@
+{ 
+    "_id" : ObjectId("5dcb71b070e0f706ec81165f"), 
+    "numUserAccess" : "1", 
+    "numUserOnline" : "1", 
+    "created_At_" : ISODate("2019-11-13T03:00:00.036+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb7fc0fdd41e166c043800"), 
+    "numUserAccess" : "0", 
+    "numUserOnline" : "0", 
+    "created_At_" : ISODate("2019-11-13T04:00:00.034+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5dcb8dd07034cb224ca928e7"), 
+    "numUserAccess" : "0", 
+    "numUserOnline" : "0", 
+    "created_At_" : ISODate("2019-11-13T05:00:00.037+0000"), 
+    "__v" : NumberInt(0)
+}
