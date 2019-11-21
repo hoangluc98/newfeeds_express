@@ -27,7 +27,7 @@ groupUserController.list = async (req, res) => {
 };
 
 groupUserController.item = (req, res) => {
-	GroupUser.find({_id: req.params.id})
+	GroupUser.find({_id: req.body.id})
 		.exec()
 		.then(doc => {
 			req.data = doc[0];
@@ -80,7 +80,7 @@ groupUserController.update = async (req, res) => {
 };
 
 groupUserController.delete = (req, res) => {
-	GroupUser.findByIdAndDelete({_id: req.params.id})
+	GroupUser.findByIdAndDelete({_id: req.body.id})
 		.exec()
 		.then(result => {
 			req.data = result;

@@ -17,7 +17,11 @@ module.exports.requireAuth = async (req, res, next) => {
 	if(typeof bearerHeader !== 'undefined'){
 		try{
 			const decoded = await jwtHelper.verifyToken(bearerHeader, accessTokenSecret);
-			await jwtHelper.checkExpire(decoded);
+			// await jwtHelper.checkExpire(decoded);
+			const now = Date.now().valueOf() / 1000;
+		    if (typeof decoded.exp !== 'undefined' && decoded.exp < (now - 3)) {
+		        return res.redirect('/auth/refresh-token');
+		    }
 
 			const userId = decoded.data._id;
 			const device = decoded.data.device;
@@ -55,24 +59,13 @@ module.exports.requireAuth = async (req, res, next) => {
 module.exports.authenticate = async (req, res, next) => {
 	const group = req.user.group;
 	const type = req.user.type;
+	const status = req.user.status;
 	const urlReq = req.originalUrl.split('/')[1];
 	const pathname = (url.parse(req.url)).pathname.split('/')[1];
 
 	try{
-		/*if(type == 'superAdmin'){
-			next();
-		} else if(type == 'admin'){
-			if(urlReq == 'users'){
-				if(pathname == 'list' || pathname == 'item')
-					return next();
-
-				const userId = req.body.userId || req.params.id;
-				const user  = await User.findOne({ _id:userId });
-				if(user.type == 'superAdmin')
-					return res.status(500).json("Not permited");
-				return next();
-			}
-		} */
+		if(status == 'disable')
+			return res.status(500).json("Not permited");
 		if(type == 'admin')
 			return next();
 		if(type == 'user'){

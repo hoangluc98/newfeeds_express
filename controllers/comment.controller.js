@@ -5,18 +5,19 @@ const url = require('url');
 require('dotenv').config();
 
 const commentController = {};
+const select = '-_id -userId -articleId';
 
 commentController.list = async (req, res) => {
 	const parse = url.parse(req.url, true);
 	const page = parseInt(parse.query.page) || 1;
-	const articleId = parse.query.articleId;
+	const articleId = req.body.articleId;
 
 	try{
-		let comments = await Comment.find().limit(10).skip(10*(page-1));
+		let comments = await Comment.find({}, select).limit(10).skip(10*(page-1));
 		let total = await Comment.countDocuments();
 
 		if(articleId){
-			comments = await Comment.find({articleId: articleId}).limit(10).skip(10*(page-1));
+			comments = await Comment.find({articleId: articleId}, select).limit(10).skip(10*(page-1));
 			total = await Comment.countDocuments({articleId: articleId});
 		}
 
@@ -34,7 +35,7 @@ commentController.list = async (req, res) => {
 };
 
 commentController.item = (req, res) => {
-	Comment.find({_id: req.params.id})
+	Comment.find({_id: req.body.id}, select)
 		.exec()
 		.then(doc => {
 			req.data = doc[0];
@@ -83,7 +84,7 @@ commentController.update = async (req, res) => {
 };
 
 commentController.delete = async (req, res) => {
-	Comment.findOneAndRemove({_id: req.params.id})
+	Comment.findOneAndRemove({_id: req.body.id})
 		.exec()
 		.then(result => {
 			req.data = result;

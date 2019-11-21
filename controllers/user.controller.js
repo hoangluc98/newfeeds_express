@@ -5,13 +5,14 @@ const url = require('url');
 const md5 = require('md5');
 
 const userController = {};
+const select = '-_id email name type status created_At_ updated_At_';
 
 userController.list = async (req, res) => {
 	const parse = url.parse(req.url, true);
 	const page = parseInt(parse.query.page) || 1;
 
 	try{
-		const users = await User.find().limit(10).skip(10*(page-1));
+		const users = await User.find({}, select).limit(10).skip(10*(page-1));
 		const total = await User.countDocuments();
 
 		let data = {
@@ -28,7 +29,7 @@ userController.list = async (req, res) => {
 };
 
 userController.item = (req, res) => {
-	User.find({_id: req.params.id})
+	User.find({_id: req.body.id}, select)
 		.exec()
 		.then(doc => {
 			req.data = doc[0];
@@ -43,7 +44,7 @@ userController.item = (req, res) => {
 userController.create = async (req, res) => {
 	const password = req.body.password;
 	const group = req.body.group;
-	if(!req.body.name || !req.body.email || !password || !group)
+	if(!req.body.name || !req.body.email || !password || !group || !req.body.status)
 		return res.status(500).json("Created user failed");
 
 	for(i = 0; i < group.length; i++){
@@ -84,7 +85,7 @@ userController.update = async (req, res) => {
 };
 
 userController.delete = (req, res) => {
-	User.findByIdAndDelete({_id: req.params.id})
+	User.findByIdAndDelete({_id: req.body.id})
 		.exec()
 		.then(result => {
 			req.data = result;

@@ -36,7 +36,7 @@ let verifyToken = (token, secretKey) => {
     });
 }
 
-let checkLogin = (user, res) => {
+let checkLogin = (user) => {
     if(user.accessToken.length > 1){
         let decoded = jwt.decode(user.accessToken);
 
@@ -49,21 +49,15 @@ let checkLogin = (user, res) => {
     }
 }
 
-let checkExpire = (decoded) => {
-    const now = Date.now().valueOf() / 1000;
-    if (typeof decoded.exp !== 'undefined' && decoded.exp < now) {
-        redisClient.srem('userOnline', decoded.data._id);
-        throw new Error(`token expired: ${JSON.stringify(decoded)}`);
-    }
-    if (typeof decoded.nbf !== 'undefined' && decoded.nbf > now) {
-        redisClient.srem('userOnline', decoded.data._id);
-        throw new Error(`token expired: ${JSON.stringify(decoded)}`);
-    }
-}
+// let checkExpire = (decoded) => {
+//     const now = Date.now().valueOf() / 1000;
+//     if (typeof decoded.exp !== 'undefined' && decoded.exp < (now - 3)) {
+//         // redisClient.srem('userOnline', decoded.data._id);
+//     }
+// }
 
 module.exports = {
     generateToken: generateToken,
     verifyToken: verifyToken,
-    checkLogin: checkLogin,
-    checkExpire: checkExpire
+    checkLogin: checkLogin
 };

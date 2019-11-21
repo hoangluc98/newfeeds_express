@@ -7,16 +7,17 @@ const url = require('url');
 require('dotenv').config();
 
 const articleController = {};
+const select = '-_id -userId';
 
 articleController.list = async (req, res) => {
 	const parse = url.parse(req.url, true);
 	const page = parseInt(parse.query.page) || 1;
-	let userId = parse.query.userId;
+	let userId = req.body.userId;
 	try{
-		let articles = await Article.find().limit(10).skip(10*(page-1));
+		let articles = await Article.find({}, select).limit(10).skip(10*(page-1));
 		let total = await Article.countDocuments();
 		if(userId){
-			articles = await Article.find({userId: userId}).limit(10).skip(10*(page-1));
+			articles = await Article.find({userId: userId}, select).limit(10).skip(10*(page-1));
 			total = await Article.countDocuments({userId: userId});
 		}
 
@@ -34,7 +35,7 @@ articleController.list = async (req, res) => {
 };
 
 articleController.item = (req, res) => {
-	Article.find({_id: req.params.id})
+	Article.find({_id: req.body.id}, select)
 		.exec()
 		.then(doc => {
 			req.data = doc[0];
@@ -80,7 +81,7 @@ articleController.update = async (req, res) => {
 };
 
 articleController.delete = async (req, res) => {
-	const articleId = req.params.id;
+	const articleId = req.body.id;
 	try{
 		await Comment.remove({articleId: articleId});
 		await Like.remove({articleId: articleId});

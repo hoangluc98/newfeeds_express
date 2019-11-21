@@ -2,9 +2,9 @@ const Logger = require('../models/logger.model');
 const Like = require('../models/like.model');
 const Article = require('../models/article.model');
 const Comment = require('../models/comment.model');
-const Statistical = require('../models/statistical.model');
+const StatisHour = require('../models/statisHour.model');
+const StatisDay = require('../models/statisDay.model');
 const User = require('../models/user.model');
-const statisticalHelper = require("../helpers/statistical.helper");
 const url = require('url');
 const redis = require('redis');
 const redisClient = redis.createClient({host : 'localhost'});
@@ -12,7 +12,7 @@ const CronJob = require('cron').CronJob;
 
 const statisticalController = {};
 
-let statisticalOfArticle = async (req, res) => {
+let statisticalOfArticle = async (req, db) => {
 	let parse = url.parse(req.url, true);
 	let count = await db.countDocuments();
 	const artId = parse.query.articleId;
@@ -29,26 +29,29 @@ let statisticalOfArticle = async (req, res) => {
 		count = count[0].total;
 		req.data = {count};
 	}
+	console.log(count);
 
 	return count;
 }
 
-let statisticalOfUser = async (req, res) => {
-	let userId = req.body.userId;
+let statisticalOfUser = async (req, db) => {
+	let user_Id = req.body.userId;
 	let parse = url.parse(req.url, true);
 	let date = parse.query.date;
 	let count;
 
 	if(date){
 		let dateS = new Date(date);
-		let d = new Date(date);
-		d = d.setDate(d.getDate() + 1);
-		let dateF = new Date();
-		dateF.setTime(d);
+		let dateF = new Date(date);
+		dateF.setDate(dateS.getDate() + 1);
+
+		console.log(dateS);
+		console.log(dateF);
+
 		count = await db.aggregate([
 			{ "$match": 
 				{ 
-					userId: userId,
+					userId: user_Id,
 					created_At_ : { '$gte' : dateS, '$lt' : dateF }
 				}
 			},
@@ -80,87 +83,77 @@ let statisticalOfUser = async (req, res) => {
 	return count;
 }
 
+let statisNumberUser = async (day, hour, type) => {
+	if(!hour){
+		let staDay = await StatisDay.find({ day: day, type: type });
+		let count = staDay[0].number;
+		let list = staDay[0].list;
+		let data
+		if(type == 'user_Access'){
+			data = {
+				day,
+				count,
+				list: list	
+			}
+		} else{
+			data = {
+				day,
+				list: list	
+			}
+		}
+		return data;
+	} else if(hour){
+		let count = await StatisHour.aggregate([
+			{ $match: 
+				{
+					day: day,
+					hour: hour,
+					type: "user_Online"
+				} 
+			},
+            { $group: { _id: "user_Online", total: { $sum: "$number" } } }
+		]);
+		count = parseInt(count[0].total);
+		return count;
+	}
+}
+
 statisticalController.numberUserOnline = async (req, res) => {
 	let parse = url.parse(req.url, true);
-	let time = parse.query.time;
-	if(!time){
-		redisClient.keys('*', (err, keys) => {
-			if (err){
-				req.error = err;
-				return res.json(err);
-			}
-			let num = keys.length - 1;
-			req.data = num;
-			res.json(num);
-		});
-	} else{
-		try{
-			let timeS = new Date(time);
-			let d = new Date(time);
-			d = d.setHours(d.getHours() + 1);
-			let timeF = new Date();
-			timeF.setTime(d);
-			let count = await Statistical.aggregate([
-				{ "$match": 
-					{ 
-						created_At_ : { '$gte' : timeS, '$lt' : timeF }
-					}
-				},
-			 	{
-			 		$group: {
-				 		_id: "$numUserOnline"
-				 	}
-			 	}
-			]);
+	let day = parse.query.day;
+	let hour = parse.query.hour;
 
-			count = parseInt(count[0]._id);
-			res.json(count);
-		} catch(err){
-			req.error = err;
-			res.status(500).json({error: err});
-		};
+	if(!day){
+		req.error = err;
+		return res.status(500).json("Time wrong");
 	}
+
+	try{
+		let count = await statisNumberUser(day, hour, "user_Online");
+		return res.json(count);
+	} catch(err){
+		req.error = err;
+		return res.status(500).json("Time wrong");
+	};
 };
 
 statisticalController.numberUserAccess = async (req, res) => {
 	let parse = url.parse(req.url, true);
-	let time = parse.query.time;
-	if(!time){
-		redisClient.scard('userAccess', (err, num) => {
-			if (err){
-				req.error = err;
-				return res.json(err);
-			}
-			req.data = num;
-			res.json(num);
-		});
-	} else{
-		try{
-			let timeS = new Date(time);
-			let d = new Date(time);
-			d = d.setHours(d.getHours() + 1);
-			let timeF = new Date();
-			timeF.setTime(d);
-			let count = await Statistical.aggregate([
-				{ "$match": 
-					{ 
-						created_At_ : { '$gte' : timeS, '$lt' : timeF }
-					}
-				},
-			 	{
-			 		$group: {
-				 		_id: "$numUserAccess"
-				 	}
-			 	}
-			]);
+	let day = parse.query.day;
+	let hour = parse.query.hour;
 
-			count = parseInt(count[0]._id);
-			res.json(count);
-		} catch(err){
-			req.error = err;
-			res.status(500).json({error: err});
-		};
+	if(!day){
+		req.error = err;
+		return res.status(500).json("Time wrong");
 	}
+
+	try{
+		let count = await statisNumberUser(day, hour, "user_Access");
+		return res.json(count);
+	} catch(err){
+		req.error = err;
+		return res.status(500).json("Time wrong");
+	};
 };
 
 statisticalController.numberLikeOfArticle = async (req, res) => {

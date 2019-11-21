@@ -5,9 +5,9 @@ const controller = require('../controllers/groupUser.controller');
 const router = express.Router();
 
 router.get('/list', controller.list);
-router.get('/item/:id', controller.item);
+router.post('/item', controller.item);
 router.post('/insert', controller.create);
 router.post('/update', controller.update);
-router.get('/delete/:id', controller.delete);
+router.post('/delete', controller.delete);
 
 module.exports = router;

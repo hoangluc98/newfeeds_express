@@ -30,6 +30,11 @@ const server = require('http').createServer(app);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.get('/', (req, res) => {
+	const now = Date.now().valueOf() / 1000;
+	console.log(now);
+});
+
 // Route admin
 app.use('/auth', authRoute);
 app.use('/users', authMiddleware.requireAuth, authMiddleware.authenticate, userRoute);

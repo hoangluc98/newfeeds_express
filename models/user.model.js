@@ -38,6 +38,10 @@ let userSchema = new mongoose.Schema({
 		type: String,
         required: true
 	},
+    status: {
+        type: String,
+        required: true
+    },
     group: {
         type: Array,
         required: true
