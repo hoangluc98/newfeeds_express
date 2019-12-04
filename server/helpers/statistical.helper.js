@@ -20,7 +20,7 @@ statisticalUser.jobHour = new CronJob({
 				let number = parseInt(num);
 
 				StatisHour.create({
-					type: "user_Access",
+					type: 'user_Access',
 					number: number,
 					day,
 					hour
@@ -36,7 +36,7 @@ statisticalUser.jobHour = new CronJob({
 
 				let number = keys.length;
 				StatisHour.create({
-					type: "user_Online",
+					type: 'user_Online',
 					number,
 					day,
 					hour
@@ -54,9 +54,9 @@ statisticalUser.jobDay = new CronJob({
 			let date = new Date();
 			let day = date.getFullYear() + '-' + check(date.getMonth() + 1) + '-' + check(date.getDate());
 
-			statisDayFunc(day, "user_Access");
+			statisDayFunc(day, 'user_Access');
 
-			statisDayFunc(day, "user_Online");
+			statisDayFunc(day, 'user_Online');
 		},
 		start: false,
 		timeZone: 'Asia/Ho_Chi_Minh'
@@ -71,7 +71,7 @@ let statisDayFunc = async (day, type) => {
 				type: type
 			} 
 		},
-        { $group: { _id: type, total: { $sum: "$number" } } }
+        { $group: { _id: type, total: { $sum: '$number' } } }
 	]);
 	number = number[0].total;
 	let list = await StatisHour.find({ day: day, type: type }, 'hour number -_id');

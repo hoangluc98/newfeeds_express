@@ -1,4 +1,4 @@
-const jwt = require("jsonwebtoken");
+const jwt = require('jsonwebtoken');
 const redis = require('redis');
 const redisClient = redis.createClient({host : 'localhost'});
 
@@ -16,7 +16,7 @@ jwtHelper.generateToken = (user, secretSignature, tokenLife) => {
                 data: userData
             },
             secretSignature, {
-                algorithm: "HS256",
+                algorithm: 'HS256',
                 expiresIn: tokenLife,
             }, (error, token) => {
                 if (error) {
@@ -39,16 +39,14 @@ jwtHelper.verifyToken = (token, secretKey) => {
 }
 
 jwtHelper.checkLogin = (user) => {
-    if(user.accessToken.length > 1){
-        let decoded = jwt.decode(user.accessToken);
+    let decoded = jwt.decode(user.tokens.accessToken);
 
-        const now = Date.now().valueOf() / 1000;
-        if (typeof decoded.exp !== 'undefined' && decoded.exp > now)
-            return true;
-        if (typeof decoded.nbf !== 'undefined' && decoded.nbf < now)
-            return true;
-        return false;
-    }
+    const now = Date.now().valueOf() / 1000;
+    if (typeof decoded.exp !== 'undefined' && decoded.exp > now)
+        return true;
+    if (typeof decoded.nbf !== 'undefined' && decoded.nbf < now)
+        return true;
+    return false;
 }
 
 jwtHelper.checkExpire = (decoded) => {

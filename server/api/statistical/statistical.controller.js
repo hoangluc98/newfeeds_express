@@ -12,12 +12,12 @@ let statisticalOfArticle = async (req, db) => {
 	let parse = url.parse(req.url, true);
 	let count = await db.countDocuments();
 	const artId = parse.query.articleId;
-	if(artId){
+	if(artId) {
 		count = await db.aggregate([
-			{ "$match": { "articleId": artId } },
+			{ '$match': { 'articleId': artId } },
 		 	{
 		 		$group: {
-			 		_id: "$articleId",
+			 		_id: '$articleId',
 			 		total: { $sum: 1 }
 			 	}
 		 	}
@@ -25,7 +25,6 @@ let statisticalOfArticle = async (req, db) => {
 		count = count[0].total;
 		req.data = {count};
 	}
-	console.log(count);
 
 	return count;
 }
@@ -36,7 +35,7 @@ let statisticalOfUser = async (req, db) => {
 	let date = parse.query.date;
 	let count;
 
-	if(date){
+	if(date) {
 		let dateS = new Date(date);
 		let dateF = new Date(date);
 		dateF.setDate(dateS.getDate() + 1);
@@ -45,7 +44,7 @@ let statisticalOfUser = async (req, db) => {
 		console.log(dateF);
 
 		count = await db.aggregate([
-			{ "$match": 
+			{ '$match': 
 				{ 
 					userId: user_Id,
 					created_At_ : { '$gte' : dateS, '$lt' : dateF }
@@ -53,21 +52,21 @@ let statisticalOfUser = async (req, db) => {
 			},
 		 	{
 		 		$group: {
-			 		_id: "$userId",
+			 		_id: '$userId',
 			 		total: { $sum: 1 }
 			 	}
 		 	}
 		]);
-	} else{
+	} else {
 		count = await db.aggregate([
-			{ "$match": 
+			{ '$match': 
 				{ 
 					userId: userId
 				}
 			},
 		 	{
 		 		$group: {
-			 		_id: "$userId",
+			 		_id: '$userId',
 			 		total: { $sum: 1 }
 			 	}
 		 	}
@@ -80,7 +79,7 @@ let statisticalOfUser = async (req, db) => {
 }
 
 let statisNumberUser = async (day, hour, typeUser) => {
-	if(!hour){
+	if(!hour) {
 		let staDay = await StatisDay.find({ day: day, type: typeUser });
 		// let count = staDay[0].number;
 		let list = staDay[0].list;
@@ -98,7 +97,7 @@ let statisNumberUser = async (day, hour, typeUser) => {
 		// 	}
 		// }
 		return data;
-	} else if(hour){
+	} else if(hour) {
 		let count = await StatisHour.aggregate([
 			{ $match: 
 				{
@@ -107,7 +106,7 @@ let statisNumberUser = async (day, hour, typeUser) => {
 					type: typeUser
 				} 
 			},
-            { $group: { _id: typeUser, total: { $sum: "$number" } } }
+            { $group: { _id: typeUser, total: { $sum: '$number' } } }
 		]);
 		count = parseInt(count[0].total);
 		return count;
@@ -119,17 +118,17 @@ statisticalController.numberUserOnline = async (req, res) => {
 	let day = parse.query.day;
 	let hour = parse.query.hour;
 
-	if(!day){
+	if(!day) {
 		req.error = err;
-		return res.status(500).json("Time wrong");
+		return res.status(500).json('Time wrong');
 	}
 
-	try{
-		let count = await statisNumberUser(day, hour, "user_Online");
+	try {
+		let count = await statisNumberUser(day, hour, 'user_Online');
 		return res.json(count);
-	} catch(err){
+	} catch(err) {
 		req.error = err;
-		return res.status(500).json("Time wrong");
+		return res.status(500).json('Time wrong');
 	};
 };
 
@@ -138,66 +137,66 @@ statisticalController.numberUserAccess = async (req, res) => {
 	let day = parse.query.day;
 	let hour = parse.query.hour;
 
-	if(!day){
+	if(!day) {
 		req.error = err;
-		return res.status(500).json("Time wrong");
+		return res.status(500).json('Time wrong');
 	}
 
-	try{
-		let count = await statisNumberUser(day, hour, "user_Access");
+	try {
+		let count = await statisNumberUser(day, hour, 'user_Access');
 		return res.json(count);
-	} catch(err){
+	} catch(err) {
 		req.error = err;
-		return res.status(500).json("Time wrong");
+		return res.status(500).json('Time wrong');
 	};
 };
 
 statisticalController.numberLikeOfArticle = async (req, res) => {
-	try{
+	try {
 		let number = await statisticalOfArticle(req, Like);
 		res.json(number);
-	} catch(err){
+	} catch(err) {
 		req.error = err;
 		res.status(500).json({error: err});
 	}
 };
 
 statisticalController.numberCommentofArticle = async (req, res) => {
-	try{
+	try {
 		let number = await statisticalOfArticle(req, Comment);
 		res.json(number);
-	} catch(err){
+	} catch(err) {
 		req.error = err;
 		res.status(500).json({error: err});
 	}
 };
 
 statisticalController.numberLikeOfUser = async (req, res) => {
-	try{
+	try {
 		let number = await statisticalOfUser(req, Like);
 		res.json(number);
-	} catch(err){
+	} catch(err) {
 		req.error = err;
 		res.status(500).json({error: err});
 	}
 };
 
 statisticalController.numberCommentOfUser = async (req, res) => {
-	try{
+	try {
 		let number = await statisticalOfUser(req, Comment);
 		res.json(number);
-	} catch(err){
+	} catch(err) {
 		req.error = err;
 		res.status(500).json({error: err});
 	}
 };
 
 statisticalController.numberArticleOfUser = async (req, res) => {
-	try{
+	try {
 		let number = await statisticalOfUser(req, Article);
 		res.json(number);
 
-	} catch(err){
+	} catch(err) {
 		req.error = err;
 		res.status(500).json({error: err});
 	}

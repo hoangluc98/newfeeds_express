@@ -1,4 +1,5 @@
 const Comment = require('./comment.model');
+const Article = require('../article/article.model');
 const jwt = require('jsonwebtoken');
 const url = require('url');
 
@@ -10,11 +11,11 @@ commentController.list = async (req, res) => {
 	const page = parseInt(parse.query.page) || 1;
 	const articleId = req.body.articleId;
 
-	try{
+	try {
 		let comments = await Comment.find({}, select).limit(10).skip(10*(page-1));
 		let total = await Comment.countDocuments();
 
-		if(articleId){
+		if(articleId) {
 			comments = await Comment.find({articleId: articleId}, select).limit(10).skip(10*(page-1));
 			total = await Comment.countDocuments({articleId: articleId});
 		}
@@ -49,52 +50,69 @@ commentController.create = async (req, res) => {
 	req.body.userId = req.user._id;
 
 	if(!req.body.content)
-		return res.status(500).json("Created comment failed");
+		return res.status(500).json('Created comment failed');
 
 	req.body.created_At_ = Date.now();
 
-	try{
+	try {
 		const result = await Comment.create(req.body);
 		req.data = result;
 		res.status(201).json(result);
 
-	} catch(err){
+	} catch(err) {
 		req.error = err;
 		res.status(500).json({error: err});
 	};
 };
 
 commentController.update = async (req, res) => {
-	if(req.body.userId !== req.userId)
-		return res.status(500).json("There was a problem updating the comment.");
+	if(req.body.userId !== req.user._id)
+		return res.status(500).json('There was a problem updating the comment.');
 
-	try{
+	try {
 		delete req.body.userId;
 		let commentId = req.body.commentId;
-		let update = await Comment.findOneAndUpdate({_id: commentId, userId: req.userId}, req.body);
+		let update = await Comment.findOneAndUpdate({_id: commentId, userId: req.user._id}, req.body);
 		if(update == null)
-			return res.status(500).json("There was a problem updating the comment.");
+			return res.status(500).json('There was a problem updating the comment.');
 
-		let result = Comment.find({_id: commentId, userId: req.userId});
+		let result = Comment.find({_id: commentId, userId: req.user._id});
 		req.data = result[0];
 		res.status(201).json(result[0]);
 
-	} catch(err){
+	} catch(err) {
 		req.error = err;
 		res.status(500).json({error: err});
 	};
 };
 
 commentController.delete = async (req, res) => {
-	Comment.findOneAndRemove({_id: req.body.id, userId: req.body.userId})
+	const { id, articleId } = req.body;
+	let result = await Article.findOne({_id: articleId, userId: req.user._id});
+	console.log(result);
+	if(result) {
+		Comment.findOneAndRemove({_id: id, articleId: articleId})
+			.exec()
+			.then(result => {
+				req.data = result;
+				res.status(204).json('Delete successful');
+			})
+			.catch(err => {
+				req.error = err;
+				res.status(500).json('Delete not success');
+			});
+	}
+
+	console.log('123');
+	Comment.findOneAndRemove({_id: id, userId: req.user._id})
 		.exec()
 		.then(result => {
 			req.data = result;
-			res.status(204).json("Delete successful");
+			res.status(204).json('Delete successful');
 		})
 		.catch(err => {
 			req.error = err;
-			res.status(500).json("Delete not success");
+			res.status(500).json('Delete not success');
 		});
 };
 

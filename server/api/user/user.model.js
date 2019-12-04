@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
 const jwt = require('jsonwebtoken');
+const md5 = require('md5');
 
 let userSchema = new mongoose.Schema({
 	email: {
@@ -46,21 +47,20 @@ let userSchema = new mongoose.Schema({
         type: Array,
         required: true
     },
-    tokenExpire: {
-        type: String,
-        required: true,
-        default: ' '
-    },
-    accessToken:{
-        type: String,
-        required: true,
-        default: ' '
-    },
-    refreshToken:{
-        type: String,
-        required: true,
-        default: ' '
-    },
+    tokens: [{
+        tokenExpire: {
+            type: Boolean,
+            required: true
+        },
+        accessToken:{
+            type: String,
+            required: true
+        },
+        refreshToken:{
+            type: String,
+            required: true
+        }
+    }],
 	created_At_: {
 		type: Date,
 		required: true
@@ -70,6 +70,20 @@ let userSchema = new mongoose.Schema({
         default: Date.now
     }
 });
+
+userSchema.statics.findByCredentials = async (email, password) => {
+    // Search for a user by email and password.
+    const user = await User.findOne({ email} )
+    if (!user) {
+        throw new Error({ error: 'Invalid login credentials' })
+    }
+    const hashedPassword = md5(password);
+    const isPasswordMatch = (hashedPassword === user.password)
+    if (!isPasswordMatch) {
+        throw new Error({ error: 'Invalid login credentials' })
+    }
+    return user
+}
 
 let User = mongoose.model('User', userSchema, 'users');
 

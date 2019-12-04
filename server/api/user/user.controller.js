@@ -1,7 +1,6 @@
 const User = require('./user.model');
 const GroupUser = require('../groupUser/groupUser.model');
 const url = require('url');
-const md5 = require('md5');
 
 const userController = {};
 const select = '-_id email name type status created_At_ updated_At_';
@@ -44,12 +43,12 @@ userController.create = async (req, res) => {
 	const password = req.body.password;
 	const group = req.body.group;
 	if(!req.body.name || !req.body.email || !password || !group || !req.body.status)
-		return res.status(500).json("Created user failed");
+		return res.status(500).json('Created user failed');
 
 	for(i = 0; i < group.length; i++){
 		let groupUser = await GroupUser.find({_id: group[i]});
 		if(!groupUser)
-			return res.status(500).json("Group is not exist");
+			return res.status(500).json('Group is not exist');
 	}
 
 	req.body.password = password.toLowerCase();
@@ -68,8 +67,8 @@ userController.create = async (req, res) => {
 userController.update = async (req, res) => {
 	const userId = req.body.userId;
 
-	if(userId !== req.userId)
-		return res.status(500).json("There was a problem updating the user.");
+	if(userId !== req.user._id)
+		return res.status(500).json('There was a problem updating the user.');
 	if(req.body.password)
 		req.body.password = req.body.password.toLowerCase();
 
@@ -90,7 +89,7 @@ userController.delete = (req, res) => {
 		.exec()
 		.then(result => {
 			req.data = result;
-			res.status(201).json("Delete successful");
+			res.status(201).json('Delete successful');
 		})
 		.catch(err => {
 			req.error = err;

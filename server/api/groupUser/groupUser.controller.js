@@ -9,7 +9,7 @@ groupUserController.list = async (req, res) => {
 	const parse = url.parse(req.url, true);
 	const page = parseInt(parse.query.page) || 1;
 
-	try{
+	try {
 		const groupUsers = await GroupUser.find().limit(10).skip(10*(page-1));
 		const total = await GroupUser.countDocuments();
 
@@ -20,7 +20,7 @@ groupUserController.list = async (req, res) => {
 		req.data = data;
 
 		res.status(200).json(data);
-	} catch(err){
+	} catch(err) {
 		req.error = err;
 		res.status(500).json({error: err});
 	};
@@ -43,16 +43,16 @@ groupUserController.create = async (req, res) => {
 	const status = req.body.status;
 	const permission = req.body.permission;
 	if(!permission || !status)
-		return res.status(500).json("Created groupUser failed");
+		return res.status(500).json('Created groupUser failed');
 
 	req.body.created_At_ = Date.now();
 
-	try{
+	try {
 		let result = await GroupUser.create(req.body);
 		req.data = result;
 		res.status(201).json(result);
 
-	} catch(err){
+	} catch(err) {
 		req.error = err;
 		res.status(500).json({error: err});
 	};
@@ -64,9 +64,9 @@ groupUserController.update = async (req, res) => {
 	const permission = req.body.permission;
 
 	if(!groupId && !permission)
-		return res.status(500).json("GroupId and Permission are required");
+		return res.status(500).json('GroupId and Permission are required');
 
-	try{
+	try {
 		let groupFind = await GroupUser.find({_id: groupId});
 
 		await GroupUser.findByIdAndUpdate({_id: groupId}, req.body);
@@ -74,7 +74,7 @@ groupUserController.update = async (req, res) => {
 		req.data = result;
 		res.status(201).json(result);
 
-	} catch(err){
+	} catch(err) {
 		res.status(500).json({error: err});
 	};
 };
@@ -84,8 +84,8 @@ groupUserController.delete = (req, res) => {
 		.exec()
 		.then(result => {
 			req.data = result;
-			console.log("delete");
-			res.status(204).json("Delete successful");
+			console.log('delete');
+			res.status(204).json('Delete successful');
 		})
 		.catch(err => {
 			req.error = err;

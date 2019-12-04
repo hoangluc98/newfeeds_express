@@ -8,7 +8,7 @@ let log = (req, res) => {
 		request.ip = req.ip;
 		request.url = req.originalUrl;
 		request.method = req.method;
-		request.createdBy = req.userId.toString();
+		request.createdBy = req.user._id.toString();
    		response.status = res.statusCode;
    		response.data = req.data;
    		response.error = req.error;
