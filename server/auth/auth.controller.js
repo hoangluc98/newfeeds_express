@@ -39,11 +39,14 @@ authController.postLogin = async (req, res) => {
 
 	const accessToken = await jwtHelper.generateToken(userData, accessTokenSecret, accessTokenLife); 
     const refreshToken = await jwtHelper.generateToken(userData, refreshTokenSecret, refreshTokenLife);
-    user.tokens = user.tokens.concat({
+
+    let tokenData = {
     	tokenExpire: false,
     	accessToken,
     	refreshToken
-    });
+    };
+
+    user.tokens = user.tokens.concat(tokenData);
     await user.save();
 
 	// req.data = {
@@ -53,7 +56,7 @@ authController.postLogin = async (req, res) => {
 
 	// logHelper.log(req, res);
 
-	res.status(200).json(user.tokens);
+	res.status(200).json(tokenData);
 };
 
 
@@ -63,20 +66,27 @@ authController.refreshToken = async (req, res) => {
     try {
 		const decoded = await jwtHelper.verifyToken(refreshTokenFromClient, refreshTokenSecret);
 		const userData = decoded.data;
-		const user = await User.findOne({_id: userData._id}, {'tokens.refreshToken': refreshTokenFromClient});
-		
-		if(user.tokens.tokenExpire === false)
-			return res.status(500).json('Token not expire');
+		const user = await User.findOne({ _id: userData._id }, 'tokens');
+
+		user.tokens = user.tokens.filter((token) => {
+            return token.refreshToken != refreshTokenFromClient
+        });
+
+		// if(user.tokens.tokenExpire === false)
+		// 	return res.status(500).json('Token not expire');
 
 		const accessToken = await jwtHelper.generateToken(userData, accessTokenSecret, accessTokenLife);
-	
-		user.tokens.tokenExpire = false;
-		user.tokens.accessToken = accessToken;
-		await user.save();
+		let tokenData = {
+	    	tokenExpire: false,
+	    	accessToken: accessToken,
+	    	refreshToken: refreshTokenFromClient
+	    };
 
-		logHelper.log(req, res);
+	    user.tokens = user.tokens.concat(tokenData);
+	    await user.save();
+		// // // logHelper.log(req, res);
 
-		return res.status(200).json({accessToken});
+		return res.status(200).json(user);
 
     } catch (error) {
 		return res.status(403).json({
@@ -93,12 +103,11 @@ authController.logout = async (req, res) => {
 
 		user.tokens = user.tokens.filter((token) => {
             return token.accessToken != req.tokenHeader
-        })
+        });
+        await user.save();
         
-		// redisClient.del(userId);
-		// redisClient.srem('userAccess', userId);
-		
-		await user.save();
+		redisClient.del(userId);
+		redisClient.srem('userAccess', userId);
 		
 		return res.status(200).json({
 			message: 'Logout success'
