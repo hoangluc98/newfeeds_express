@@ -64,9 +64,8 @@ articleController.create = async (req, res) => {
 };
 
 articleController.update = async (req, res) => {
-	const userId = req.user._id;
-	if(req.body.userId !== userId)
-		return res.status(500).json('There was a problem updating the article.');
+	if((req.user.type === 'user') && (req.body.userId.toString() !== req.user._id.toString()))
+		return res.status(500).json('No article updates.');
 
 	const articleId = req.body.articleId;
 	delete req.body.userId;
@@ -84,10 +83,11 @@ articleController.update = async (req, res) => {
 };
 
 articleController.delete = async (req, res) => {
+	if((req.user.type === 'user') && (req.body.userId.toString() !== req.user._id.toString()))
+		return res.status(500).json('No article delete.');
+	const articleId = req.body.articleId;
+
 	try {
-		if(req.body.userId !== req.user._id)
-			return res.status(500).json('There was a problem deleting the article.');
-		const articleId = req.body.articleId;
 		let result = await Article.findOneAndRemove({_id: articleId, userId: req.user._id});
 		if(result == null)
 			return res.status(500).json('There was a problem deleting the article.');

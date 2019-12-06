@@ -25,16 +25,15 @@ authController.postLogin = async (req, res) => {
         return res.status(401).send({error: 'Login failed! Check authentication credentials'})
     }
 
-	userId = user._id.toString();
-	// redisClient.sadd('userAccess', userId);
-	// redisClient.set(userId, userId);
-	// redisClient.expire(userId, 5*60);
+	let userId = user._id.toString();
+	let type = user.type;
+	redisClient.sadd('userAccess', userId);
 
 	const computerName = os.hostname();
 	let userData = {
 		_id: userId,
 		email: email,
-		device: computerName
+		type: type
 	}
 
 	const accessToken = await jwtHelper.generateToken(userData, accessTokenSecret, accessTokenLife); 
@@ -56,7 +55,10 @@ authController.postLogin = async (req, res) => {
 
 	// logHelper.log(req, res);
 
-	res.status(200).json(tokenData);
+	res.status(200).json({
+		accessToken,
+    	refreshToken
+	});
 };
 
 
@@ -67,13 +69,16 @@ authController.refreshToken = async (req, res) => {
 		const decoded = await jwtHelper.verifyToken(refreshTokenFromClient, refreshTokenSecret);
 		const userData = decoded.data;
 		const user = await User.findOne({ _id: userData._id }, 'tokens');
-
+		let refToken;
 		user.tokens = user.tokens.filter((token) => {
-            return token.refreshToken != refreshTokenFromClient
+			if(token.refreshToken != refreshTokenFromClient)
+				return true;
+            refToken = token.tokenExpire;
+            return false;
         });
 
-		// if(user.tokens.tokenExpire === false)
-		// 	return res.status(500).json('Token not expire');
+		if(refToken === false)
+			return res.status(500).json('Token not expire');
 
 		const accessToken = await jwtHelper.generateToken(userData, accessTokenSecret, accessTokenLife);
 		let tokenData = {
@@ -81,12 +86,11 @@ authController.refreshToken = async (req, res) => {
 	    	accessToken: accessToken,
 	    	refreshToken: refreshTokenFromClient
 	    };
-
 	    user.tokens = user.tokens.concat(tokenData);
 	    await user.save();
 		// // // logHelper.log(req, res);
 
-		return res.status(200).json(user);
+		return res.status(200).json({ accessToken: accessToken });
 
     } catch (error) {
 		return res.status(403).json({
@@ -106,7 +110,6 @@ authController.logout = async (req, res) => {
         });
         await user.save();
         
-		redisClient.del(userId);
 		redisClient.srem('userAccess', userId);
 		
 		return res.status(200).json({

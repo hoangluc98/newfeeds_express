@@ -66,16 +66,16 @@ userController.create = async (req, res) => {
 
 userController.update = async (req, res) => {
 	const userId = req.body.userId;
+	if((req.user.type === 'user') && (userId.toString() !== req.user._id.toString()) || req.body.type)
+		return res.status(500).json('No user updates');
 
-	if(userId !== req.user._id)
-		return res.status(500).json('There was a problem updating the user.');
 	if(req.body.password)
 		req.body.password = req.body.password.toLowerCase();
 
 	try{
 		await User.findByIdAndUpdate({_id: userId}, req.body);
 
-		let result = await User.find({_id: userId});
+		let result = await User.find({_id: userId}, select);
 		req.data = result;
 		res.status(201).json(result[0]);
 	} catch(err){

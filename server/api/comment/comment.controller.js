@@ -66,45 +66,36 @@ commentController.create = async (req, res) => {
 };
 
 commentController.update = async (req, res) => {
-	if(req.body.userId !== req.user._id)
-		return res.status(500).json('There was a problem updating the comment.');
+	if((req.user.type === 'user') && (req.body.userId.toString() !== req.user._id.toString()))
+		return res.status(500).json('No comment updates.');
 
 	try {
-		delete req.body.userId;
 		let commentId = req.body.commentId;
-		let update = await Comment.findOneAndUpdate({_id: commentId, userId: req.user._id}, req.body);
-		if(update == null)
-			return res.status(500).json('There was a problem updating the comment.');
+		delete req.body.userId;
+		delete req.body.commentId;
+		await Comment.findOneAndUpdate({_id: commentId, userId: req.user._id}, req.body);
+		let result = await Comment.find({_id: commentId, userId: req.user._id});
 
-		let result = Comment.find({_id: commentId, userId: req.user._id});
 		req.data = result[0];
-		res.status(201).json(result[0]);
+		return res.status(201).json(result);
 
 	} catch(err) {
 		req.error = err;
-		res.status(500).json({error: err});
+		return res.status(500).json({error: err});
 	};
 };
 
 commentController.delete = async (req, res) => {
-	const { id, articleId } = req.body;
-	let result = await Article.findOne({_id: articleId, userId: req.user._id});
-	console.log(result);
-	if(result) {
-		Comment.findOneAndRemove({_id: id, articleId: articleId})
-			.exec()
-			.then(result => {
-				req.data = result;
-				res.status(204).json('Delete successful');
-			})
-			.catch(err => {
-				req.error = err;
-				res.status(500).json('Delete not success');
-			});
-	}
+	const { commentId, articleId, userIdComment, userIdArticle } = req.body;
 
-	console.log('123');
-	Comment.findOneAndRemove({_id: id, userId: req.user._id})
+	if (
+			(req.user.type === 'user') 
+		&&	(userIdArticle.toString() !== req.user._id.toString()) 
+		&&	(userIdComment.toString() !== req.user._id.toString())
+	)
+		return res.status(500).json('No comment delete.');
+
+	Comment.findOneAndRemove({_id: commentId})
 		.exec()
 		.then(result => {
 			req.data = result;

@@ -17,29 +17,19 @@ module.exports.requireAuth = async (req, res, next) => {
 		const decoded = await jwtHelper.verifyToken(tokenHeader, accessTokenSecret);
 
 		const userId = decoded.data._id;
-		if(jwtHelper.checkExpire(decoded)) {
-			await User.findByIdAndUpdate({ _id:userId }, {'tokens.tokenExpire': 'true'});
-		}
+		// if(jwtHelper.checkExpire(decoded)) {
+		// 	await User.findByIdAndUpdate({ _id:userId }, {'tokens.tokenExpire': 'true'});
+		// }
 
 		// const device = decoded.data.device;
 		// const computerName = os.hostname();
 
 		const user = await User.findOne({ _id: userId, 'tokens.accessToken': tokenHeader });
-		if (!user) {
+		if (!user)
             throw new Error();
-        }
-		// const user  = await User.findOne({ _id:userId });
-		// if((user.tokens.accessToken.toString() !== bearerHeader.toString()) || (device !== computerName)) {
-		// 	return res.status(401).json({
-		//         message: 'Unauthorized.',
-		//     });
-		// }
+
 		req.user = user;
 		req.tokenHeader = tokenHeader;
-
-		redisClient.set(userId, userId);
-		redisClient.expire(userId, 5*60);
-
 		logHelper.log(req, res);
 
 		return next();
