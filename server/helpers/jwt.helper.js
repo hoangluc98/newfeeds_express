@@ -52,22 +52,10 @@ jwtHelper.checkLogin = (user) => {
 jwtHelper.checkExpire = (decoded) => {
     const now = Date.now().valueOf() / 1000;
 
-    if (typeof decoded.exp !== 'undefined' && decoded.exp < (now + 120)){
+    if (typeof decoded.exp !== 'undefined' && decoded.exp < now){
         return true;
     }
     return false;
 }
-
-// jwtHelper.checkExpire = (decoded) => {
-//     const now = Date.now().valueOf() / 1000;
-//     if (typeof decoded.exp !== 'undefined' && decoded.exp < now) {
-//         redisClient.srem('userOnline', decoded.data._id);
-//         throw new Error(`token expired: ${JSON.stringify(decoded)}`);
-//     }
-//     if (typeof decoded.nbf !== 'undefined' && decoded.nbf > now) {
-//         redisClient.srem('userOnline', decoded.data._id);
-//         throw new Error(`token expired: ${JSON.stringify(decoded)}`);
-//     }
-// }
 
 module.exports = jwtHelper;

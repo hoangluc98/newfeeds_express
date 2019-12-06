@@ -40,7 +40,6 @@ authController.postLogin = async (req, res) => {
     const refreshToken = await jwtHelper.generateToken(userData, refreshTokenSecret, refreshTokenLife);
 
     let tokenData = {
-    	tokenExpire: false,
     	accessToken,
     	refreshToken
     };
@@ -49,8 +48,7 @@ authController.postLogin = async (req, res) => {
     await user.save();
 
 	// req.data = {
-	// 	email,
-	// 	hashedPassword
+	// 	email
 	// };
 
 	// logHelper.log(req, res);
@@ -68,29 +66,28 @@ authController.refreshToken = async (req, res) => {
     try {
 		const decoded = await jwtHelper.verifyToken(refreshTokenFromClient, refreshTokenSecret);
 		const userData = decoded.data;
-		const user = await User.findOne({ _id: userData._id }, 'tokens');
-		let refToken;
+		const user = await User.findOne({ _id: userData._id, 'tokens.refreshToken': refreshTokenFromClient }, 'tokens');
+		let acsToken;
 		user.tokens = user.tokens.filter((token) => {
 			if(token.refreshToken != refreshTokenFromClient)
 				return true;
-            refToken = token.tokenExpire;
+            acsToken = token.accessToken;
             return false;
         });
 
-		if(refToken === false)
+		if(!jwtHelper.checkExpire(acsToken))
 			return res.status(500).json('Token not expire');
 
 		const accessToken = await jwtHelper.generateToken(userData, accessTokenSecret, accessTokenLife);
 		let tokenData = {
-	    	tokenExpire: false,
 	    	accessToken: accessToken,
 	    	refreshToken: refreshTokenFromClient
 	    };
 	    user.tokens = user.tokens.concat(tokenData);
 	    await user.save();
-		// // // logHelper.log(req, res);
+		// // logHelper.log(req, res);
 
-		return res.status(200).json({ accessToken: accessToken });
+		return res.status(200).json(user);
 
     } catch (error) {
 		return res.status(403).json({

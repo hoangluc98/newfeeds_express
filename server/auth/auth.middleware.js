@@ -17,9 +17,8 @@ module.exports.requireAuth = async (req, res, next) => {
 		const decoded = await jwtHelper.verifyToken(tokenHeader, accessTokenSecret);
 
 		const userId = decoded.data._id;
-		// if(jwtHelper.checkExpire(decoded)) {
-		// 	await User.findByIdAndUpdate({ _id:userId }, {'tokens.tokenExpire': 'true'});
-		// }
+		if(jwtHelper.checkExpire(tokenHeader)) 
+			return res.status(500).json('Token expired');
 
 		// const device = decoded.data.device;
 		// const computerName = os.hostname();

@@ -48,10 +48,10 @@ let userSchema = new mongoose.Schema({
         required: true
     },
     tokens: [{
-        tokenExpire: {
-            type: Boolean,
-            required: true
-        },
+        // tokenExpire: {
+        //     type: Boolean,
+        //     required: true
+        // },
         accessToken:{
             type: String,
             required: true
